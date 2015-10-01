@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 r""" local -- DESCRIPTION
 
-$Revision$
 
 """
 
@@ -26,7 +18,6 @@ from ref import CMD
 
 from .utils import add2list
 
-__revision__ = '$Revision$'
 __version__ = '0.1.0'
 
 EXCLUDE_DEFALUT = ['/lost+found',

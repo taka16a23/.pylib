@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: obj.py 282 2015-01-29 00:09:25Z t1 $
-# $Revision: 282 $
-# $Date: 2015-01-29 09:09:25 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:09:25 +0900 (Thu, 29 Jan 2015) $
-
 r"""obj -- DESCRIPTION
 
 """

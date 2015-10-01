@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 236 2014-11-28 17:01:47Z t1 $
-# $Revision: 236 $
-# $Date: 2014-11-29 02:01:47 +0900 (Sat, 29 Nov 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-11-29 02:01:47 +0900 (Sat, 29 Nov 2014) $
-
 r"""Name: __init__.py
 
 
@@ -21,7 +13,6 @@ from t1.dictutil.orderdict import OrderDict
 from t1.dictutil.twowaydict import TwoWayDict
 
 
-__revision__ = "$Revision: 236 $"
 __version__ = "0.1.3"
 
 __all__ = ['DictUtil', 'swapdict', 'dict_to_namedtuple', 'recursive_update',

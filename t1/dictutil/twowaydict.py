@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: twowaydict.py 240 2014-11-28 17:04:08Z t1 $
-# $Revision: 240 $
-# $Date: 2014-11-29 02:04:08 +0900 (Sat, 29 Nov 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-11-29 02:04:08 +0900 (Sat, 29 Nov 2014) $
-
 r"""twowaydict -- Two way dictionary.
 
 """
@@ -18,7 +10,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 240 $'
 __version__ = '0.1.0'
 
 

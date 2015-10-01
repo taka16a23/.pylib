@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: define.py 342 2015-07-24 05:07:32Z t1 $
-# $Revision: 342 $
-# $Date: 2015-07-24 14:07:32 +0900 (Fri, 24 Jul 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-07-24 14:07:32 +0900 (Fri, 24 Jul 2015) $
-
 r"""define -- DESCRIPTION
 
 """
@@ -34,7 +26,6 @@ __all__ = ['Propagate', 'OwnerEvents', 'VisualClass', 'EventMask',
            'Family', 'AccessControl', 'CloseDown', 'Kill', 'ScreenSaver',
            'MappingStatus', 'MapIndex', 'CW']
 
-__revision__ = '$Revision: 342 $'
 
 
 class Propagate(_IntEnum):

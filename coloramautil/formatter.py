@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: formatter.py 390 2015-08-06 15:47:02Z t1 $
-# $Revision: 390 $
-# $Date: 2015-08-07 00:47:02 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 00:47:02 +0900 (Fri, 07 Aug 2015) $
-
 r"""formatter -- DESCRIPTION
 
 """

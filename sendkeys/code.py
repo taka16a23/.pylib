@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: code.py 201 2014-05-31 08:00:08Z t1 $
-# $Revision: 201 $
-# $Date: 2014-05-31 17:00:08 +0900 (Sat, 31 May 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-05-31 17:00:08 +0900 (Sat, 31 May 2014) $
-
 r"""code -- DESCRIPTION
 
 """

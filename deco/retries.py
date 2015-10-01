@@ -1,14 +1,4 @@
 #!/usr/bin/env python
-#
-#
-# $Id: retries.py 87 2013-11-30 07:34:05Z t1 $
-# $Revision: 87 $
-# $Date: 2013-11-30 16:34:05 +0900 (Sat, 30 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-30 16:34:05 +0900 (Sat, 30 Nov 2013) $
-# Copyright 2012 by Jeff Laughlin Consulting LLC
-#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights

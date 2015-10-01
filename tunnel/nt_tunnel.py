@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 """ nt_tunnel -- portforwarding for windows nt
 
-$Revision$
 
 """
 import subprocess as _subp
@@ -20,7 +12,6 @@ from portable import P_INTERNET
 # from winutils import find_process as _find_process
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.1"
 
 

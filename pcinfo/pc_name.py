@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: pc_name.py 483 2015-09-19 22:10:00Z t1 $
-# $Revision: 483 $
-# $Date: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-
 r"""pc_name -- DESCRIPTION
 
 """
@@ -16,7 +8,6 @@ import os as _os
 from socket import gethostname
 
 
-__revision__ = '$Revision: 483 $'
 __version__ = '0.1.0'
 
 

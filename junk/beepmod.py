@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: beepmod.py 418 2015-08-07 00:25:11Z t1 $
-# $Revision: 418 $
-# $Date: 2015-08-07 09:25:11 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 09:25:11 +0900 (Fri, 07 Aug 2015) $
 r""" beepmod -- load beepmod
 
-$Revision: 418 $
 
 """
 
@@ -31,7 +23,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 418 $'
 __version__ = '0.1.0'
 
 def load_pcspkr(force=False):

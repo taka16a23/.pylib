@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
-
 r"""Name: __init__.py
 
 
@@ -18,7 +10,6 @@ import re
 
 import evdev
 
-__revision__ = "$Revision$"
 __version__ = "0.1.0"
 
 __all__ = [ '' ]

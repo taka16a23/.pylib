@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _functions.py 463 2015-08-17 07:02:19Z t1 $
-# $Revision: 463 $
-# $Date: 2015-08-17 16:02:19 +0900 (Mon, 17 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-17 16:02:19 +0900 (Mon, 17 Aug 2015) $
-
 r"""_functions -- DESCRIPTION
 
 """

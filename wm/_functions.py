@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
-
 ##
 ## Change Log:
 ##
@@ -33,7 +25,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision$'
 __version__ = '0.1.'
 
 __all__ = ['WinWait', 'listids', 'iter_wins', 'iter_winattr', 'exists',

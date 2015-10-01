@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 227 2014-09-13 08:15:46Z t1 $
-# $Revision: 227 $
-# $Date: 2014-09-13 17:15:46 +0900 (Sat, 13 Sep 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-09-13 17:15:46 +0900 (Sat, 13 Sep 2014) $
-
 r"""Name: __init__.py
 
 This Library remote control for Sharp Aquos TV.
@@ -50,7 +42,6 @@ IP, port, Remote Controller, Login, Command, response, hosts,
 
 # Singleton Connection for prevent multi command.
 
-__revision__ = "$Revision: 227 $"
 __version__ = "0.1.0"
 
 __all__ = [ ]

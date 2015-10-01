@@ -1,13 +1,6 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-# $Id: search.py 102 2014-01-25 07:43:58Z t1 $
-# $Revision: 102 $
-# $Date: 2014-01-25 16:43:58 +0900 (Sat, 25 Jan 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-01-25 16:43:58 +0900 (Sat, 25 Jan 2014) $
-r"""\
+# -*- coding: utf-8 -*-r"""\
+r"""
 Name: search.py
 
 
@@ -18,7 +11,6 @@ import urlparse as _urlparse
 from lxmllib import lxml_soup as _lxml_soup
 
 
-__revision__ = "$Revision: 102 $"
 __version__ = "0.1.0"
 
 

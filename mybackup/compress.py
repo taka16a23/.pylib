@@ -2,10 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-$Revision: 441 $
-$LastChangedRevision: 441 $
-$LastChangedDate: 2015-08-07 10:25:43 +0900 (Fri, 07 Aug 2015) $
-
 compress.py
 
 backup windows files or folder

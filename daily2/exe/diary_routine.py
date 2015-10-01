@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: diary_routine.py 472 2015-08-28 03:36:21Z t1 $
-# $Revision: 472 $
-# $Date: 2015-08-28 12:36:21 +0900 (Fri, 28 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-28 12:36:21 +0900 (Fri, 28 Aug 2015) $
-
 r"""Name: diary_routine.py
 
 """
@@ -39,7 +31,6 @@ import cgitb
 cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 472 $'
 __version__ = '0.0.1'
 
 # get tomorrow dates Diary

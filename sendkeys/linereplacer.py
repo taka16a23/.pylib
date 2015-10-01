@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: linereplacer.py 173 2014-05-03 07:51:01Z t1 $
-# $Revision: 173 $
-# $Date: 2014-05-03 16:51:01 +0900 (Sat, 03 May 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-05-03 16:51:01 +0900 (Sat, 03 May 2014) $
-
 r"""linereplacer -- DESCRIPTION
 
 """

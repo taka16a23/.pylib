@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: test_tokenize.py 141 2014-04-09 09:42:16Z t1 $
-# $Revision: 141 $
-# $Date: 2014-04-09 18:42:16 +0900 (Wed, 09 Apr 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-04-09 18:42:16 +0900 (Wed, 09 Apr 2014) $
-
 r"""Name: test_tokenize.py
 
 ['skipTest', ]

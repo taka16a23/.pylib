@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: options.py 172 2014-05-03 07:50:42Z t1 $
-# $Revision: 172 $
-# $Date: 2014-05-03 16:50:42 +0900 (Sat, 03 May 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-05-03 16:50:42 +0900 (Sat, 03 May 2014) $
-
 r"""options -- DESCRIPTION
 
 """

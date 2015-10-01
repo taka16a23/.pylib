@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: nt_agent.py 80 2013-11-22 07:02:28Z t1 $
-# $Revision: 80 $
-# $Date: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-
 r"""nt_agent -- SSH key agent for WindowsNT
 """
 
@@ -19,7 +11,6 @@ from portable import P_INTERNET
 from pywinauto import application
 
 
-__revision__ = "$Revision: 80 $"
 __version__ = "0.1.1"
 
 # for debug

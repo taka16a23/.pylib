@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: icedove.py 439 2015-08-07 01:25:08Z t1 $
-# $Revision: 439 $
-# $Date: 2015-08-07 10:25:08 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 10:25:08 +0900 (Fri, 07 Aug 2015) $
 r""" icedove -- for icedove's informations
-
-$Revision: 439 $
 
 """
 
@@ -25,7 +16,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 439 $'
 __version__ = '0.1.0'
 
 NAME = 'icedove'

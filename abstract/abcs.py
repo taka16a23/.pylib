@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: abcs.py 100 2014-01-18 08:53:13Z t1 $
-# $Revision: 100 $
-# $Date: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
-
 r"""abc -- a parts of abstract
 
 """
@@ -23,7 +15,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 100 $'
 __version__ = '0.1.0'
 
 

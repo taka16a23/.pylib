@@ -1,18 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: chrome.py 115 2014-03-08 13:21:49Z t1 $
-# $Revision: 115 $
-# $Date: 2014-03-08 22:21:49 +0900 (Sat, 08 Mar 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-03-08 22:21:49 +0900 (Sat, 08 Mar 2014) $
 r""" chrome -- handling for google chrome.
 
 Changelog:
 inpremented iterator `ChromeMBParse`
 
-$Revision: 115 $
 
 """
 from mygoogle.chrome.utils import trim_url
@@ -24,7 +16,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 115 $'
 __version__ = '0.3.0'
 
 

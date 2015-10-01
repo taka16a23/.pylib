@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: window_manager.py 344 2015-07-24 05:08:28Z t1 $
-# $Revision: 344 $
-# $Date: 2015-07-24 14:08:28 +0900 (Fri, 24 Jul 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-07-24 14:08:28 +0900 (Fri, 24 Jul 2015) $
-
 r"""window_manager -- DESCRIPTION
 
 """

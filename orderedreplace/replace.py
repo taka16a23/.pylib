@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: replace.py 272 2015-01-10 05:40:25Z t1 $
-# $Revision: 272 $
-# $Date: 2015-01-10 14:40:25 +0900 (Sat, 10 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-10 14:40:25 +0900 (Sat, 10 Jan 2015) $
-
 r"""oerderedreplace -- DESCRIPTION
 
 """

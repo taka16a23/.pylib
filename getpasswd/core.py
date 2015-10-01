@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: core.py 274 2015-01-18 05:08:47Z t1 $
-# $Revision: 274 $
-# $Date: 2015-01-18 14:08:47 +0900 (Sun, 18 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-18 14:08:47 +0900 (Sun, 18 Jan 2015) $
-
 r"""core -- DESCRIPTION
 
 """

@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 r"""\
 Name: __init__.py
 
@@ -21,7 +14,6 @@ from ipaddress import IPv4Address
 from reutil import RegexpPattern
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.1"
 
 __all__ = ['whatismyip', ]

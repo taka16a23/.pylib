@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: trace.py 97 2014-01-04 08:46:02Z t1 $
-# $Revision: 97 $
-# $Date: 2014-01-04 17:46:02 +0900 (Sat, 04 Jan 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-01-04 17:46:02 +0900 (Sat, 04 Jan 2014) $
 r""" trace -- trace decorator
 
-$Revision: 97 $
 
 """
 
@@ -25,7 +17,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 97 $'
 __version__ = '0.1.0'
 
 

@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 """ env -- Setting environment for windows
 
-$Revision$
 
 """
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.0"
 
 import sys

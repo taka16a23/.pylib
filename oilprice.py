@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: oilprice.py 248 2014-12-21 05:16:53Z t1 $
-# $Revision: 248 $
-# $Date: 2014-12-21 14:16:53 +0900 (Sun, 21 Dec 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-12-21 14:16:53 +0900 (Sun, 21 Dec 2014) $
-
 r"""oilprice -- DESCRIPTION
 
 """
@@ -20,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 248 $'
 __version__ = '0.1.0'
 
 

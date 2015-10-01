@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: test_modifierstate.py 153 2014-04-19 08:33:26Z t1 $
-# $Revision: 153 $
-# $Date: 2014-04-19 17:33:26 +0900 (Sat, 19 Apr 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-04-19 17:33:26 +0900 (Sat, 19 Apr 2014) $
-
 r"""Name: test_statecode.py
 
 ['skipTest', ]

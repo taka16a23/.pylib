@@ -1,20 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 """ ps -- process for windows
-
-$Revision$
 
 """
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.0"
 
 import win32com.client

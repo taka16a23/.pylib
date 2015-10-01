@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: userint.py 269 2015-01-10 05:39:19Z t1 $
-# $Revision: 269 $
-# $Date: 2015-01-10 14:39:19 +0900 (Sat, 10 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-10 14:39:19 +0900 (Sat, 10 Jan 2015) $
-
 r"""userint -- DESCRIPTION
 
 """

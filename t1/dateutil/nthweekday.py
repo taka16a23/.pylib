@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: nthweekday.py 242 2014-12-21 05:14:47Z t1 $
-# $Revision: 242 $
-# $Date: 2014-12-21 14:14:47 +0900 (Sun, 21 Dec 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-12-21 14:14:47 +0900 (Sun, 21 Dec 2014) $
-
 r"""nthweekday -- DESCRIPTION
 
 """

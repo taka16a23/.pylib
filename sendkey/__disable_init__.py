@@ -6,7 +6,6 @@ Name: __init__.py
 from http://ubuntueasysetuper.googlecode.com/svn/trunk/FutureWork/sendkey.py
 """
 
-__revision__ = "$Revision: 115 $"
 __version__ = "0.1.0"
 
 __all__ = [ 'sendkey' ]

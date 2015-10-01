@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: sshforwarder.py 259 2014-12-21 05:20:44Z t1 $
-# $Revision: 259 $
-# $Date: 2014-12-21 14:20:44 +0900 (Sun, 21 Dec 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-12-21 14:20:44 +0900 (Sun, 21 Dec 2014) $
-
 """
 from '/usr/share/doc/python-paramiko/examples/forward.py.gz'
 

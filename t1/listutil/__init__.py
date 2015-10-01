@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 237 2014-11-28 17:01:54Z t1 $
-# $Revision: 237 $
-# $Date: 2014-11-29 02:01:54 +0900 (Sat, 29 Nov 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-11-29 02:01:54 +0900 (Sat, 29 Nov 2014) $
-
 r"""Name: __init__.py
 
 
@@ -17,7 +9,6 @@ from t1.listutil.sortlist import SortedList
 from t1.listutil.onetypelist import OneTypeList
 
 
-__revision__ = "$Revision: 237 $"
 __version__ = "0.1.0"
 
 __all__ = ['ListUtil', 'nth', 'flatten', 'init_list',

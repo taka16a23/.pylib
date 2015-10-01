@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: king_service.py 80 2013-11-22 07:02:28Z t1 $
-# $Revision: 80 $
-# $Date: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-
 """\
 Name: king_service.py
 

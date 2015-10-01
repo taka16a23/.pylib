@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 392 2015-08-06 15:47:38Z t1 $
-# $Revision: 392 $
-# $Date: 2015-08-07 00:47:38 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 00:47:38 +0900 (Fri, 07 Aug 2015) $
-
 r"""Name: __init__.py
 
 
@@ -16,7 +8,6 @@ import os as _os
 import tempfile as _tempfile
 import shutil as _shutil
 
-__revision__ = "$Revision: 392 $"
 __version__ = "0.1.0"
 
 __all__ = [ 'tmp_backup', 'FileNotExistError' ]

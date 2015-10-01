@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 """\
 Name: ki_client.py
-$Revision$
 
 """
 
 
-__revision__ = '$Revision$'
 __version__ = '0.1.0'
 
 import wx

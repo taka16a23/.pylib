@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: thunar.py 348 2015-08-04 13:56:54Z t1 $
-# $Revision: 348 $
-# $Date: 2015-08-04 22:56:54 +0900 (Tue, 04 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-04 22:56:54 +0900 (Tue, 04 Aug 2015) $
 r""" thunar -- thunar info
 
-$Revision: 348 $
 
 """
 
@@ -29,7 +21,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 348 $'
 __version__ = '0.1.0'
 
 

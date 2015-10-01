@@ -1,17 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: onetypelist.py 224 2014-06-08 08:17:02Z t1 $
-# $Revision: 224 $
-# $Date: 2014-06-08 17:17:02 +0900 (Sun, 08 Jun 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-06-08 17:17:02 +0900 (Sun, 08 Jun 2014) $
-
 r"""onetypelist -- DESCRIPTION
 
 """
-__revision__ = '$Revision: 224 $'
 __version__ = '0.1.0'
 
 

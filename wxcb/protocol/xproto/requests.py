@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: requests.py 305 2015-02-07 03:47:58Z t1 $
-# $Revision: 305 $
-# $Date: 2015-02-07 12:47:58 +0900 (Sat, 07 Feb 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-02-07 12:47:58 +0900 (Sat, 07 Feb 2015) $
-
 r"""requests -- DESCRIPTION
 
 """

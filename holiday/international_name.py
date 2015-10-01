@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: international_name.py 460 2015-08-10 16:51:55Z t1 $
-# $Revision: 460 $
-# $Date: 2015-08-11 01:51:55 +0900 (Tue, 11 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-11 01:51:55 +0900 (Tue, 11 Aug 2015) $
-
 r"""international_name -- DESCRIPTION
 
 """

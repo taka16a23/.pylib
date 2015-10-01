@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: gtkscreenshot.py 419 2015-08-07 00:26:04Z t1 $
-# $Revision: 419 $
-# $Date: 2015-08-07 09:26:04 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 09:26:04 +0900 (Fri, 07 Aug 2015) $
 """ gtkscreenshot -- screenshot
 
-$Revision: 419 $
 
 """
 
@@ -20,7 +12,6 @@ _cgitb.enable(format='text')
 
 import gtk.gdk
 
-__revision__ = '$Revision: 419 $'
 __version__ = '0.1.0'
 
 

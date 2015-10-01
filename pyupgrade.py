@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: pyupgrade.py 89 2013-12-07 10:11:49Z t1 $
-# $Revision: 89 $
-# $Date: 2013-12-07 19:11:49 +0900 (Sat, 07 Dec 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-12-07 19:11:49 +0900 (Sat, 07 Dec 2013) $
-
 r"""Name: __init__.py
 
 
@@ -29,7 +21,6 @@ except ImportError, err:
     print(err)
 
 
-__revision__ = "$Revision: 89 $"
 __version__ = "0.1.0"
 
 __all__ = [ '' ]

@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _point.py 333 2015-06-06 04:18:39Z t1 $
-# $Revision: 333 $
-# $Date: 2015-06-06 13:18:39 +0900 (Sat, 06 Jun 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-06-06 13:18:39 +0900 (Sat, 06 Jun 2015) $
-
 from rectangle._coordinate import XCoordinate, YCoordinate
 
 

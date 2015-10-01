@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: calc.py 116 2014-03-15 09:19:50Z t1 $
-# $Revision: 116 $
-# $Date: 2014-03-15 18:19:50 +0900 (Sat, 15 Mar 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-03-15 18:19:50 +0900 (Sat, 15 Mar 2014) $
-
 r"""calc -- DESCRIPTION
 
 """
@@ -20,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 116 $'
 __version__ = '0.1.0'
 
 """Calculator

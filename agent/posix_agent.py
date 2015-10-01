@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: posix_agent.py 80 2013-11-22 07:02:28Z t1 $
-# $Revision: 80 $
-# $Date: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-22 16:02:28 +0900 (Fri, 22 Nov 2013) $
-
 r"""\
 Posix_agent -- SSH key agent
 """
@@ -18,7 +10,6 @@ from getpass import getpass
 
 import pexpect
 
-__revision__ = '$Revision: 80 $'
 __version__ = '0.1.1'
 
 def add_keys(key, passwd=None):

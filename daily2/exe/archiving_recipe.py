@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: archiving_recipe.py 468 2015-08-19 05:49:01Z t1 $
-# $Revision: 468 $
-# $Date: 2015-08-19 14:49:01 +0900 (Wed, 19 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-19 14:49:01 +0900 (Wed, 19 Aug 2015) $
-
 r"""Name: archiving_recipe.py
 
 """
@@ -37,7 +29,6 @@ import cgitb
 cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 468 $'
 __version__ = '0.0.1'
 
 

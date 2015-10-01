@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# $Id: ki_server_client_frame.py 87 2013-11-30 07:34:05Z t1 $
-# $Revision: 87 $
-# $Date: 2013-11-30 16:34:05 +0900 (Sat, 30 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-30 16:34:05 +0900 (Sat, 30 Nov 2013) $
-
 ###########################################################################
 ## Python code generated with wxFormBuilder (version Sep  8 2010)
 ## http://www.wxformbuilder.org/

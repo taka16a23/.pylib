@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# $Id: debug.py 453 2015-08-08 06:21:25Z t1 $
-# $Revision: 453 $
-# $Date: 2015-08-08 15:21:25 +0900 (Sat, 08 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-08 15:21:25 +0900 (Sat, 08 Aug 2015) $
-
 r"""debug -- DESCRIPTION
 
 """

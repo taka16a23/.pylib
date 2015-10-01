@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: __init__.py 444 2015-08-07 01:26:13Z t1 $
-# $Revision: 444 $
-# $Date: 2015-08-07 10:26:13 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 10:26:13 +0900 (Fri, 07 Aug 2015) $
 r"""\
 Name: __init__.py
 
@@ -14,7 +7,6 @@ Name: __init__.py
 """
 import os as _os
 
-__revision__ = "$Revision: 444 $"
 __version__ = "0.1.0"
 
 __all__ = [ 'MYTEMP', 'KAGI', 'KAGIMD5']

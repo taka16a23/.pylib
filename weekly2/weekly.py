@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: weekly.py 484 2015-09-21 14:06:52Z t1 $
-# $Revision: 484 $
-# $Date: 2015-09-21 23:06:52 +0900 (Mon, 21 Sep 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-09-21 23:06:52 +0900 (Mon, 21 Sep 2015) $
-
 r"""Name: weekly.py
 
 * Prepare
@@ -74,7 +66,6 @@ from weekly2 import exe
 from weekly2.debug import LoggingTaskManager
 
 
-__revision__ = '$Revision: 484 $'
 __version__ = '0.0.1'
 
 

@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: _posix_tunnel.py 100 2014-01-18 08:53:13Z t1 $
-# $Revision: 100 $
-# $Date: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
 """Posix_tunnel -- portforwarding for posix
 
-$Revision: 100 $
 
 """
 
@@ -18,7 +10,6 @@ from time import sleep as _sleep
 
 from ref.myinfo import KAGI, king, rook
 
-__revision__ = "$Revision: 100 $"
 __version__ = "0.1.1"
 
 

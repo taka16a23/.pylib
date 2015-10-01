@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: abstract.py 421 2015-08-07 00:28:38Z t1 $
-# $Revision: 421 $
-# $Date: 2015-08-07 09:28:38 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 09:28:38 +0900 (Fri, 07 Aug 2015) $
 """ abstract -- abstract
 
-$Revision: 421 $
 
 """
 import cPickle
 
-__revision__ = '$Revision: 421 $'
 __version__ = '0.1.0'
 
 

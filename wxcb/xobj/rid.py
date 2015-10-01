@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: rid.py 306 2015-02-07 03:48:07Z t1 $
-# $Revision: 306 $
-# $Date: 2015-02-07 12:48:07 +0900 (Sat, 07 Feb 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-02-07 12:48:07 +0900 (Sat, 07 Feb 2015) $
-
 r"""rid -- DESCRIPTION
 
 """

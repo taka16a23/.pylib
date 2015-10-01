@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: userinput.py 357 2015-08-05 21:41:46Z t1 $
-# $Revision: 357 $
-# $Date: 2015-08-06 06:41:46 +0900 (Thu, 06 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-06 06:41:46 +0900 (Thu, 06 Aug 2015) $
-
 from abc import ABCMeta, abstractmethod
 from easygui import enterbox
 

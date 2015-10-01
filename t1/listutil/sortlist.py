@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: sortlist.py 237 2014-11-28 17:01:54Z t1 $
-# $Revision: 237 $
-# $Date: 2014-11-29 02:01:54 +0900 (Sat, 29 Nov 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-11-29 02:01:54 +0900 (Sat, 29 Nov 2014) $
-
 r"""sortlist -- DESCRIPTION
 
 """
@@ -16,7 +8,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 237 $'
 __version__ = '0.1.0'
 
 

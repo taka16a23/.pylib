@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: rotate_recipe_daily.py 448 2015-08-07 02:54:21Z t1 $
-# $Revision: 448 $
-# $Date: 2015-08-07 11:54:21 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 11:54:21 +0900 (Fri, 07 Aug 2015) $
-
 r"""Name: rotate_recipe.py
 
 """
@@ -17,7 +9,6 @@ from recipe.menu2 import MenuManager
 from recipe.menu2.common import DEFAULT_DIR
 
 
-__revision__ = '$Revision: 448 $'
 __version__ = '0.0.1'
 
 TODAY = datetime.now()

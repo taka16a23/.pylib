@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: modifierstate.py 182 2014-05-10 12:15:31Z t1 $
-# $Revision: 182 $
-# $Date: 2014-05-10 21:15:31 +0900 (Sat, 10 May 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-05-10 21:15:31 +0900 (Sat, 10 May 2014) $
-
 r"""Modifier State -- a parts of sendkeys
 
 """

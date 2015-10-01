@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: core.py 117 2014-03-22 10:03:33Z t1 $
-# $Revision: 117 $
-# $Date: 2014-03-22 19:03:33 +0900 (Sat, 22 Mar 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-03-22 19:03:33 +0900 (Sat, 22 Mar 2014) $
-
 r"""core -- part a keymap
 
 """
@@ -26,7 +18,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 117 $'
 __version__ = '0.1.0'
 
 RENAME_MAP = {'one':          '1',

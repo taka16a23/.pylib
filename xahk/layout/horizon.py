@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: horizon.py 348 2015-08-04 13:56:54Z t1 $
-# $Revision: 348 $
-# $Date: 2015-08-04 22:56:54 +0900 (Tue, 04 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-04 22:56:54 +0900 (Tue, 04 Aug 2015) $
-
 r"""horizon -- DESCRIPTION
 
 """

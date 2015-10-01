@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: keymap.py 292 2015-01-29 00:19:58Z t1 $
-# $Revision: 292 $
-# $Date: 2015-01-29 09:19:58 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:19:58 +0900 (Thu, 29 Jan 2015) $
-
 r"""keymap -- DESCRIPTION
 
 # TODO: (Atami) [2014/03/29]

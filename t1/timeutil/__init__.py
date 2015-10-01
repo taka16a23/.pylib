@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 124 2014-03-28 13:52:56Z t1 $
-# $Revision: 124 $
-# $Date: 2014-03-28 22:52:56 +0900 (Fri, 28 Mar 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-03-28 22:52:56 +0900 (Fri, 28 Mar 2014) $
-
 r"""Name: __init__.py
 
 
 """
 import time
 
-__revision__ = "$Revision: 124 $"
 __version__ = "0.1.0"
 
 __all__ = [ '' ]

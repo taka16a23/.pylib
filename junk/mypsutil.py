@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: mypsutil.py 422 2015-08-07 00:30:41Z t1 $
-# $Revision: 422 $
-# $Date: 2015-08-07 09:30:41 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 09:30:41 +0900 (Fri, 07 Aug 2015) $
 """ mypsutil -- DESCRIPTION
 
-$Revision: 422 $
 
 """
 from time import sleep
@@ -23,7 +15,6 @@ if sys.version_info < (2, 4):
 import cgitb as _cgitb
 _cgitb.enable(format='text')
 
-__revision__ = '$Revision: 422 $'
 __version__ = '0.1.0'
 
 

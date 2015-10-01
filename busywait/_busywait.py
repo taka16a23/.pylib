@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _busywait.py 314 2015-03-21 04:42:53Z t1 $
-# $Revision: 314 $
-# $Date: 2015-03-21 13:42:53 +0900 (Sat, 21 Mar 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-03-21 13:42:53 +0900 (Sat, 21 Mar 2015) $
-
 r"""_busywait -- DESCRIPTION
 
 """

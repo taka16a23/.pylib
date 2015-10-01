@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: daily.py 483 2015-09-19 22:10:00Z t1 $
-# $Revision: 483 $
-# $Date: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-
 r"""Name: daily.py
 
 # Check Tomorrow Weather
@@ -59,7 +51,6 @@ from daily2.debug import LoggingTaskManager
 import cgitb
 cgitb.enable(format='text')
 
-__revision__ = '$Revision: 483 $'
 __version__ = '0.0.1'
 
 

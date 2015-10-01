@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 299 2015-01-29 00:31:32Z t1 $
-# $Revision: 299 $
-# $Date: 2015-01-29 09:31:32 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:31:32 +0900 (Thu, 29 Jan 2015) $
-
 r"""Name: __init__.py
 
 
@@ -15,7 +7,6 @@ r"""Name: __init__.py
 import time
 
 
-__revision__ = "$Revision: 299 $"
 __version__ = "0.1.0"
 
 __all__ = [ ]

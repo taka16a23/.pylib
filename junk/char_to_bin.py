@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: char_to_bin.py 420 2015-08-07 00:26:47Z t1 $
-# $Revision: 420 $
-# $Date: 2015-08-07 09:26:47 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 09:26:47 +0900 (Fri, 07 Aug 2015) $
-
 r"""char_to_bin -- DESCRIPTION
 
 """
@@ -20,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 420 $'
 __version__ = '0.1.0'
 
 

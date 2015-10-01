@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: sleipnir_rss.py 442 2015-08-07 01:25:53Z t1 $
-# $Revision: 442 $
-# $Date: 2015-08-07 10:25:53 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 10:25:53 +0900 (Fri, 07 Aug 2015) $
-
 r"""Name: sleipnir_rss.py
 
 """
@@ -37,7 +29,6 @@ import cgitb
 cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 442 $'
 __version__ = '0.0.1'
 
 BIN = 'Sleipnir.exe'

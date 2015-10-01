@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: test_confirm.py 230 2014-09-13 08:17:36Z t1 $
-# $Revision: 230 $
-# $Date: 2014-09-13 17:17:36 +0900 (Sat, 13 Sep 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-09-13 17:17:36 +0900 (Sat, 13 Sep 2014) $
-
 r"""Name: test_confirm.py
 
 ['skipTest', ]

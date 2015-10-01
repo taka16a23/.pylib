@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: reciped.py 404 2015-08-06 21:17:12Z t1 $
-# $Revision: 404 $
-# $Date: 2015-08-07 06:17:12 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 06:17:12 +0900 (Fri, 07 Aug 2015) $
-
 r"""reciped -- DESCRIPTION
 
 ref. http://georgik.sinusgear.com/2011/01/07/how-to-dump-post-request-with-python/
@@ -30,7 +22,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 404 $'
 __version__ = '0.1.0'
 
 

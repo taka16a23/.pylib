@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _macaddr.py 369 2015-08-06 03:39:24Z t1 $
-# $Revision: 369 $
-# $Date: 2015-08-06 12:39:24 +0900 (Thu, 06 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-06 12:39:24 +0900 (Thu, 06 Aug 2015) $
-
 r"""_macaddr -- DESCRIPTION
 
 """

@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: singleton.py 104 2014-02-15 13:03:03Z t1 $
-# $Revision: 104 $
-# $Date: 2014-02-15 22:03:03 +0900 (Sat, 15 Feb 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-02-15 22:03:03 +0900 (Sat, 15 Feb 2014) $
-
 r"""singleton -- a parts of abstract
 
 """
@@ -20,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 104 $'
 __version__ = '0.1.0'
 
 

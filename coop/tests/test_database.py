@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: test_database.py 485 2015-09-29 03:10:26Z t1 $
-# $Revision: 485 $
-# $Date: 2015-09-29 12:10:26 +0900 (Tue, 29 Sep 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-09-29 12:10:26 +0900 (Tue, 29 Sep 2015) $
-
 r"""Name: test_database.py
 
 ['skipTest', ]

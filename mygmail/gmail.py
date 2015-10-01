@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: gmail.py 405 2015-08-06 21:20:25Z t1 $
-# $Revision: 405 $
-# $Date: 2015-08-07 06:20:25 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 06:20:25 +0900 (Fri, 07 Aug 2015) $
 r""" gmail -- my gmail info
 
 $Revision: 405 $
@@ -23,7 +16,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 405 $'
 __version__ = '0.1.0'
 
 

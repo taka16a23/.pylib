@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: variables.py 483 2015-09-19 22:10:00Z t1 $
-# $Revision: 483 $
-# $Date: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-09-20 07:10:00 +0900 (Sun, 20 Sep 2015) $
-
 r"""variables -- DESCRIPTION
 
 """

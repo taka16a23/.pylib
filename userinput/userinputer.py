@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# $Id: userinputer.py 290 2015-01-29 00:19:07Z t1 $
-# $Revision: 290 $
-# $Date: 2015-01-29 09:19:07 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:19:07 +0900 (Thu, 29 Jan 2015) $
-
-
 class UserInputer(object):
     """Class UserInputer
     """

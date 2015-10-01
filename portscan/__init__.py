@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 r"""
-$Revision: 100 $
-$LastChangedRevision: 100 $
-$LastChangedDate: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
 
 2012-07-18-161158knock.py
 
@@ -16,7 +13,6 @@ from types import IntType as _IntType
 from contextlib import closing as _closing
 
 
-__revision__ = "$Revision: 100 $"
 __version__ = "0.1.0"
 
 __all__ = [ '' ]

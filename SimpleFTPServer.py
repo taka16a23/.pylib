@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: SimpleFTPServer.py 155 2014-04-26 10:02:31Z t1 $
-# $Revision: 155 $
-# $Date: 2014-04-26 19:02:31 +0900 (Sat, 26 Apr 2014) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2014-04-26 19:02:31 +0900 (Sat, 26 Apr 2014) $
-
 ##
 ## Change Log:
 ##
@@ -29,7 +21,6 @@ from pyftpdlib.servers import ThreadedFTPServer
 from pyftpdlib.authorizers import DummyAuthorizer
 
 
-__revision__ = '$Revision: 155 $'
 __version__ = '0.1.1'
 
 LOCAL_IP = socket.gethostbyname(socket.gethostname())

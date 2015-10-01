@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: observable.py 332 2015-06-06 04:18:07Z t1 $
-# $Revision: 332 $
-# $Date: 2015-06-06 13:18:07 +0900 (Sat, 06 Jun 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-06-06 13:18:07 +0900 (Sat, 06 Jun 2015) $
-
 r"""observable -- DESCRIPTION
 
 """

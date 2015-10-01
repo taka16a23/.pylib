@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: create_recipe.py 451 2015-08-08 06:20:58Z t1 $
-# $Revision: 451 $
-# $Date: 2015-08-08 15:20:58 +0900 (Sat, 08 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-08 15:20:58 +0900 (Sat, 08 Aug 2015) $
-
 r"""Name: create_recipe.py
 
 """
@@ -27,7 +19,6 @@ from xahk.listener import WindowListenerObserver
 from xahk.wm import Display
 
 
-__revision__ = '$Revision: 451 $'
 __version__ = '0.0.1'
 
 CHROME_OPTIONS = CHROME_OPTS + ['--new-window']

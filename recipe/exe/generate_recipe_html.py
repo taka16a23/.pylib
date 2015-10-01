@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: generate_recipe_html.py 448 2015-08-07 02:54:21Z t1 $
-# $Revision: 448 $
-# $Date: 2015-08-07 11:54:21 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 11:54:21 +0900 (Fri, 07 Aug 2015) $
-
 r"""Name: generate_recipe_html.py
 
 """
@@ -25,7 +17,6 @@ import logging
 from path import Path
 from logging.handlers import RotatingFileHandler
 
-__revision__ = '$Revision: 448 $'
 __version__ = '0.0.1'
 
 ###############################################################################

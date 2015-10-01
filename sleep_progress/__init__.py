@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 r"""
-$Revision: 380 $
-$LastChangedRevision: 380 $
-$LastChangedDate: 2012-08-07 21:43:00 +0900 (Tue, 07 Aug 2012) $
 
 sleep_progress.py
 
@@ -11,7 +8,6 @@ Countdown progress
 """
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.0"
 
 

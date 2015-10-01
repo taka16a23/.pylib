@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _mount.py 469 2015-08-19 05:49:17Z t1 $
-# $Revision: 469 $
-# $Date: 2015-08-19 14:49:17 +0900 (Wed, 19 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-19 14:49:17 +0900 (Wed, 19 Aug 2015) $
-
 r"""_mount -- DESCRIPTION
 
 """

@@ -1,16 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: ssh-add.py 83 2013-11-22 07:03:11Z t1 $
-# $Revision: 83 $
-# $Date: 2013-11-22 16:03:11 +0900 (Fri, 22 Nov 2013) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2013-11-22 16:03:11 +0900 (Fri, 22 Nov 2013) $
-
 r""" ssh-add -- ssh-add command
 
-$Revision: 83 $
 
 """
 
@@ -21,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 83 $'
 __version__ = '0.1.0'
 
 

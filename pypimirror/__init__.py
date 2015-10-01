@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: __init__.py 382 2015-08-06 14:01:46Z t1 $
-# $Revision: 382 $
-# $Date: 2015-08-06 23:01:46 +0900 (Thu, 06 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-06 23:01:46 +0900 (Thu, 06 Aug 2015) $
-
 r"""Name: __init__.py
 
 
@@ -38,7 +30,6 @@ if sys.version_info < (2, 4):
 
 
 
-__revision__ = "$Revision: 382 $"
 __version__ = "0.1.0"
 
 __all__ = [ '' ]

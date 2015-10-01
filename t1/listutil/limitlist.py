@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: limitlist.py 279 2015-01-29 00:02:55Z t1 $
-# $Revision: 279 $
-# $Date: 2015-01-29 09:02:55 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:02:55 +0900 (Thu, 29 Jan 2015) $
-
 r"""limitlist -- DESCRIPTION
 
 
@@ -20,7 +12,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 279 $'
 __version__ = '0.1.1'
 
 

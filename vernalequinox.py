@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: vernalequinox.py 283 2015-01-29 00:10:24Z t1 $
-# $Revision: 283 $
-# $Date: 2015-01-29 09:10:24 +0900 (Thu, 29 Jan 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-01-29 09:10:24 +0900 (Thu, 29 Jan 2015) $
-
 r"""vernalequinox -- DESCRIPTION
 
 """

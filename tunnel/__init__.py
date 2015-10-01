@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id$
-# $Revision$
-# $Date$
-# $Author$
-# $LastChangedBy$
-# $LastChangedDate$
 """\
 Name: __init__.py
 
@@ -23,7 +16,6 @@ elif 'posix' == _os.name:
     from posix_tunnel import Tunneling, TunnelError, Tunnel
 
 
-__revision__ = "$Revision$"
 __version__ = "0.1.1"
 
 

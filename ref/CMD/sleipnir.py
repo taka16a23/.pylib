@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# $Id: sleipnir.py 439 2015-08-07 01:25:08Z t1 $
-# $Revision: 439 $
-# $Date: 2015-08-07 10:25:08 +0900 (Fri, 07 Aug 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-08-07 10:25:08 +0900 (Fri, 07 Aug 2015) $
 """ sleipnir -- for sleipnir's informations.
 
-$Revision: 439 $
 
 2014/05/14 Added: functions "destroy_sleipnir_feedback_dialog",
         "wait_kill_sleipnir_feedback", "wait_close_sleipnir_update_dialog",
@@ -34,7 +26,6 @@ import cgitb as _cgitb
 _cgitb.enable(format='text')
 
 
-__revision__ = '$Revision: 439 $'
 __version__ = '0.1.1'
 
 

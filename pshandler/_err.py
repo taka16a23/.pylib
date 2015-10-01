@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# $Id: _err.py 307 2015-02-07 03:48:46Z t1 $
-# $Revision: 307 $
-# $Date: 2015-02-07 12:48:46 +0900 (Sat, 07 Feb 2015) $
-# $Author: t1 $
-# $LastChangedBy: t1 $
-# $LastChangedDate: 2015-02-07 12:48:46 +0900 (Sat, 07 Feb 2015) $
-
 r"""_err -- DESCRIPTION
 
 borrow from psutil

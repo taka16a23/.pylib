@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 r"""
-$Revision: 100 $
-$LastChangedRevision: 100 $
-$LastChangedDate: 2014-01-18 17:53:13 +0900 (Sat, 18 Jan 2014) $
-
-knock.py
+knoc
+k.py
 
 """
 

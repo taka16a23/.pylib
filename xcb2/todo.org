@@ -1,0 +1,151 @@
+-*- coding: utf-8-unix -*-
+ 
+[xcb2 Data]
+
+- [X] atom
+  type: int
+  + pack "I"
+
+- [X] atomname
+  type: string
+  + name_len
+
+- [ ] window
+  type: int
+  + pack
+
+- [ ] windowlist
+  type: list
+
+- [ ] window name
+  type: string
+  + match_client_list
+  # WM_NAME
+  # _NET_WM_NAME
+
+- [ ] window class
+  type: string
+  # WM_CLASS
+
+- [ ] window class res_name
+  type: string
+  + match_client_list
+
+- [ ] window class res_class
+  type: string
+  + match_client_list
+
+- [X] window pid
+  type: int
+
+- [ ] window allow actions
+  type: list
+
+- [X] geometry
+  type: dict
+
+- [X] geometry x
+    type: int 
+  + pack
+  + translate coodinate      
+    
+- [X] geometry y
+    type: int
+  + pack
+  + translate coodinate      
+
+- [X] geometry XY
+   type: geometry
+
+- [X] geometry width
+    type: int
+  + pack
+
+- [X] geometry height
+    type: int
+  + pack
+
+- [X] geometry WidthHeight
+   type: geometry
+
+- [ ] event mask
+  type: int
+
+- [ ] keycode
+  type: int
+
+- [ ] buttoncode
+  type: int
+
+- [ ] bitmask
+
+- [ ] modifiers mask
+   type: int
+
+- [ ] value mask
+   type: int
+   # xproto.CW
+
+- [ ] value list
+  type: list
+  # CreateWindow
+
+- [ ] value mask and value list :WindowAttributesValues
+  type: dict
+  # {mask_int: value_int}
+  + ChangeWindowAttributes(window)
+
+- [ ] value mask and value list :ConfigureWindowValues
+  type: dict
+  # {mask_int: value_int}
+  + ConfigureWindow(window)
+
+- [ ] long_offset
+  type: int
+  + pack 'I'
+
+- [ ] long_length
+  type: int
+  + pack 'I'
+
+- [ ] selection 
+  # TODO: (Atami) [2014/05/15]
+  # SetSelectionOwner
+
+- [ ] font
+  # TODO: (Atami) [2014/05/15]
+  # CloseFont
+
+- [ ] pixmap
+  # TODO: (Atami) [2014/05/15]
+  # FreePixmap
+
+- [ ] gc
+  # TODO: (Atami) [2014/05/15]
+  # ChangeGC
+
+- [ ] exposures
+  # TODO: (Atami) [2014/05/15]
+  # ClearArea
+
+- [ ] segments
+  # TODO: (Atami) [2014/05/15]
+  # PolySegment
+
+- [ ] rectangles
+  # TODO: (Atami) [2014/05/15]
+  # PolyRectangle
+
+- [ ] cmap
+  # TODO: (Atami) [2014/05/15]
+  # FreeColormap
+
+- [ ] cursor
+  # TODO: (Atami) [2014/05/15]
+  
+- [ ] keysyms
+  # TODO: (Atami) [2014/05/15]
+  # ChangeKeyboardMapping
+
+- [ ] mode
+  # ForceScreenSaver

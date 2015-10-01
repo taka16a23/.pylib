@@ -1,0 +1,592 @@
+-*- coding: utf-8-unix -*-
+
+
+* Physical Device
+** Motherboard
+*** Motherboard Properties
+    [ ] Motherboard ID
+    [ ] Motherboard Name
+*** Front Side Bus Properties
+    [ ] Bus Type        
+    [ ] Real Clock      
+    [ ] Effective Clock 
+
+** CPU
+*** CPU Properties
+**** CPU Type
+**** CPU Alias
+**** Instruction Set
+**** Original Clock
+*** CPUID Properties
+**** CPUID Manufacturer
+**** CPUID CPU Name
+**** CPUID Revision
+**** IA Brand ID
+**** Platform ID
+**** Microcode Update Revision
+**** HTT / CMP Units
+**** Tjmax Temperature
+**** Max Turbo Boost Multipliers
+*** Instruction Set
+    64-bit x86 Extension (AMD64, Intel64)                       
+    AMD 3DNow!                     
+    AMD 3DNow! Professional        
+    AMD 3DNowPrefetch              
+    AMD Enhanced 3DNow!            
+    AMD Extended MMX               
+    AMD MisAligned SSE             
+    AMD SSE4A                      
+    AMD SSE5                       
+    Cyrix Extended MMX             
+    IA-64                          
+    IA MMX                         
+    IA SSE                         
+    IA SSE 2                       
+    IA SSE 3                       
+    IA Supplemental SSE 3          
+    IA SSE 4.1                     
+    IA SSE 4.2                     
+    IA AVX                         
+    IA FMA                         
+    IA AES Extensions              
+    VIA Alternate Instruction Set  
+    CLFLUSH Instruction            
+    CMPXCHG8B Instruction          
+    CMPXCHG16B Instruction         
+    Conditional Move Instruction   
+    LZCNT Instruction              
+    MONITOR / MWAIT Instruction    
+    MOVBE Instruction              
+    PCLMULQDQ Instruction          
+    POPCNT Instruction             
+    RDTSCP Instruction             
+    SYSCALL / SYSRET Instruction   
+    SYSENTER / SYSEXIT Instruction 
+    VIA FEMMS Instruction          
+
+*** Security Features
+    Advanced Cryptography Engine (ACE) 
+    Advanced Cryptography Engine 2 (ACE2)                                                                
+    Data Execution Prevention (DEP, NX, EDB)                                                              
+    Hardware Random Number Generator (RNG)                                                                 
+    PadLock Hash Engine (PHE)          
+    PadLock Montgomery Multiplier (PMM)                                                                 
+    Processor Serial Number (PSN)      
+
+*** Power Management Features
+    Automatic Clock Control        
+    Digital Thermometer            
+    Dynamic FSB Frequency Switching
+    Enhanced Halt State (C1E)      
+    Enhanced SpeedStep Technology  
+    (EIST, ESS)                    
+    Frequency ID Control           
+    Hardware P-State Control       
+    LongRun                        
+    LongRun Table Interface        
+    PowerSaver 1.0                 
+    PowerSaver 2.0                 
+    PowerSaver 3.0                 
+    Processor Duty Cycle Control   
+    Software Thermal Control       
+    Temperature Sensing Diode      
+    Thermal Monitor 1              
+    Thermal Monitor 2              
+    Thermal Monitoring             
+    Thermal Trip                   
+    Voltage ID Control             
+
+*** CPUID Features
+    1 GB Page Size                    
+    36-bit Page Size Extension        
+    Address Region Registers (ARR)    
+    Core Power Boost                  
+    CPL Qualified Debug Store         
+    Debug Trace Store                 
+    Debugging Extension               
+    Direct Cache Access               
+    Dynamic Acceleration Technology (IDA)                             
+    Fast Save & Restore               
+    Hyper-Threading Technology (HTT)  
+    Invariant Time Stamp Counter      
+    L1 Context ID                     
+    Local APIC On Chip                
+    Machine Check Architecture (MCA)  
+    Machine Check Exception (MCE)     
+    Memory Configuration Registers (MCR)                             
+    Memory Type Range Registers (MTRR)
+    Model Specific Registers (MSR)   
+    Nested Paging                    
+    Page Attribute Table (PAT)       
+    Page Global Extension            
+    Page Size Extension (PSE)        
+    Pending Break Event              
+    Physical Address Extension (PAE) 
+    Safer Mode Extensions (SMX)      
+    Secure Virtual Machine Extensions (Pacifica)                       
+    Self-Snoop                       
+    Time Stamp Counter (TSC)         
+    Turbo Boost                      
+    Virtual Machine Extensions (Vanderpool)                     
+    Virtual Mode Extension           
+    x2APIC                           
+    XSAVE / XRSTOR Extended States   
+
+** Monitor
+*** Monitor Properties
+    [ ] Monitor Name             
+    [ ] Monitor ID               
+    [ ] Manufacture Date         
+    [ ] Serial Number            
+    [ ] Max. Visible Display Size
+    [ ] Picture Aspect Ratio     
+    [ ] Horizontal Frequency     
+    [ ] Vertical Frequency       
+    [ ] Maximum Pixel Clock      
+    [ ] Gamma                    
+    [ ] DPMS Mode Support        
+
+** Multimedia
+** Storage
+ハードドライブの速度を計測するには hdparm コマンドを使います
+ hdparm -t /dev/sdx
+
+ハードドライブの純粋な読み込み速度なので、正しいベンチマーク
+とは言えませんが、
+（アイドル状態のときにドライブをテストして）平均的なコンピュー
+タでは
+ 40MB/s より高い数値が出るのが普通だと思われます。
+
+*** ATA
+**** ATA Device Properties:
+     [ ] Model ID              
+     [ ] Serial Number         
+     [ ] Revision              
+     [ ] World Wide Name       
+     [ ] Device Type           
+     [ ] Parameters            
+     [ ] LBA Sectors           
+     [ ] Buffer                
+     [ ] Multiple Sectors      
+     [ ] ECC Bytes             
+     [ ] Unformatted           
+     [ ] Capacity                                                              
+     [ ] ATA Standard          
+                                                                                
+**** ATA Device Features:
+     [ ] 48-bit LBA            
+     [ ] Advanced Power        
+     [ ] Management                                                            
+     [ ] Automatic Acoustic    
+     [ ] Management                                                            
+     [ ] Device Configuration  
+     [ ] Overlay                                                               
+     [ ] DMA Setup             
+     [ ] Auto-Activate                                                         
+     [ ] General Purpose       
+     [ ] Logging                                                               
+     [ ] Host Protected Area   
+     [ ] In-Order Data         
+     [ ] Delivery                                                              
+     [ ] Native Command        
+     [ ] Queuing                                                               
+     [ ] Phy Event Counters    
+     [ ] Power Management      
+     [ ] Power-Up In Standby   
+     [ ] Read Look-Ahead       
+     [ ] Release Interrupt     
+     [ ] Security Mode         
+     [ ] SMART                 
+     [ ] SMART Error Logging   
+     [ ] SMART Self-Test       
+     [ ] Software Settings     
+     [ ] Preservation                                                          
+     [ ] Streaming             
+     [ ] Tagged Command        
+     [ ] Queuing                                                               
+     [ ] Write Cache           
+
+**** ATA Device Manufacturer:
+     [ ] Company Name          
+     [ ] Product Information   
+     [ ] Driver Update         
+
+**** HDD
+***** SMART
+| ID          | Description                       | Attribute | Threshold | Value | Worst |                Data | Status |        |        |        |
+|-------------+-----------------------------------+-----------+-----------+-------+-------+---------------------+--------+--------+--------+--------|
+| 01          | Raw Read Error Rate               | 62        |       100 |   100 |     0 | OK: Value is normal |        |        |        |        |
+|             |                                   |           |           |       |       |                     |        |        |        |        |
+| 02          | Throughput is normal  Performance | 40        |       100 |   100 |     0 |                 OK: | Value  |        |        |        |
+| 03          | Spinup Time                       |           |        33 |   191 |   191 |                   1 | OK:    | Value  |        |        |
+| is          | normal                            |           |           |       |       |                     |        |        |        |        |
+| 04          | Start/Stop                        | Count     |         0 |    98 |    98 |                3539 | OK:    | Always |        |        |
+| passes      |                                   |           |           |       |       |                     |        |        |        |        |
+| 05          | Reallocated                       | Sector    |         5 |   100 |   100 |                   0 | OK:    | Value  |        |        |
+| Count       | is                                | normal    |           |       |       |                     |        |        |        |        |
+| 07          | Seek                              | Error     |      Rate |    67 |   100 |                 100 | 0      | OK:    | Value  |        |
+| is          | normal                            |           |           |       |       |                     |        |        |        |        |
+| 08          | Seek                              | Time      |        40 |   100 |   100 |                   0 | OK:    | Value  |        |        |
+| Performance | is                                | normal    |           |       |       |                     |        |        |        |        |
+| 09          | Power-On                          | Time      |         0 |    70 |    70 |               13302 | OK:    | Always |        |        |
+| Count       | passes                            |           |           |       |       |                     |        |        |        |        |
+| 0A          | Spinup                            | Retry     |        60 |   100 |   100 |                   0 | OK:    | Value  |        |        |
+| Count       | is                                | normal    |           |       |       |                     |        |        |        |        |
+| 0C          | Power                             | Cycle     |     Count |     0 |    98 |                  98 | 3479   | OK:    | Always |        |
+| passes      |                                   |           |           |       |       |                     |        |        |        |        |
+| BF          | Mechanical                        | Shock     |         0 |   100 |   100 |                   0 | OK:    | Always |        |        |
+| passes      |                                   |           |           |       |       |                     |        |        |        |        |
+| C0          | Power-Off                         | Retract   |         0 |   100 |   100 |                   8 | OK:    | Always |        |        |
+| Count       | passes                            |           |           |       |       |                     |        |        |        |        |
+| C1          | Load/Unload                       | Cycle     |         0 |     1 |     1 |             1885565 | OK:    | Always |        |        |
+| Count       | passes                            |           |           |       |       |                     |        |        |        |        |
+| C2          | Temperature                       | 0         |       153 |   153 |    6, |                  39 | OK:    | Always |        |        |
+| passes      |                                   |           |           |       |       |                     |        |        |        |        |
+| C4          | Reallocation                      | Event     |         0 |   100 |   100 |                   0 | OK:    | Always |        |        |
+| Count       | passes                            |           |           |       |       |                     |        |        |        |        |
+| C5          | Current                           | Pending   |         0 |   100 |   100 |                   0 | OK:    | Always |        |        |
+| Sector      | Count                             | passes    |           |       |       |                     |        |        |        |        |
+| Offline     | OK:                               | Always    |           |       |       |                     |        |        |        |        |
+| C6          | Uncorrectable                     | 0         |       100 |   100 |     0 |              passes |        |        |        |        |
+| Sector      | Count                             |           |           |       |       |                     |        |        |        |        |
+| C7          | Ultra                             | ATA       |       CRC | Error |     0 |                 200 | 200    | 0      | OK:    | Always |
+| Rate        | passes                            |           |           |       |       |                     |        |        |        |        |
+| DF          | Load/Unload                       | Retry     |         0 |   100 |   100 |                   0 | OK:    | Always |        |        |
+| Count       |                                   |           |           |       |       |                     |        |        |        |        |
+| passes      |                                   |           |           |       |       |                     |        |        |        |        |
+|             |                                   |           |           |       |       |                     |        |        |        |        |
+|-------------+-----------------------------------+-----------+-----------+-------+-------+---------------------+--------+--------+--------+--------|
+|             |                                   |           |           |       |       |                     |        |        |        |        |
+
+
+** Network Adapter
+*** Network Adapter Properties
+    [ ] Network Adapter    
+    [ ] Interface Type       
+    [ ] Hardware Address    
+    [ ] Connection Name       
+    [ ] Connection Speed      
+    [ ] MTU        
+    [ ] DHCP Lease Obtained   
+    [ ] DHCP Lease Expires    
+    [ ] Bytes Received   
+    [ ] Bytes Sent 
+
+*** Network Adapter Addresses
+    [ ] IP / Subnet Mask       
+    [ ] Gateway    
+    [ ] DHCP       
+    [ ] DNS        
+
+*** Network Adapter Manufacturer
+Company Name       
+Product Information
+Driver Download   
+Driver Update     
+
+** Printer
+*** Printer Properties
+    [ ] Printer Name     
+    [ ] Default Printer  
+    [ ] Share Point      
+    [ ] Printer Port     
+    [ ] Printer Driver   
+    [ ] Device Name      
+    [ ] Print Processor  
+    [ ] Separator Page   
+    [ ] Availability     
+    [ ] Priority         
+    [ ] Print Jobs Queued
+    [ ] Status           
+*** Paper Properties
+    [ ] Paper Size   
+    [ ] Orientation  
+    [ ] Print Quality
+*** Printer Manufacturer
+    [ ] Company Name       
+    [ ] Product Information
+    [ ] Driver Update      
+
+** USB
+*** Device Properties
+    [ ] Device Description   
+    [ ] Device ID            
+    [ ] Device Class         
+    [ ] Device Protocol      
+    [ ] Supported USB Version
+    [ ] Current Speed        
+
+** Battery
+** Chassis
+** Memory
+*** DIMM
+    [ ] Memory Timings
+
+**** Memory Module Properties
+    [ ] Module Name           
+    [ ] Serial Number         
+    [ ] Manufacture Date      
+    [ ] Module Size           
+    [ ] Module Type           
+    [ ] Memory Type           
+    [ ] Memory Speed          
+    [ ] Module Width          
+    [ ] Error Detection Method
+    [ ] DRAM Manufacturer     
+
+**** Memory Module Features
+    [ ] Auto Self Refresh    
+    [ ] Extended Temperature Range                
+    [ ] Extended Temperature Refresh Rate         
+    [ ] On-Die Thermal Sensor Readout              
+
+**** Memory Module Manufacturer
+    [ ] Company Name
+    [ ] Product Information
+
+*** Physical Memory
+    [ ] Total      
+    [ ] Used       
+    [ ] Free       
+    [ ] Utilization
+
+*** Swap Space
+    [ ] Total      
+    [ ] Used       
+    [ ] Free       
+    [ ] Utilization
+
+*** Virtual Memory
+    [ ] Total      
+    [ ] Used       
+    [ ] Free       
+    [ ] Utilization
+
+*** Paging File
+    [ ] Paging File          
+    [ ] Current Size         
+    [ ] Current / Peak Usage 
+    [ ] Utilization          
+
+*** Physical Address Extension (PAE)
+    [ ] Supported by Operating System
+    [ ] Supported by CPU             
+    [ ] Active                       
+
+** Input Device
+*** Keyboard
+**** Keyboard Properties
+     [ ] Keyboard Name  
+     [ ] Keyboard Type  
+     [ ] Keyboard Layout
+     [ ] ANSI Code Page 
+     [ ] OEM Code Page 
+     [ ] Repeat Delay   
+     [ ] Repeat Rate    
+
+*** Mouse
+**** Mouse Properties
+     [ ] Mouse Name        
+     [ ] Mouse Buttons     
+     [ ] Mouse Hand        
+     [ ] Pointer Speed     
+     [ ] Double-Click Time 
+     [ ] X/Y Threshold     
+     [ ] Wheel Scroll Lines
+
+**** Mouse Features
+     [ ] Active Window Tracking ClickLock                
+     [ ] Hide Pointer While Typing
+     [ ] Mouse Wheel              
+     [ ] Move Pointer To Default Button                   
+     [ ] Pointer Trails Sonar                    
+
+** PCI
+*** Device Properties
+    [ ] Device           
+    [ ] Description      
+    [ ] Bus Type         
+    [ ] Bus / Device / Function         
+    [ ] Device ID        
+    [ ] Subsystem ID     
+    [ ] Device Class     
+    [ ] Revision         
+    [ ] Fast Back-to-Back Transactions     
+
+** HD Audio
+** Camera
+** DVD/CD-ROM
+
+* Partitions
+* Power Properties
+* Temperatures
+* BIOS
+** BIOS Properties
+   [ ] BIOS Type         
+   [ ] BIOS Version      
+   [ ] Award BIOS Type   
+   [ ] Award BIOS Message
+   [ ] System BIOS Date  
+   [ ] Video BIOS Date   
+
+** BIOS Manufacturer
+   [ ] Company Name       
+   [ ] Product Information
+   [ ] BIOS Upgrades      
+
+* ACPI
+** ACPI Table Properties
+   [ ] Table Description
+   [ ] Memory Address   
+   [ ] Table Length     
+   [ ] OEM Revision     
+   [ ] Creator Revision 
+** ACPI Table Properties
+   [ ] ACPI Signature    
+   [ ] Table Description 
+   [ ] Memory Address    
+   [ ] Table Length      
+   [ ] OEM ID            
+   [ ] OEM Table ID      
+   [ ] OEM Revision      
+   [ ] Creator ID        
+   [ ] Creator Revision  
+   [ ] Local APIC Address
+** ACPI Table Properties
+
+* Operating System
+   [ ] OS Name             
+   [ ] OS Language         
+   [ ] OS Kernel Type      
+   [ ] OS Version          
+   [ ] OS Service Pack     
+   [ ] OS Installation Date
+   [ ] OS Root             
+
+** License Information
+   [ ] Registered Owner           
+   [ ] Registered Organization 
+   [ ] Product ID              
+   [ ] Product Key             
+   [ ] Product Activation (WPA)
+
+** Current Session
+   [ ] Computer Name
+   [ ] User Name    
+   [ ] Logon Domain 
+   [ ] UpTime       
+
+** Components Version
+* Processes
+* Driver
+* Service
+* UpTime
+** Current Session
+   [ ] Last Shutdown Time          
+   [ ] Last Boot Time
+   [ ] Current Time  
+   [ ] UpTime        
+
+** UpTime Statistics
+   [ ] First Boot Time 
+   [ ] First Shutdown Time            
+   [ ] Total UpTime    
+   [ ] Total DownTime  
+   [ ] Longest UpTime  
+   [ ] Longest DownTime
+   [ ] Total Reboots   
+   [ ] System          
+   [ ] Availability    
+
+** Bluescreen Statistics
+   [ ] Total Bluescreens
+
+** Information
+* Desktop
+** Desktop Properties
+   [ ] Device Technology 
+   [ ] Resolution        
+   [ ] Color Depth       
+   [ ] Color Planes      
+   [ ] Font Resolution   
+   [ ] Pixel Width / Height            
+   [ ] Pixel Diagonal    
+   [ ] Vertical Refresh Rate              
+   [ ] Desktop Wallpaper 
+
+* Fonts
+* Video Codecs
+* Account
+** Account Properties
+   [ ] Account Name   
+   [ ] Account ID                    
+   [ ] Account Type   
+   [ ] Connection Name
+   [ ] NNTP Server    
+
+** Account Features
+   [ ] NNTP Prompt For Password            
+   [ ] NNTP Secure Authentication      
+   [ ] NNTP Secure Connection          
+   [ ] NNTP Use Group Descriptions        
+   [ ] NNTP Post Using Plain Text Format   
+   [ ] NNTP Post Using HTML Format              
+
+* Internet
+** Internet Settings
+   [ ] Start Page
+   [ ] Search Page
+   [ ] Download Folder
+** Current Proxy
+   [ ] Proxy Status
+
+** LAN Proxy
+   [ ] Proxy Status
+
+* Netstat
+* Browser History
+* Auto Start
+* Scheduled
+* Installed Programs
+* Licenses
+* Anti-Spyware
+* Regional
+** Time Zone
+   [ ] Current Time Zone             
+   [ ] Current Time Zone Description 
+   [ ] Change To Standard Time       
+   [ ] Change To Daylight Saving Time
+** Language
+   [ ] Language Name (Native)  
+   [ ] Language Name (English) 
+   [ ] Language Name (ISO 639) 
+** Country/Region
+   [ ] Country Name (Native)  
+   [ ] Country Name (English) 
+   [ ] Country Name (ISO 3166)
+   [ ] Country Code  
+** Currency
+   [ ] Currency Name (Native)    
+   [ ] Currency Name (English)   
+   [ ] Currency Symbol (Native)  
+   [ ] Currency Symbol (ISO 4217)
+   [ ] Currency Format           
+   [ ] Negative Currency Format  
+** Formatting
+   [ ] Time Format           
+   [ ] Short Date Format     
+   [ ] Long Date Format      
+   [ ] Number Format         
+   [ ] Negative Number Format
+   [ ] List Format           
+   [ ] Native Digits         
+** Days of Week
+   [ ] Native Name for Monday   
+   [ ] Native Name for Tuesday  
+   [ ] Native Name for Wednesday
+   [ ] Native Name for Thursday 
+   [ ] Native Name for Friday   
+   [ ] Native Name for Saturday 
+   [ ] Native Name for Sunday   
+* Environment
+* Recycle Bin

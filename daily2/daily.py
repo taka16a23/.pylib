@@ -349,9 +349,8 @@ class Etc(Task):
 
         @Error:
         """
-        sbp.Popen('/opt/v2c/v2c')
-        sleep(5)
         chrome.run('http://feedly.com/index.html#latest')
+        os.system('/opt/v2c/v2c')
         sleep(10)
 
 

@@ -68,6 +68,7 @@ HTML_TEMPLATE = """
  </head>
  <body>
    <h1><b>献立</b></h1><br>
+   <li><a href="./arecipe">Arecipe</a></li>
    {}
 </body></html>
 """
@@ -96,23 +97,10 @@ def _predef_options():
                         action='version',
                         version=__version__,
                         help='Version Strings.')
-    parser.add_argument('--force',
-                        dest='force',
-                        action='store_true',
-                        default=False,
-                        required=False,
-                        # (yas/expand-link "argparse_other_options" t)
-                        help='A lot of messages.')
     # (yas/expand-link "argparse_add_argument" t)
     return parser
 
-
-parser = _predef_options()
-opts = parser.parse_args()
-
-weekday = now_weekday()
-if weekday.is_friday() or opts.force:
-    sys.exit(_main())
+sys.exit(_main())
 
 
 

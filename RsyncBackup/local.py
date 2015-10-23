@@ -37,7 +37,6 @@ EXCLUDE_DEFALUT = ['/lost+found',
                    '/lib/udev/devices/ppp',
                    '/lib/udev/devices/net/tun',
                    '/lib/modules/*/volatile/.mounted',
-                   '/data/*',
                    '/var/cache/apt/archive/*',
                    '/home/*/.mozilla/firefox/*.default/Cache/*',
                    '/home/*/.cache/google-chrome/Default/*',
@@ -45,6 +44,10 @@ EXCLUDE_DEFALUT = ['/lost+found',
                    '/root/.cache/google-chrome/Default/*',
                    '/root/.local/share/Trash/files/*',
                    '/root/.local/share/Trash/info/*',
+                   '/data/*',
+                   '/cdata',
+                   '/root/homedata',
+                   '/root/work',
                    ]
 
 

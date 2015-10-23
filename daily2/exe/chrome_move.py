@@ -37,7 +37,7 @@ def _main():
     opts = parser.parse_args()
     # parser.print_usage()
     chrome_wins = WindowListenerFactory(Display()).list_windows(
-        WindowWMClassSpec('Google-chrome'))
+        WindowWMClassSpec('google-chrome'))
     shift = 0
     for win in chrome_wins:
         win.set_bounds(

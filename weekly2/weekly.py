@@ -260,96 +260,96 @@ class PackageUpdate(Task):
                    .format(sys.executable, EXE_PATH.join('aptupgrade.py'))))
 
 
-class DiskSetup(Task):
-    r"""DiskSetup
+# class DiskSetup(Task):
+#     r"""DiskSetup
 
-    DiskSetup is a Task.
-    Responsibility:
-    """
-    def __init__(self, prepare):
-        r"""
+#     DiskSetup is a Task.
+#     Responsibility:
+#     """
+#     def __init__(self, prepare):
+#         r"""
 
-        @Arguments:
-        - `prepare`:
-        """
-        Task.__init__(self)
-        self._prepare = prepare
+#         @Arguments:
+#         - `prepare`:
+#         """
+#         Task.__init__(self)
+#         self._prepare = prepare
 
-    def is_ready(self, ):
-        r"""SUMMARY
+#     def is_ready(self, ):
+#         r"""SUMMARY
 
-        is_ready()
+#         is_ready()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        return True
+#         @Error:
+#         """
+#         return True
 
-    def execute(self, ):
-        r"""SUMMARY
+#     def execute(self, ):
+#         r"""SUMMARY
 
-        execute()
+#         execute()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        # wait wakeup
-        while time() - self._prepare.get_started() < 80:
-            sleep(1)
+#         @Error:
+#         """
+#         # wait wakeup
+#         while time() - self._prepare.get_started() < 80:
+#             sleep(1)
 
-        kidisk = KingDisk()
-        if kidisk.is_mounted():
-            return True
-        counter = 0
-        while not kidisk.is_decrypted() and counter < 3:
-            counter += 1
-            sudopass = getpasswd(
-                '[Sudo] password for {}: '.format(kidisk.username))
-            cryptpasswd = getpasswd(
-                'Enter passphrase for {}: '.format(kidisk.disk_name))
-            kidisk.decrypt(sudopass, cryptpasswd)
-            sleep(2)
-        if not kidisk.is_decrypted():
-            raise StandardError()
-        kidisk.mount()
-        if not kidisk.is_mounted():
-            raise StandardError()
-        return True
+#         kidisk = KingDisk()
+#         if kidisk.is_mounted():
+#             return True
+#         counter = 0
+#         while not kidisk.is_decrypted() and counter < 3:
+#             counter += 1
+#             sudopass = getpasswd(
+#                 '[Sudo] password for {}: '.format(kidisk.username))
+#             cryptpasswd = getpasswd(
+#                 'Enter passphrase for {}: '.format(kidisk.disk_name))
+#             kidisk.decrypt(sudopass, cryptpasswd)
+#             sleep(2)
+#         if not kidisk.is_decrypted():
+#             raise StandardError()
+#         kidisk.mount()
+#         if not kidisk.is_mounted():
+#             raise StandardError()
+#         return True
 
 
-class SubversionCommit(Task):
-    r"""SubversionCommit
+# class SubversionCommit(Task):
+#     r"""SubversionCommit
 
-    SubversionCommit is a Task.
-    Responsibility:
-    """
-    def is_ready(self, ):
-        r"""SUMMARY
+#     SubversionCommit is a Task.
+#     Responsibility:
+#     """
+#     def is_ready(self, ):
+#         r"""SUMMARY
 
-        is_ready()
+#         is_ready()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        return True
+#         @Error:
+#         """
+#         return True
 
-    def execute(self, ):
-        r"""SUMMARY
+#     def execute(self, ):
+#         r"""SUMMARY
 
-        execute()
+#         execute()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        sbp.Popen(('emacs', '-f', 'svn-status-pylib'))
-        sleep(300)
-        sbp.Popen(('emacs', '-f', 'svn-status-emacsd'))
-        sleep(300)
-        sbp.check_call(('emacs', '-f', 'svn-status-zsh'))
+#         @Error:
+#         """
+#         sbp.Popen(('emacs', '-f', 'svn-status-pylib'))
+#         sleep(300)
+#         sbp.Popen(('emacs', '-f', 'svn-status-emacsd'))
+#         sleep(300)
+#         sbp.check_call(('emacs', '-f', 'svn-status-zsh'))
 
 
 class BackupQueen(Task):
@@ -450,53 +450,53 @@ class MirroringData(Task):
         mrr.pull()
 
 
-class MirroringNight(Task):
-    r"""MirroringNight
+# class MirroringNight(Task):
+#     r"""MirroringNight
 
-    MirroringNight is a Task.
-    Responsibility:
-    """
-    def is_ready(self, ):
-        r"""SUMMARY
+#     MirroringNight is a Task.
+#     Responsibility:
+#     """
+#     def is_ready(self, ):
+#         r"""SUMMARY
 
-        is_ready()
+#         is_ready()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        return True
+#         @Error:
+#         """
+#         return True
 
-    def execute(self, ):
-        r"""SUMMARY
+#     def execute(self, ):
+#         r"""SUMMARY
 
-        execute()
+#         execute()
 
-        @Return:
+#         @Return:
 
-        @Error:
-        """
-        def vmware_service(action):
-            r"""SUMMARY
+#         @Error:
+#         """
+#         def vmware_service(action):
+#             r"""SUMMARY
 
-            vmware_service(action)
+#             vmware_service(action)
 
-            @Arguments:
-            - `action`:
+#             @Arguments:
+#             - `action`:
 
-            @Return:
-            """
-            try:
-                sbp.check_call(('/usr/sbin/service', 'vmware', action))
-            except sbp.CalledProcessError as prcss:
-                msg = str(prcss)
-                if prcss.output:
-                    msg += '\n\n' + prcss.output
-                easygui.msgbox(msg, 'Failed')
-                return
-        vmware_service('start')
-        sbp.call('/usr/bin/vmware')
-        vmware_service('stop')
+#             @Return:
+#             """
+#             try:
+#                 sbp.check_call(('/usr/sbin/service', 'vmware', action))
+#             except sbp.CalledProcessError as prcss:
+#                 msg = str(prcss)
+#                 if prcss.output:
+#                     msg += '\n\n' + prcss.output
+#                 easygui.msgbox(msg, 'Failed')
+#                 return
+#         vmware_service('start')
+#         sbp.call('/usr/bin/vmware')
+#         vmware_service('stop')
 
 
 
@@ -557,8 +557,8 @@ def _main():
         tmanager.add_task(CleanupFiles())
         # tmanager.add_task(BookmarksOrganize())
         tmanager.add_task(PackageUpdate())
-        tmanager.add_task(DiskSetup(prepare))
-        tmanager.add_task(SubversionCommit())
+        # tmanager.add_task(DiskSetup(prepare))
+        # tmanager.add_task(SubversionCommit())
         tmanager.add_task(BackupQueen())
         tmanager.add_task(MirroringData())
         # tmanager.add_task(MirroringNight())

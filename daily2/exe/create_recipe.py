@@ -23,6 +23,9 @@ __version__ = '0.0.1'
 
 CHROME_OPTIONS = CHROME_OPTS + ['--new-window']
 
+FAVORITE_URL = 'https://shop.nanairo.coop/front/bb/shiga/product/productlist?dt=f&pc=15111000&b=TmpBean--70806817'
+ORDERED_URL = 'https://shop.nanairo.coop/front/bb/shiga/order/orderhistory?pc=15111000&b=TmpBean--70806817'
+
 
 class CreateRecipe(WindowListenerFactoryObserver, WindowListenerObserver):
     r"""CreateRecipe
@@ -92,7 +95,7 @@ class CreateRecipe(WindowListenerFactoryObserver, WindowListenerObserver):
             window.move(newx=1550, newy=70)
             if not window.is_maximized():
                 window.maximize()
-            chrome.run(RECIPE_URL)
+            chrome.run((FAVORITE_URL, ORDERED_URL, RECIPE_URL))
             self.stop()
 
     def on_created_window_listener(self, window):

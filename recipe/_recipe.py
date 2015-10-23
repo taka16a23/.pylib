@@ -49,7 +49,7 @@ def show_recipe_schedule():
 
     @Error:
     """
-    chrome.run('http://taka16.no-ip.info:8000/')
+    chrome.run(RECIPE_URL)
 
 
 class Recipe(object):

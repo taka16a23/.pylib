@@ -17,13 +17,98 @@ from pshandler import _err, _ntuple
 
 def wrap_exceptions(fun):
     r"""SUMMARY
-
+    
     wrap_exceptions(fun)
+    
+    @Arguments:
+    - `fun`:
+    
+    @Return:
 
+    @Error:
+    """
+    @wraps(fun)
+    def wrapper(self, *args, **kwargs):
+        r"""SUMMARY
+        
+        wrapper(self, *args, **kwargs)
+        
+        @Arguments:
+        - `self`:
+        - `args`:
+        - `kwargs`:
+        
+        @Return:
+
+        @Error:
+        """
+        try:
+            return fun(self, *args, **kwargs)
+        except psutil.NoSuchProcess:
+            raise _err.NoSuchProcess(self.pid, self.name)
+        except psutil.AccessDenied:
+            raise _err.AccessDenied(self.pid, self.name)
+        raise
+    return wrapper
+
+class ProcessHandler(ProcessHandlerAbstract):
+    r"""ProcessHandler
+
+    ProcessHandler is a ProcessAbstract.
+    Responsibility:
+    """
+    def __init__(self, pid=None):
+        r"""
+
+        @Arguments:
+        - `pid`:
+        """
+        self._ps = psutil.Process(pid)
+        self.__hash = None # for cache
+
+    def __int__(self):
+        return self.pid
+
+    def __str__(self):
+        try:
+            name = self.name
+        except _err.NoSuchProcess:
+            details = 'pid={0.pid}, terminated'.format(self)
+        except _err.AccessDenied:
+            details = 'pid={0.pid}'.format(self)
+        else:
+            details = 'pid={0.pid}, name="{1}"'.format(self, name)
+        return '{0.__class__.__module__}.{0.__class__.__name__}({1})'.format(
+            self, details)
+    
+    def __repr__(self):
+        return '<{0} at {1}>'.format(str(self), id(self))
+    
+    def __eq__(self, other):
+        if not isinstance(other, (self.__class__, )):
+            raise NotImplementedError()
+        return self._ident() == other._ident()
+    
+    def __ne__(self, other):
+        return not self == other
+
+    def __hash__(self, ):
+        if self.__hash is None:
+            self.__hash = hash(self._ident())
+        return self.__hash
+
+    def _ident(self, ):
+        r"""SUMMARY
+        
+        _ident()
+        
+        @Return:
+
+        @Error:
+        """
         return (self.pid, self.create_time)
 
     def get_pid(self):
-        """SUMMARY"""
         return self._ps.pid
 
     pid = property(get_pid)
@@ -270,9 +355,31 @@ def wrap_exceptions(fun):
 
 class Popen(ProcessHandler):
     r"""Popen
-
+    
     Popen is a ProcessHandler.
-    Responsibility:
+    Responsibility: 
+    """
+    def __init__(self, *args, **kwargs):
+        r"""
+        
+        @Arguments:
+        - `args`:
+        - `kwargs`:
+        """
+        self.__subproc = _subprocess.Popen(*args, **kwargs)
+        super(Popen, self).__init__(self.__subproc.pid)
+
+    def __dir__(self):
+        return sorted(set(dir(Popen) + dir(_subprocess.Popen)))
+
+    def __getattribute__(self, name):
+        try:
+            return object.__getattribute__(self, name)
+        except AttributeError:
+            try:
+                return object.__getattribute__(self.__subproc, name)
+            except AttributeError:
+                raise AttributeError("%s instance has no attribute '%s'"
                                      % (self.__class__.__name__, name))
 
     def wait(self, timeout=None):

@@ -78,6 +78,9 @@ BACKUP_EXCLUDES = ['/data/*',
                    '/root/.cache/google-chrome/Default/*',
                    '/root/.local/share/Trash/files/*',
                    '/root/.local/share/Trash/info/*',
+                   '/cdata',
+                   '/root/homedata',
+                   '/root/work',
                    ]
 
 RESTORE_EXCLUDES = ['/data/*',
@@ -90,6 +93,9 @@ RESTORE_EXCLUDES = ['/data/*',
                     '/root/.local/share/Trash/info/*',
                     '/etc/fstab',
                     '/etc/crypttab',
+                    '/cdata',
+                    '/root/homedata',
+                    '/root/work',
                     ]
 
 ###############################################################################

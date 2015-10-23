@@ -91,7 +91,7 @@ class Webpage(WindowListenerFactoryObserver):
 
         @Error:
         """
-        if not 'Google-chrome' in window.wmclass:
+        if not 'google-chrome' in window.wmclass:
             return
         if not self.window is None:
             return

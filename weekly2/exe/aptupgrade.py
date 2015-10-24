@@ -35,7 +35,6 @@ def _main():
     # parser.print_usage()
     sbp.check_call(['/usr/bin/apt-get', 'update'])
     for line in sh.apt_get('-y', '-f', 'upgrade', _iter=True):
-        self._result.write(line)
         sys.stdout.write(line)
         sys.stdout.flush()
     sbp.Popen(('apt-get', 'clean'))

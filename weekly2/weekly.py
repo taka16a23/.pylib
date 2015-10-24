@@ -352,6 +352,37 @@ class PackageUpdate(Task):
 #         sbp.check_call(('emacs', '-f', 'svn-status-zsh'))
 
 
+class MirroringData(Task):
+    r"""MirroringData
+
+    MirroringData is a Task.
+    Responsibility:
+    """
+    def is_ready(self, ):
+        r"""SUMMARY
+
+        is_ready()
+
+        @Return:
+
+        @Error:
+        """
+        return True
+
+    def execute(self, ):
+        r"""SUMMARY
+
+        execute()
+
+        @Return:
+
+        @Error:
+        """
+        mrr = mirror.DataMirror(verbose=True)
+        mrr.push()
+        mrr.pull()
+
+
 class BackupQueen(Task):
     r"""BackupQueen Night
 
@@ -417,37 +448,6 @@ class BackupKing(Task):
         @Error:
         """
         backup_ki_pull.backup()
-
-
-class MirroringData(Task):
-    r"""MirroringData
-
-    MirroringData is a Task.
-    Responsibility:
-    """
-    def is_ready(self, ):
-        r"""SUMMARY
-
-        is_ready()
-
-        @Return:
-
-        @Error:
-        """
-        return True
-
-    def execute(self, ):
-        r"""SUMMARY
-
-        execute()
-
-        @Return:
-
-        @Error:
-        """
-        mrr = mirror.DataMirror(verbose=True)
-        mrr.push()
-        mrr.pull()
 
 
 # class MirroringNight(Task):
@@ -557,10 +557,11 @@ def _main():
         tmanager.add_task(CleanupFiles())
         # tmanager.add_task(BookmarksOrganize())
         tmanager.add_task(PackageUpdate())
+        tmanager.add_task(MirroringData())
         # tmanager.add_task(DiskSetup(prepare))
         # tmanager.add_task(SubversionCommit())
+        tmanager.add_task(BackupKing())
         tmanager.add_task(BackupQueen())
-        tmanager.add_task(MirroringData())
         # tmanager.add_task(MirroringNight())
         tmanager.add_task(Finishing())
     tmanager.start()

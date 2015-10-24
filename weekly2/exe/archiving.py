@@ -33,7 +33,7 @@ class Archiving(WindowListenerFactoryObserver):
     """
     archive_path = MyArchive().get_path()
     download_path = PathHandler('~/Downloads').expanduser()
-    mytemp_path = PathHandler('/media/Data/MYTEMP')
+    mytemp_path = PathHandler('~/homedata/MYTEMP').expanduser()
 
     row01 = GridSpec.create_with_size(0, 1)
     row0 = GridSpec.create(0)

@@ -128,12 +128,12 @@ class MyData(abstract.MyPath):
 
         @Error:
         """
-        if self.isexists() and force is False:
-            return True
+        # if self.isexists() and force is False:
+        #     return True
         if not self.get_path().exists():
             self.mkdir()
-        self._decrypt()
-        self.mount()
+        # self._decrypt()
+        # self.mount()
 
     def __str__(self):
         return self.get_path()

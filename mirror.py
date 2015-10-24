@@ -47,6 +47,7 @@ class DataMirror(Verbose):
 
     _exclude_opts = ['/data/.backup/*',
                      '/data/.repository',
+                     '/data/repository',
                      '/data/tmp',
                      'lost+found',
                      # for safety

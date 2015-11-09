@@ -1,0 +1,4 @@
+-*- coding: utf-8-unix -*-
+
+* TODO prevent connect while 3 to 5 o'clock.
+* TODO prevent connect while maintance.

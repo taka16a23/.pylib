@@ -198,7 +198,7 @@ class CacheFileRequests(object):
 
 
 def list_productlist_cache_path():
-    r"""SUMMARY
+    r"""*SUMMARY
 
     iter_productlist_cache_path()
 
@@ -362,7 +362,7 @@ def parse_goodscode(url):
 
 
 def parse_ids(path):
-    r"""SUMMARY
+    r"""*SUMMARY
 
     parse_ids(path)
 
@@ -376,17 +376,38 @@ def parse_ids(path):
     fobj = path.open('rb')
     tree = html.fromstring(fobj.read().decode('utf-8'))
     fobj.close()
-    jancode = tree.xpath('//*[@id="lblJAN"]')[0].text_content()
-    price = tree.xpath(
-        '//*[@id="lblHontaiKakaku"]')[0].text_content().replace(u'￥', u'')
-    taxprice = tree.xpath(
-        '//*[@id="lblKakaku"]')[0].text_content().replace(u'￥', u'')
-    calorie = tree.xpath('//*[@id="lblCaroly"]')[0].text_content()
-    maker = tree.xpath('//*[@id="lblMaker"]')[0].text_content()
-    gensankoku = tree.xpath(
-        '//*[@id="lblGensankokuKakouchi"]')[0].text_content()
-    setsumei = tree.xpath(
-        '//*[@id="lblSyohinSetsumei"]')[0].text_content()
+    try:
+        jancode = tree.xpath('//*[@id="lblJAN"]')[0].text_content()
+    except IndexError:
+        jancode = ''
+    try:
+        price = tree.xpath(
+            '//*[@id="lblHontaiKakaku"]')[0].text_content().replace(u'￥', u'')
+    except IndexError:
+        price = ''
+    try:
+        taxprice = tree.xpath(
+            '//*[@id="lblKakaku"]')[0].text_content().replace(u'￥', u'')
+    except IndexError:
+        taxprice = ''
+    try:
+        calorie = tree.xpath('//*[@id="lblCaroly"]')[0].text_content()
+    except IndexError:
+        calorie = ''
+    try:
+        maker = tree.xpath('//*[@id="lblMaker"]')[0].text_content()
+    except IndexError:
+        maker = ''
+    try:
+        gensankoku = tree.xpath(
+            '//*[@id="lblGensankokuKakouchi"]')[0].text_content()
+    except IndexError:
+        gensankoku = ''
+    try:
+        setsumei = tree.xpath(
+            '//*[@id="lblSyohinSetsumei"]')[0].text_content()
+    except IndexError:
+        setsumei = ''
     return jancode, price, taxprice, calorie, maker, gensankoku, setsumei
 
 

@@ -258,6 +258,7 @@ class PackageUpdate(Task):
         """
         sbp.Popen(('/usr/bin/xfce4-terminal', '--hold', '--command={} {}'
                    .format(sys.executable, EXE_PATH.join('aptupgrade.py'))))
+        sleep(150)
 
 
 # class DiskSetup(Task):
@@ -378,9 +379,10 @@ class MirroringData(Task):
 
         @Error:
         """
+        sbp.check_call(('/usr/sbin/ntpdate', 'ntp.nict.jp'))
         mrr = mirror.DataMirror(verbose=True)
         mrr.push()
-        mrr.pull()
+        # mrr.pull()
 
 
 class BackupQueen(Task):
@@ -447,6 +449,7 @@ class BackupKing(Task):
 
         @Error:
         """
+        sbp.check_call(('/usr/sbin/ntpdate', 'ntp.nict.jp'))
         backup_ki_pull.backup()
 
 

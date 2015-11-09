@@ -129,7 +129,7 @@ class DataMirror(Verbose):
         self._execute([CMD.get('rsync')] + self._debug_opts +
                       self._default_opts + self._archive_opts +
                       ['--exclude=' + x for x in self._exclude_opts] +
-                      ['-e ssh'] +
+                      ['-e /usr/bin/ssh'] +
                       local_remote)
 
     def pull(self):

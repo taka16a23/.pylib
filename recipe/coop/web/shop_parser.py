@@ -4,7 +4,7 @@ r"""shop_parser -- DESCRIPTION
 
 """
 from recipe.coop.web.categories import Categories
-
+import gc
 
 class ShopParser(object):
     r"""ShopParser
@@ -33,6 +33,7 @@ class ShopParser(object):
         for categorie in self._categories.list_categories():
             for goods in self._categories.iter_goods(categorie):
                 yield goods
+            gc.collect()
 
     def current_period(self, ):
         r"""SUMMARY

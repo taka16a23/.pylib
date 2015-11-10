@@ -5,7 +5,7 @@ r"""thred_request -- DESCRIPTION
 """
 
 
-def thread_request(threads, concurrent=1):
+def thread_request(threads, concurrent=20):
     r"""SUMMARY
 
     thread_request(threads)

@@ -79,10 +79,10 @@ class WebPage(Thread):
             return
         print('Requesting {}'.format(self.url))
         response = requests.get(self.url)
-        if not response.ok:
-            self._html = html.fromstring('<html></html>') # empty
-            return
-        self._html = html.fromstring(response.text)
+        # if not response.ok:
+        #     self._html = html.fromstring('<html></html>') # empty
+        #     return
+        # self._html = html.fromstring(response.text)
         with cache_path.open('wb') as fobj:
             fobj.write(response.text.encode('utf-8'))
 
@@ -95,7 +95,9 @@ class WebPage(Thread):
 
         @Error:
         """
-        self._request()
+        if not self.cache_dir.join(self.url.replace('/', '|')).exists():
+            print('DEBUG-1-webpage.py')
+            self._request()
 
 
 class GoodsDetailPage(WebPage):
@@ -237,6 +239,10 @@ class GoodsDetailPage(WebPage):
             return ''
         return setsumeis[0].text_content()
 
+    def __del__(self):
+        # Do not imprement "raise"!!
+        print('deleted GoodsDetailPage')
+
 
 class ProductDetailPage(WebPage):
     r"""ProductDetailPage
@@ -347,6 +353,9 @@ class ProductDetailPage(WebPage):
             return None
         return GoodsDetailPage(elt_a[0].attrib['href'])
 
+    def __del__(self):
+        # Do not imprement "raise"!!
+        print('deleted ProductDetailPage')
 
 BASE_URL = 'https://shop.nanairo.coop'
 
@@ -379,6 +388,8 @@ class ProductListPage(WebPage):
 
         @Error:
         """
+        if self._html is None:
+            self._request()
         string = self._html.xpath("//*[@class='date-order']")[0].text_content()
         mstring, tail = string.split(u'月')
         month = int(mstring)
@@ -399,7 +410,31 @@ class ProductListPage(WebPage):
             self._request()
         return self._html.xpath("//*[@class='product-list-table']")
 
-    def list_product_detail(self, ):
+    # def list_product_detail(self, ):
+    #     r"""SUMMARY
+
+    #     list_product_urls()
+
+    #     @Return:
+
+    #     @Error:
+    #     """
+    #     table = self._get_product_table()
+    #     if not table:
+    #         return []
+    #     name_links = table[0].xpath("//*[@class='product-name force-wrap']")
+    #     if not name_links:
+    #         return []
+    #     links, append = dotavoid([], 'append')
+    #     for url in name_links:
+    #         a_link = url.xpath('a')
+    #         if not a_link:
+    #             continue
+    #         append(ProductDetailPage(BASE_URL + a_link[0].attrib['href']))
+    #     thread_request(links)
+    #     return links
+
+    def iter_product_detail(self, ):
         r"""SUMMARY
 
         list_product_urls()
@@ -409,19 +444,22 @@ class ProductListPage(WebPage):
         @Error:
         """
         table = self._get_product_table()
-        if not table:
-            return []
+        # if not table:
+        #     return []
         name_links = table[0].xpath("//*[@class='product-name force-wrap']")
-        if not name_links:
-            return []
-        links, append = dotavoid([], 'append')
+        # if not name_links:
+        #     return []
+        # links, append = dotavoid([], 'append')
         for url in name_links:
             a_link = url.xpath('a')
             if not a_link:
                 continue
-            append(ProductDetailPage(BASE_URL + a_link[0].attrib['href']))
-        thread_request(links)
-        return links
+            yield ProductDetailPage(BASE_URL + a_link[0].attrib['href'])
+        # start, stop = 0, 20
+        # while links[start:stop]:
+        #     thread_request(links[start:stop])
+        #     for link in links[start:stop]:
+        #         yield link
 
 
 

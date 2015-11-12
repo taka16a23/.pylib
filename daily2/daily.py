@@ -39,7 +39,7 @@ from junk.mypsutil import psexists
 from pathhandler import PathHandler
 from mygoogle import chrome
 from task import TaskManager, Task
-
+from mypcs.king import King
 import xcb, xcb.xproto, xcb.screensaver
 
 from daily2 import exe
@@ -217,8 +217,12 @@ class CreateRecipe(Task):
             sleep(1)
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('create_recipe.py')))
+        sbp.Popen([sys.executable, EXE_PATH.join('coop_database.py')])
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('mapping_menus.py')))
+        if yesnodialog('Prompt', 'king halt?'):
+            with King() as ki:
+                ki.halt()
 
 
 class ReadNews(Task):

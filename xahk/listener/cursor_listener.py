@@ -6,8 +6,8 @@ r"""cursor_listener -- DESCRIPTION
 from dotavoider import ListDotAvoider
 from observer import Observable
 
-from xcb.xproto import (EnterNotifyEvent, NotifyDetail, NotifyMode, CW,
-                        EventMask, BadWindow)
+from xcb.xproto import (EnterNotifyEvent, NotifyDetail, NotifyMode, EventMask,
+                        BadWindow)
 
 from xahk.commons.display_multiton import multiton_display
 from xahk.windowspec import WindowIDSpec

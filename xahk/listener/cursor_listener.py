@@ -70,7 +70,7 @@ class CursorListener(WindowListenerFactoryObserver, Observable, EventListener,
         """
         if not isinstance(event, (EnterNotifyEvent, )):
             return False
-        if event.detail in (NotifyDetail.Inferior, NotifyDetail.Ancestor):
+        if event.detail == NotifyDetail.Inferior:
             return False
         if event.mode == NotifyMode.Grab:
             return False

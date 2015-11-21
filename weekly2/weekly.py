@@ -380,6 +380,7 @@ class MirroringData(Task):
         @Error:
         """
         sbp.check_call(('/usr/sbin/ntpdate', 'ntp.nict.jp'))
+        sbp.check_call(('/bin/systemctl start king-ssh-tunnel.service'))
         mrr = mirror.DataMirror(verbose=True)
         mrr.push()
         # mrr.pull()

@@ -58,7 +58,7 @@ class Webpage(WindowListenerFactoryObserver):
         urls = list(chrome.ChromeBMParse('Daily'))
         weekday = now_weekday()
         if not (weekday.is_saturday() or weekday.is_sunday() or
-                holiday.JapanHolidays().is_holiday(datetime.today().date())):
+                holiday.JapaneseDay.today().is_holiday()):
             urls += list(chrome.ChromeBMParse('Market'))
         chrome_opts = CHROME_OPTS + ['--new-window']
         chrome.run(urls, options=chrome_opts)

@@ -3,8 +3,6 @@
 r"""horizon -- DESCRIPTION
 
 """
-from copy import deepcopy
-
 from xahk.layout.layout_item import LayoutItem
 from xahk.layout.resize import spacing_horizon
 

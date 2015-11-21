@@ -28,8 +28,8 @@ r"""Name: test_japan_holiday.py
 """
 from mocker import *
 import datetime
-from holiday.japan._japan import (
-    JapanHolidays, VernalEquinoxHoliday, AutumnalEquinoxHoliday)
+from holiday.japan._factory import VernalEquinoxHoliday, AutumnalEquinoxHoliday
+from holiday.japan._day import JapaneseDay
 from holiday.period import Period
 
 
@@ -130,12 +130,14 @@ class TestJapanHoliday(MockerTestCase):
         cls.predefined = get_predefined()
 
     def setUp(self):
-        self.holidays = JapanHolidays()
         self.mocker.replay()
 
     def test_between_holidays(self, ):
-        generated = self.holidays.between_holidays(
-            Period(datetime.date(1950, 1, 1), datetime.date(2050, 12, 31)))
+        holidays = JapaneseDay(1950, 1, 1)
+        generated = {}
+        days = holidays.between_holidays(datetime.date(2050, 12, 31))
+        for d in days:
+            generated.setdefault(d, d.get_name())
         self.assertEqual(len(self.predefined), len(generated))
         for date, name in self.predefined.items():
             self.assertIn(date, generated)
@@ -146,29 +148,30 @@ class TestJapanHoliday(MockerTestCase):
             self.assertTrue(name == self.predefined[date])
 
     def test_get_next(self, ):
-        next_date, next_name = self.holidays.get_next(datetime.date(2000, 1, 1))
+        holidays = JapaneseDay(2000, 1, 1)
+        next_date = holidays.next_holiday()
         self.assertEqual(datetime.date(2000, 1, 10), next_date)
-        self.assertEqual(u'成人の日', next_name)
-        next_date2, next_name2 = self.holidays.get_next(
-            datetime.date(2001, 2, 11))
+        self.assertEqual(u'成人の日', next_date.get_name())
+        holidays = JapaneseDay(2001, 2, 11)
+        next_date2 = holidays.next_holiday()
         self.assertEqual(datetime.date(2001, 2, 12), next_date2)
-        self.assertEqual(u'振替休日', next_name2)
-        next_date3, next_name3 = self.holidays.get_next(
-            datetime.date(2001, 5, 3))
+        self.assertEqual(u'振替休日', next_date2.get_name())
+        holidays = JapaneseDay(2001, 5, 3)
+        next_date3 = holidays.next_holiday()
         self.assertEqual(datetime.date(2001, 5, 4), next_date3)
-        self.assertEqual(u'国民の休日', next_name3)
+        self.assertEqual(u'国民の休日', next_date3.get_name())
 
     def test_get_previous(self, ):
-        prev_date, prev_name = self.holidays.get_previous(
-            datetime.date(2001, 5, 4))
+        holidays = JapaneseDay(2001, 5, 4)
+        prev_date = holidays.previous_holiday()
         self.assertEqual(datetime.date(2001, 5, 3), prev_date)
-        self.assertEqual(u'憲法記念日', prev_name)
+        self.assertEqual(u'憲法記念日', prev_date.get_name())
 
     def test_is_holiday(self, ):
-        self.assertTrue(self.holidays.is_holiday(datetime.date(2000, 1, 1)))
-        self.assertFalse(self.holidays.is_holiday(datetime.date(1900, 1, 1)))
-        self.assertFalse(self.holidays.is_holiday(datetime.date(2000, 1, 2)))
-        self.assertFalse(self.holidays.is_holiday(datetime.date(2100, 1, 1)))
+        self.assertTrue(JapaneseDay(2000, 1, 1).is_holiday())
+        self.assertFalse(JapaneseDay(1900, 1, 1).is_holiday())
+        self.assertFalse(JapaneseDay(2000, 1, 2).is_holiday())
+        self.assertFalse(JapaneseDay(2100, 1, 1).is_holiday())
 
     def test_substitute_holidays(self, ):
         self.skipTest('Not Implemented')
@@ -182,6 +185,7 @@ class TestJapanHoliday(MockerTestCase):
     @classmethod
     def tearDownClass(cls, ):
         pass
+
 
 
 # For Emacs

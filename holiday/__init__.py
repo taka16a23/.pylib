@@ -4,14 +4,14 @@ r"""Name: __init__.py
 
 
 """
-from holiday.japan import JapanHolidays
-from holiday.period import Period
+from holiday.japan import JapaneseDay
+from holiday.international_name import (
+    InternationalName, set_default_lang, get_default_lang)
 
 
+__version__ = "0.0.2"
 
-__version__ = "0.0.1"
-
-__all__ = [ ]
+__all__ = ['JapaneseDay', 'set_default_lang', 'get_default_lang', ]
 
 
 

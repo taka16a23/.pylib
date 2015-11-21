@@ -255,10 +255,8 @@ class ReadNews(Task):
             sys.executable, EXE_PATH.join('chrome_move.py')))
         os.system(
             u'{} {}'.format(sys.executable, EXE_PATH.join('webpage.py')))
-        print('DEBUG-1-daily.py')
         while psexists('Sleipnir.exe'):
             sleep(1)
-        print('DEBUG-2-daily.py')
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('foreign_webpage.py')))
         if not now_weekday().is_saturday():

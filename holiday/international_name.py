@@ -12,18 +12,43 @@ class InternationalName(object):
     Responsibility:
     """
     languages = ['en', 'ja', ]
+    default = 'en'
 
-    def __init__(self, default=None, **kwargs):
+    def __init__(self, **kwargs):
         r"""
 
         @Arguments:
         - `default`:
         - `kwargs`:
         """
-        self.default = default or 'en'
         self._names = dict.fromkeys(self.languages)
         for lang, name in kwargs.items():
             self.set_name(lang, name)
+
+    @classmethod
+    def get_default_lang(cls, ):
+        r"""SUMMARY
+
+        get_default_lang()
+
+        @Return:
+
+        @Error:
+        """
+        return cls.default
+
+    @classmethod
+    def set_default_lang(cls, lang):
+        """function set_default_lang
+
+        lang: str
+
+        returns
+        """
+        if not lang in cls.languages:
+            raise StandardError('{} Not supported languages. acceptable {}'
+                                .format(lang, cls.languages))
+        cls.default = lang
 
     # Operations
     def set_name(self, lang, name):
@@ -48,15 +73,6 @@ class InternationalName(object):
         """
         return self._names.get(lang or self.default, None) or ''
 
-    def set_default_lang(self, lang):
-        """function set_default_lang
-
-        lang: str
-
-        returns
-        """
-        self.default = lang
-
     def __str__(self):
         """function __str__
 
@@ -77,6 +93,30 @@ class InternationalName(object):
 
     def __ne__(self, other):
         return not self == other
+
+
+def set_default_lang(lang):
+    r"""SUMMARY
+
+    name()
+
+    @Return:
+
+    @Error:
+    """
+    InternationalName.set_default_lang(lang)
+
+
+def get_default_lang():
+    r"""SUMMARY
+
+    name()
+
+    @Return:
+
+    @Error:
+    """
+    return InternationalName.get_default_lang()
 
 
 

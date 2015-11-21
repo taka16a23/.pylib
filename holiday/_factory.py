@@ -68,10 +68,9 @@ class HolidayFactory(object):
 
         returns dict
         """
-        start, end = period.get_start(), period.get_end()
-        date, oneday = start, timedelta(1)
+        date, oneday = period.get_start(), timedelta(1)
         result = {}
-        while date < end:
+        while date < period.get_end():
             self._elect_candidate(date, result)
             date += oneday
         return result

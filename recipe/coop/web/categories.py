@@ -166,8 +166,8 @@ class Categories(object):
                             maker=gdp.maker(),
                             country=gdp.gensankoku(),
                             explain=gdp.setsumei(),
-                            price=gdp.price(),
-                            totalprice=gdp.taxprice(),
+                            price=pdp.price(),
+                            totalprice=pdp.taxprice(),
                             order_no=pdp.order_no(),
                             standard=pdp.standard(),
                             calorie=gdp.calorie(),)
@@ -191,8 +191,8 @@ class Categories(object):
                             maker=gdp.maker(),
                             country=gdp.gensankoku(),
                             explain=gdp.setsumei(),
-                            price=gdp.price(),
-                            totalprice=gdp.taxprice(),
+                            price=pdp.price(),
+                            totalprice=pdp.taxprice(),
                             order_no=pdp.order_no(),
                             standard=pdp.standard(),
                             calorie=gdp.calorie(),)

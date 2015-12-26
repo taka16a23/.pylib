@@ -311,6 +311,52 @@ class ProductDetailPage(WebPage):
             result = result.replace(char, '')
         return result
 
+    def price(self, ):
+        r"""SUMMARY
+
+        price()
+
+        @Return:
+
+        @Error:
+        """
+        table = self._get_table()
+        if not table:
+            return ''
+        try:
+            pricestr = table[0].xpath(
+                "//*[@id='product-detail-{}']/div/div[2]/div[2]/p[2]"
+                .format(self.order_no())
+            )[0].text_content()
+        except IndexError as err:
+            print(err)
+            return ''
+        price = pricestr.split(':')[1:][0]
+        return price[:price.index(u'円')]
+
+    def taxprice(self, ):
+        r"""SUMMARY
+
+        totalprice()
+
+        @Return:
+
+        @Error:
+        """
+        table = self._get_table()
+        if not table:
+            return ''
+        try:
+            pricestr = table[0].xpath(
+                "//*[@id='product-detail-{}']/div/div[2]/div[2]/p[2]"
+                .format(self.order_no())
+            )[0].text_content()
+        except IndexError as err:
+            print(err)
+            return ''
+        price = pricestr.split(':')[1:][1]
+        return price[:price.index(u'円')]
+
     def standard(self, ):
         r"""SUMMARY
 

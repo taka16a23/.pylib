@@ -332,7 +332,7 @@ class ProductDetailPage(WebPage):
             print(err)
             return ''
         price = pricestr.split(':')[1:][0]
-        return price[:price.index(u'円')]
+        return price[:price.index(u'円')].replace(',', '')
 
     def taxprice(self, ):
         r"""SUMMARY
@@ -355,7 +355,7 @@ class ProductDetailPage(WebPage):
             print(err)
             return ''
         price = pricestr.split(':')[1:][1]
-        return price[:price.index(u'円')]
+        return price[:price.index(u'円')].replace(',', '')
 
     def standard(self, ):
         r"""SUMMARY

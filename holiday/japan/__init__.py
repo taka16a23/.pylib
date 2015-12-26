@@ -4,10 +4,10 @@ r"""Name: __init__.py
 
 
 """
-from holiday.japan._japan import JapanHolidays
+from holiday.japan._day import JapaneseDay
 
 
-__all__ = ['JapanHolidays', ]
+__all__ = ['JapaneseDay', ]
 
 
 

@@ -7,7 +7,7 @@ from orderedreplace import OrderedReplace
 
 import strpointer
 import subscanner
-from xsendkey.token import TokenType, Token
+from xsendkey.parser.token import TokenType, Token
 from xcb2.xobj.key import Modifier, Namesym, Charsym
 import xsend
 

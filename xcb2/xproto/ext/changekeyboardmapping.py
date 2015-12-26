@@ -17,12 +17,12 @@ keysyms-per-keycode (or a Length error results). The first-keycode must be
 greater than or equal to min-keycode as returned in the connection setup (or a
 Value error results) and:
 
-	first-keycode + (keysyms-length / keysyms-per-keycode) - 1
+        first-keycode + (keysyms-length / keysyms-per-keycode) - 1
 must be less than or equal to max-keycode as returned in the connection setup
 (or a Value error results). KEYSYM number N (counting from zero) for keycode K
 has an index (counting from zero) of:
 
-	(K - first-keycode) * keysyms-per-keycode + N
+        (K - first-keycode) * keysyms-per-keycode + N
 in keysyms. The keysyms-per-keycode can be chosen arbitrarily by the client to
 be large enough to hold all desired symbols. A special KEYSYM value of NoSymbol
 should be used to fill in unused elements for individual keycodes. It is legal
@@ -36,6 +36,7 @@ stored for reading and writing by clients (see section 5).
 """
 from cStringIO import StringIO as _StringIO
 from struct import pack as _pack
+from array import array
 
 from xcb2 import Request, VoidCookie
 from xcb2.xproto.ext.abstract import CoreMethodAbstract
@@ -55,7 +56,8 @@ class ChangeKeyboardMappingAbstract(CoreMethodAbstract):
             keycode_count, first_keycode, keysyms_per_keycode, keysyms):
         buf = _StringIO()
         buf.write(_pack(self.fmt, keycode_count, first_keycode,
-                        keysyms_per_keycode, keysyms))
+                        keysyms_per_keycode))
+        buf.write(str(buffer(array('I', keysyms))))
         return buf.getvalue()
 
 

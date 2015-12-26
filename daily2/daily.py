@@ -39,7 +39,7 @@ from junk.mypsutil import psexists
 from pathhandler import PathHandler
 from mygoogle import chrome
 from task import TaskManager, Task
-
+from mypcs.king import King
 import xcb, xcb.xproto, xcb.screensaver
 
 from daily2 import exe
@@ -217,8 +217,12 @@ class CreateRecipe(Task):
             sleep(1)
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('create_recipe.py')))
+        sbp.Popen([sys.executable, EXE_PATH.join('coop_database.py')])
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('mapping_menus.py')))
+        if yesnodialog('Prompt', 'king halt?'):
+            with King() as ki:
+                ki.halt()
 
 
 class ReadNews(Task):
@@ -251,10 +255,8 @@ class ReadNews(Task):
             sys.executable, EXE_PATH.join('chrome_move.py')))
         os.system(
             u'{} {}'.format(sys.executable, EXE_PATH.join('webpage.py')))
-        print('DEBUG-1-daily.py')
         while psexists('Sleipnir.exe'):
             sleep(1)
-        print('DEBUG-2-daily.py')
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('foreign_webpage.py')))
         if not now_weekday().is_saturday():

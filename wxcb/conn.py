@@ -5,7 +5,6 @@ r"""xconnection -- DESCRIPTION
 """
 from xcb.xcb import connect as baseconnect
 
-import wxcb.xobj.window as _window
 import wxcb.xobj.keycode as _keycode
 
 
@@ -35,6 +34,7 @@ class WrapSCREEN(object):
 
         @Error:
         """
+        import wxcb.xobj.window as _window
         return _window.Window(self._rawreply.root, self.display)
 
     @property

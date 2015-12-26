@@ -187,6 +187,8 @@ class CleanupFiles(Task):
         """
         for fpath in self.tmpdir.listdir(r'.+\.torrent'):
             fpath.remove()
+        for fpath in self.download_dir.listdir():
+            fpath.remove()
         for dir_ in self.trash_dirs:
             if dir_.exists() and dir_.isdir():
                 try:
@@ -256,9 +258,10 @@ class PackageUpdate(Task):
 
         @Error:
         """
-        sbp.Popen(('/usr/bin/xfce4-terminal', '--hold', '--command={} {}'
-                   .format(sys.executable, EXE_PATH.join('aptupgrade.py'))))
-        sleep(150)
+        # sbp.Popen(('/usr/bin/xfce4-terminal', '--hold', '--command={} {}'
+                   # .format(sys.executable, EXE_PATH.join('aptupgrade.py'))))
+        os.system(u'{} {}'.format(sys.executable, EXE_PATH.join('aptupgrade.py')))
+        # sleep(200)
 
 
 # class DiskSetup(Task):
@@ -380,9 +383,10 @@ class MirroringData(Task):
         @Error:
         """
         sbp.check_call(('/usr/sbin/ntpdate', 'ntp.nict.jp'))
+        sbp.check_call(('/bin/systemctl', 'start', 'king-ssh-tunnel.service'))
         mrr = mirror.DataMirror(verbose=True)
         mrr.push()
-        # mrr.pull()
+        mrr.pull()
 
 
 class BackupQueen(Task):
@@ -558,8 +562,8 @@ def _main():
         tmanager.add_task(prepare)
         tmanager.add_task(Archiving())
         tmanager.add_task(CleanupFiles())
-        # tmanager.add_task(BookmarksOrganize())
         tmanager.add_task(PackageUpdate())
+        # tmanager.add_task(BookmarksOrganize())
         tmanager.add_task(MirroringData())
         # tmanager.add_task(DiskSetup(prepare))
         # tmanager.add_task(SubversionCommit())

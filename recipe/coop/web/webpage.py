@@ -395,6 +395,8 @@ class ProductListPage(WebPage):
         month = int(mstring)
         times = int(tail.split(u'回')[0])
         year = datetime.now().year
+        if month == 1 and times == 1:
+            year += 1
         return '{0}{1:02d}{2}'.format(year, month, times)
 
     def _get_product_table(self, ):

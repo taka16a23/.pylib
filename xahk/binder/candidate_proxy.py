@@ -82,6 +82,8 @@ class CandidateProxy(Observable, CandidateObserver):
 
         returns
         """
+        # TODO: (Atami) [2015/11/20]
+        # rename method "find_candidates"
         return [x for x in self.list_candidates() if x.is_satisfied(window)]
 
     def get_priority(self, candidate):

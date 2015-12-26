@@ -34,7 +34,7 @@ def get_weeknth(year, month, nth, weekday):
 
 
 class YearlyWeekNthHoliday(Holiday):
-    """Class YearlyWeekNthHoliday
+    r"""Class YearlyWeekNthHoliday
     """
     # Attributes:
     def __init__(self, period, month, weekday, nth, name):
@@ -46,7 +46,6 @@ class YearlyWeekNthHoliday(Holiday):
         - `month`:
         - `weekday`:
         - `nth`:
-        - `name`:
         """
         Holiday.__init__(self, name)
         self._period = period
@@ -56,7 +55,7 @@ class YearlyWeekNthHoliday(Holiday):
 
     # Operations
     def is_match_date(self, date):
-        """function is_match_date
+        r"""function is_match_date
 
         date:
 
@@ -69,21 +68,21 @@ class YearlyWeekNthHoliday(Holiday):
         return expect_day == date
 
     def get_month(self):
-        """function get_month
+        r"""function get_month
 
         returns
         """
         return self._month
 
     def get_weekday(self):
-        """function get_weekday
+        r"""function get_weekday
 
         returns
         """
         return self._weekday
 
     def get_week_nth(self):
-        """function get_week_nth
+        r"""function get_week_nth
 
         returns
         """

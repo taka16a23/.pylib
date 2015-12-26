@@ -7,12 +7,14 @@ import sys
 import os
 import argparse
 import datetime
+from dateutil.relativedelta import relativedelta
+
 from colorama import Fore, Style
 
-from holiday import JapanHolidays, Period, __version__
+from holiday import japan, __version__, international_name
 
 
-HOLIDAYS_CLASSES = {'japan': JapanHolidays,}
+HOLIDAYS_CLASSES = {'japan': japan.JapaneseDay,}
 
 
 def _predef_options():
@@ -72,14 +74,14 @@ def print_holidays(holidays, colors=None):
     @Error:
     """
     colors_dates = colors or []
-    dates = holidays.keys()
+    dates = holidays
     dates.sort()
     for date in dates:
         if date in colors_dates:
-            print(Fore.RED + unicode(date) + u' ' + unicode(holidays[date]) +
+            print(Fore.RED + unicode(date) + u' ' + unicode(date.get_name()) +
                   Style.RESET_ALL)
         else:
-            print(u'{} {}'.format(date, holidays[date]))
+            print(u'{} {}'.format(date, date.get_name()))
 
 
 def _main():
@@ -91,18 +93,18 @@ def _main():
     if holidays_cls is None:
         parser.print_usage()
         return "{} is not supported country.".format(opts.country)
-    holidays = holidays_cls(lang=opts.lang)
+    international_name.set_default_lang(opts.lang)
+    day = holidays_cls(opts.year, 1, 1)
     # period
-    start = datetime.date(opts.year, 1, 1)
-    end = datetime.date(opts.year + 1, 1, 1) - datetime.timedelta(1)
-    if not opts.end is None:
+    if opts.end is None:
+        end = day + relativedelta(years=1)
+    else:
         end = datetime.date(opts.end + 1, 1, 1) - datetime.timedelta(1)
     # get
-    results = holidays.between_holidays(Period(start, end))
+    results = day.between_holidays(end)
     next_dates = []
     if opts.coloring_next:
-        today = datetime.datetime.today()
-        date, _ = holidays.get_next(today.date())
+        date = holidays_cls.today().next_holiday()
         if not date is None:
             next_dates.append(date)
     # print

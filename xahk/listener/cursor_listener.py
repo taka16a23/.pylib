@@ -6,8 +6,8 @@ r"""cursor_listener -- DESCRIPTION
 from dotavoider import ListDotAvoider
 from observer import Observable
 
-from xcb.xproto import (EnterNotifyEvent, NotifyDetail, NotifyMode, CW,
-                        EventMask, BadWindow)
+from xcb.xproto import (EnterNotifyEvent, NotifyDetail, NotifyMode, EventMask,
+                        BadWindow)
 
 from xahk.commons.display_multiton import multiton_display
 from xahk.windowspec import WindowIDSpec
@@ -70,7 +70,7 @@ class CursorListener(WindowListenerFactoryObserver, Observable, EventListener,
         """
         if not isinstance(event, (EnterNotifyEvent, )):
             return False
-        if event.detail in (NotifyDetail.Inferior, NotifyDetail.Ancestor):
+        if event.detail == NotifyDetail.Inferior:
             return False
         if event.mode == NotifyMode.Grab:
             return False

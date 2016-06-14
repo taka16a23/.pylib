@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""resize -- DESCRIPTION
+"""resize -- DESCRIPTION
 
 """
 
 
 def spacing_horizon(rects, space):
-    r"""SUMMARY
+    """SUMMARY
 
     spacing_horizon(rects, space)
 
@@ -39,7 +39,7 @@ def spacing_horizon(rects, space):
 
 
 def spacing_vertical(rects, space):
-    r"""SUMMARY
+    """SUMMARY
 
     spacing_vertical(rects, space)
 

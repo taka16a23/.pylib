@@ -91,6 +91,7 @@ class MappingMenus(WindowListenerFactoryObserver):
             '{} {} {}'.format(year, weekn - 1, 4), "%Y %W %w")
         seven = dateutil.timedelta(7)
         nextthu_to_wed = thisthu + seven
+        nextthu_to_wed += seven
         next2thu_to_wed = nextthu_to_wed + seven
         menus = list(MenuManager(DEFAULT_DIR).iter_menus(
             nextthu_to_wed, next2thu_to_wed))

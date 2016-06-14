@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""root_window_listener -- DESCRIPTION
+"""root_window_listener -- DESCRIPTION
 
 timeit wm.get_viewport()
 10000 loops, best of 3: 116 µs per loop

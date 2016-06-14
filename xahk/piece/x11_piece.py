@@ -167,15 +167,18 @@ class X11Button(X11Piece):
 
         @Error:
         """
-        event = pack('BBH4I5HBx', EventCode.ButtonPress, self.code,
-                     self.sequence, self.time, self.root, window, self.child,
-                     self.rootx, self.rooty, x, y, self.modifiers,
-                     self.samescreen)
-        # self.display.core.SendEvent(
-        #     False, self.root, EventMask.ButtonPress, event)
+        try:
+            event = pack('BBH4I5HBx', EventCode.ButtonPress, self.code,
+                         self.sequence, self.time, self.root, window, self.child,
+                         self.rootx, self.rooty, x, y, self.modifiers,
+                         self.samescreen)
+            # self.display.core.SendEvent(
+            #     False, self.root, EventMask.ButtonPress, event)
+        except:
+            # TODO: (Atami) [2016/05/25]
+            return
         self.display.core.SendEvent(
-            False, window, EventMask.ButtonPress, event)
-
+                False, window, EventMask.ButtonPress, event)
 
     def release_impl(self, window, x, y):
         r"""SUMMARY
@@ -191,13 +194,17 @@ class X11Button(X11Piece):
 
         @Error:
         """
-        event = pack('BBH4I5HBx', EventCode.ButtonRelease, self.code,
+        try:
+            event = pack('BBH4I5HBx', EventCode.ButtonRelease, self.code,
                      self.sequence, self.time, self.root, window, self.child,
                      self.rootx, self.rooty, x, y,
                      self.modifiers | self._release_modifier.get(self.code, 0),
                      self.samescreen)
         # self.display.core.SendEvent(
             # False, self.root, EventMask.ButtonRelease, event)
+        except:
+            # TODO: (Atami) [2016/05/25]
+            return
         self.display.core.SendEvent(
             False, window, EventMask.ButtonRelease, event)
 

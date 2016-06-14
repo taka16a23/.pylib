@@ -3,11 +3,8 @@
 r"""grid -- DESCRIPTION
 
 """
-from rectangle import Rectangle
-from t1.listutil import flatten
-
-from xahk.layout.layout_item import LayoutItem
-from xahk.layout.resize import spacing_horizon, spacing_vertical
+from .layout_item import LayoutItem
+from .resize import spacing_horizon, spacing_vertical
 
 
 class GridSpec(object):
@@ -17,7 +14,7 @@ class GridSpec(object):
     Responsibility:
     """
     def __init__(self, start, size):
-        r"""
+        """
 
         @Arguments:
         - `start`:
@@ -28,7 +25,7 @@ class GridSpec(object):
 
     @classmethod
     def create(cls, start=0):
-        r"""SUMMARY
+        """SUMMARY
 
         create(start)
 
@@ -43,7 +40,7 @@ class GridSpec(object):
 
     @classmethod
     def create_with_size(cls, start, size):
-        r"""SUMMARY
+        """SUMMARY
 
         create_with_size(start, size)
 
@@ -58,7 +55,7 @@ class GridSpec(object):
         return cls(start, start + size)
 
     def get_start(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_start()
 

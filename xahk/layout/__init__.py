@@ -14,7 +14,6 @@ __all__ = ['VerticalLayout', 'HorizonLayout', 'LayoutItem', 'GridLayout',
            'GridSpec', 'LayoutParams']
 
 
-
 
 # For Emacs
 # Local Variables:

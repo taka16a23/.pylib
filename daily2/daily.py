@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""Name: daily.py
+"""Name: daily.py
 
 # Check Tomorrow Weather
 # Read News

@@ -17,7 +17,7 @@ class RootWindow(object):
     """
     # Attributes:
     def __init__(self, display):
-        r"""
+        """
 
         @Arguments:
         - `display`:

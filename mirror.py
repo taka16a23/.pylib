@@ -50,6 +50,7 @@ class DataMirror(Verbose):
                      '/data/repository',
                      '/data/www',
                      '/data/tmp',
+                     '/data/work',
                      'lost+found',
                      # for safety
                      '/boot',

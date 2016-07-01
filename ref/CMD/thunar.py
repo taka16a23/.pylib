@@ -12,8 +12,8 @@ import subprocess as sbp
 
 import wm
 
-from xahk.wm import WindowManager
-from xahk.windowspec import WindowWMClassSpec
+from xahk.wm.window_manager import WindowManager
+from xahk.wm.window_spec import WindowWMClassSpec
 
 
 # for debug
@@ -136,9 +136,11 @@ def close_all():
     @Return:
     None
     """
-    windows = WindowManager(Display()).list_windows(WindowWMClassSpec(CLASS))
+    windows = WindowManager().client_list()
+    spec = WindowWMClassSpec(CLASS)
     for win in windows:
-        win.close()
+        if spec.is_satisfied_window(win):
+            win.close().check()
     # for win in wm.iter_matchwin(klass=CLASS):
         # win.close()
 
@@ -160,7 +162,7 @@ class ThunarManager(object):
         """
         self.display = display
         self.spec = WindowWMClassSpec(CLASS)
-        self._wm = WindowManager(self.display)
+        self._wm = WindowManager()
 
     def list_thunar_windows(self, ):
         r"""SUMMARY
@@ -171,7 +173,7 @@ class ThunarManager(object):
 
         @Error:
         """
-        return self._wm.list_windows(self.spec)
+        return [x for x in self._wm.client_list() if self.spec.is_satisfied_window(x)]
 
     def open_thunar(self, path):
         r"""SUMMARY

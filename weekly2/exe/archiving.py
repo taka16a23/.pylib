@@ -1,34 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""Name: archiving.py
+r"""archiving2 -- DESCRIPTION
 
 """
-from time import sleep
 import sys
-import os
-import argparse
-
+from time import sleep
 from ref.CMD import thunar
 
-from rectangle import Rectangle
-from xcb import xinerama
 from mypath import MyArchive
 from pathhandler import PathHandler
 
-from xahk.wm import Display
-from xahk.events import EventLoop
-from xahk.listener import WindowListenerFactory
-from xahk.listener import WindowListenerFactoryObserver
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
 from xahk.layout import GridLayout, GridSpec, LayoutParams
+from xahk.x11.display import Display
+from xahk.events import EventLoop
 
 
-__version__ = '0.0.1'
-
-
-class Archiving(WindowListenerFactoryObserver):
+class Archiving(WindowManagerListenerObserver):
     r"""Archiving
 
-    Archiving is a WindowListenerFactoryObserver.
+    Archivhing is a WindowManagerListenerObserver.
     Responsibility:
     """
     archive_path = MyArchive().get_path()
@@ -44,29 +36,23 @@ class Archiving(WindowListenerFactoryObserver):
     left_param = LayoutParams(row01, col0)
     rightup_param = LayoutParams(row0, col1)
     rightdown_param = LayoutParams(row1, col1)
+    layout = GridLayout()
+    layout.set_wspace(2)
+    layout.set_hspace(6)
+    layout.set_rows(2)
+    layout.set_columns(2)
 
-    def __init__(self, display):
+    def __init__(self, ):
         r"""
-
-        @Arguments:
-        - `display`:
         """
-        WindowListenerFactoryObserver.__init__(self)
-        self.display = display
-        xinrm = display(xinerama.key)
-        s = xinrm.QueryScreens().reply().screen_info[0]
-        self.screen = Rectangle(s.x_org, s.y_org, s.width, s.height)
-        self.layout = GridLayout()
-        self.layout.set_wspace(2)
-        self.layout.set_hspace(6)
-        self.layout.set_rows(2)
-        self.layout.set_columns(2)
+        self.display = Display()
         self.windows = []
-        self.is_starting = False
         self.titles = {}
+        self._wm = WindowManagerListener()
+        self.screen = self._wm.list_screens()[0]
 
     def start(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         start()
 
@@ -74,10 +60,9 @@ class Archiving(WindowListenerFactoryObserver):
 
         @Error:
         """
-        if self.is_starting:
-            return
-        self.is_starting = True
-        WindowListenerFactory(self.display).add_observer(self)
+        self.windows = []
+        self.titles.clear()
+        self._wm.add_observer(self)
         thunar.openthunar(self.archive_path)
         thunar.openthunar(self.download_path)
         thunar.openthunar(self.mytemp_path)
@@ -88,10 +73,10 @@ class Archiving(WindowListenerFactoryObserver):
         self.titles['rightdown'] = '{} - File Manager'.format(
             self.mytemp_path.get_basename())
         sleep(0.5)
-        EventLoop(self.display).start_loop()
+        EventLoop.get_instance(self.display).start_loop()
 
     def stop(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         stop()
 
@@ -99,15 +84,12 @@ class Archiving(WindowListenerFactoryObserver):
 
         @Error:
         """
-        if not self.is_starting:
-            return
-        self.is_starting = False
+        self._wm.remove_observer(self)
         for window in self.windows:
-            window.close()
-        WindowListenerFactory(Display()).remove_observer(self)
-        EventLoop(self.display).stop_loop()
+            window.close().check()
+        EventLoop.get_instance(self.display).stop_loop()
 
-    def on_created_window_listener(self, window):
+    def on_created_window_client(self, window):
         r"""SUMMARY
 
         on_created_window_listener(window)
@@ -133,8 +115,9 @@ class Archiving(WindowListenerFactoryObserver):
             self.layout.set_layout_item(window, self.rightdown_param)
             self.windows.append(window)
         self.layout.layout(self.screen)
+        self.display.flush()
 
-    def on_destroyed_window_listener(self, window_id):
+    def on_destroyed_window_client(self, windowid):
         r"""SUMMARY
 
         on_destroyed_window_listener(window_id)
@@ -146,29 +129,14 @@ class Archiving(WindowListenerFactoryObserver):
 
         @Error:
         """
-        if window_id in self.windows:
-            self.windows.remove(window_id)
+        if windowid in self.windows:
+            self.windows.remove(windowid)
             self.stop()
 
 
-def _predef_options():
-    parser = argparse.ArgumentParser(description="""""")
-    parser.add_argument('--version',
-                        dest='version',
-                        action='version',
-                        version=__version__,
-                        help='Version Strings.')
-    # (yas/expand-link "argparse_add_argument" t)
-    return parser
-
-
 def _main():
-    r"""Main function."""
-    parser = _predef_options()
-    opts = parser.parse_args()
-    # parser.print_usage()
-    Archiving(Display()).start()
-    return os.EX_OK
+    Archiving().start()
+    return 0
 
 if __name__ == '__main__':
     sys.exit(_main())
@@ -179,4 +147,4 @@ if __name__ == '__main__':
 # Local Variables:
 # coding: utf-8
 # End:
-# archiving.py ends here
+# archiving2.py ends here

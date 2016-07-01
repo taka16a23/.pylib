@@ -17,7 +17,7 @@ class Observable(object):
         self._observers = []
 
     def add_observer(self, observer):
-        r"""SUMMARY
+        """SUMMARY
 
         add_observer(observer)
 
@@ -31,7 +31,7 @@ class Observable(object):
         self._observers.append(observer)
 
     def remove_observer(self, observer):
-        r"""SUMMARY
+        """SUMMARY
 
         remove_observer(observer)
 
@@ -45,7 +45,7 @@ class Observable(object):
         self._observers.remove(observer)
 
     def has_observer(self, observer):
-        r"""SUMMARY
+        """SUMMARY
 
         has_observer(observer)
 
@@ -59,7 +59,7 @@ class Observable(object):
         return observer in self._observers
 
     def count_observer(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         count_observer()
 
@@ -70,7 +70,7 @@ class Observable(object):
         return len(self._observers)
 
     def clear_observer(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         clear_observer()
 
@@ -79,7 +79,6 @@ class Observable(object):
         @Error:
         """
         del self._observers[:]
-
 
 
 

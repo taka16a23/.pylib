@@ -3,9 +3,6 @@
 r"""grid -- DESCRIPTION
 
 """
-from rectangle import Rectangle
-from t1.listutil import flatten
-
 from xahk.layout.layout_item import LayoutItem
 from xahk.layout.resize import spacing_horizon, spacing_vertical
 
@@ -17,7 +14,7 @@ class GridSpec(object):
     Responsibility:
     """
     def __init__(self, start, size):
-        r"""
+        """
 
         @Arguments:
         - `start`:
@@ -28,7 +25,7 @@ class GridSpec(object):
 
     @classmethod
     def create(cls, start=0):
-        r"""SUMMARY
+        """SUMMARY
 
         create(start)
 
@@ -43,7 +40,7 @@ class GridSpec(object):
 
     @classmethod
     def create_with_size(cls, start, size):
-        r"""SUMMARY
+        """SUMMARY
 
         create_with_size(start, size)
 
@@ -58,7 +55,7 @@ class GridSpec(object):
         return cls(start, start + size)
 
     def get_start(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_start()
 
@@ -69,7 +66,7 @@ class GridSpec(object):
         return self._start
 
     def set_start(self, start):
-        r"""SUMMARY
+        """SUMMARY
 
         set_start(start)
 
@@ -85,7 +82,7 @@ class GridSpec(object):
     start = property(get_start, set_start)
 
     def get_size(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_size()
 
@@ -96,7 +93,7 @@ class GridSpec(object):
         return self._size
 
     def set_size(self, size):
-        r"""SUMMARY
+        """SUMMARY
 
         set_size(size)
 
@@ -112,7 +109,7 @@ class GridSpec(object):
     size = property(get_size, set_size)
 
     def get_span(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_span()
 
@@ -123,7 +120,7 @@ class GridSpec(object):
         return [self.start, self.size]
 
     def set_span(self, start, size):
-        r"""SUMMARY
+        """SUMMARY
 
         set_span(start, size)
 
@@ -168,13 +165,13 @@ class GridSpec(object):
 
 
 class LayoutParams(object):
-    r"""LayoutParams
+    """LayoutParams
 
     LayoutParams is a object.
     Responsibility:
     """
     def __init__(self, rowspec, colspec, left=0, top=0, right=0, bottom=0):
-        r"""
+        """
         """
         self._row_spec = rowspec
         self._column_spec = colspec
@@ -184,7 +181,7 @@ class LayoutParams(object):
         self._bottom_margin = bottom
 
     def get_row_spec(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_row_spec()
 
@@ -195,7 +192,7 @@ class LayoutParams(object):
         return self._row_spec
 
     def set_row_spec(self, row_spec):
-        r"""SUMMARY
+        """SUMMARY
 
         set_row_spec(row_spec)
 
@@ -211,7 +208,7 @@ class LayoutParams(object):
     row_spec = property(get_row_spec, set_row_spec)
 
     def get_column_spec(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_column_spec()
 
@@ -222,7 +219,7 @@ class LayoutParams(object):
         return self._column_spec
 
     def set_column_spec(self, col_spec):
-        r"""SUMMARY
+        """SUMMARY
 
         set_column_spec(col_spec)
 
@@ -238,7 +235,7 @@ class LayoutParams(object):
     column_spec = property(get_column_spec, set_column_spec)
 
     def get_left_margin(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_left_margin()
 
@@ -249,7 +246,7 @@ class LayoutParams(object):
         return self._left_margin
 
     def set_left_margin(self, left):
-        r"""SUMMARY
+        """SUMMARY
 
         set_left_margin(left)
 
@@ -265,7 +262,7 @@ class LayoutParams(object):
     left = property(get_left_margin, set_left_margin)
 
     def get_top_margin(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_top_margin()
 
@@ -276,7 +273,7 @@ class LayoutParams(object):
         return self._top_margin
 
     def set_top_margin(self, top):
-        r"""SUMMARY
+        """SUMMARY
 
         set_top_margin(top)
 
@@ -292,7 +289,7 @@ class LayoutParams(object):
     top = property(get_top_margin, set_top_margin)
 
     def get_right_margin(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_right_margin()
 
@@ -303,7 +300,7 @@ class LayoutParams(object):
         return self._right_margin
 
     def set_right_margin(self, right):
-        r"""SUMMARY
+        """SUMMARY
 
         set_right_margin(right)
 
@@ -319,7 +316,7 @@ class LayoutParams(object):
     right = property(get_right_margin, set_right_margin)
 
     def get_bottom_margin(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_bottom()
 
@@ -330,7 +327,7 @@ class LayoutParams(object):
         return self._bottom_margin
 
     def set_bottom_margin(self, bottom):
-        r"""SUMMARY
+        """SUMMARY
 
         set_bottom_margin(bottom)
 
@@ -378,12 +375,11 @@ class LayoutParams(object):
 
 
 class GridLayout(LayoutItem):
-    r"""GridLayout
+    """GridLayout
 
     GridLayout is a LayoutItem.
     Responsibility:
 
-    GridLayout(Rectangle(0,0,1000,1000), rows=3, cols=4)
             0     1     2     3
          +-----+-----+-----+-----+
          |     |     |     |     |
@@ -400,7 +396,7 @@ class GridLayout(LayoutItem):
          +-----+-----+-----+-----+
     """
     def __init__(self, wspace=0, hspace=0):
-        r"""
+        """
 
         @Arguments:
         - `rectangle`:
@@ -414,7 +410,7 @@ class GridLayout(LayoutItem):
         self._hspace = hspace
 
     def get_rows(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_rows()
 
@@ -425,7 +421,7 @@ class GridLayout(LayoutItem):
         return self._rows
 
     def set_rows(self, rows):
-        r"""SUMMARY
+        """SUMMARY
 
         set_rows(rows)
 
@@ -441,7 +437,7 @@ class GridLayout(LayoutItem):
     rows = property(get_rows, set_rows)
 
     def get_columns(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_columns()
 
@@ -452,7 +448,7 @@ class GridLayout(LayoutItem):
         return self._columns
 
     def set_columns(self, cols):
-        r"""SUMMARY
+        """SUMMARY
 
         set_columns(cols)
 
@@ -468,7 +464,7 @@ class GridLayout(LayoutItem):
     columns = property(get_columns, set_columns)
 
     def get_layout_item(self, layoutparams):
-        r"""SUMMARY
+        """SUMMARY
 
         get_layout_item(layoutparams)
 
@@ -481,7 +477,7 @@ class GridLayout(LayoutItem):
         return self._table[layoutparams]
 
     def set_layout_item(self, item, layoutparams):
-        r"""SUMMARY
+        """SUMMARY
 
         set_layout_item(item, layoutparams)
 
@@ -497,7 +493,7 @@ class GridLayout(LayoutItem):
             max(self._columns, layoutparams.get_column_spec().span[1] + 1))
 
     def remove_layout_item(self, layoutparams):
-        r"""SUMMARY
+        """SUMMARY
 
         remove_layout_item(layoutparams)
 
@@ -512,7 +508,7 @@ class GridLayout(LayoutItem):
         del self._table[layoutparams]
 
     def get_wspace(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_wspace()
 
@@ -523,7 +519,7 @@ class GridLayout(LayoutItem):
         return self._wspace
 
     def set_wspace(self, wspace):
-        r"""SUMMARY
+        """SUMMARY
 
         set_wspace(wspace)
 
@@ -539,7 +535,7 @@ class GridLayout(LayoutItem):
     wspace = property(get_wspace, set_wspace)
 
     def get_hspace(self, ):
-        r"""SUMMARY
+        """SUMMARY
 
         get_hspace()
 
@@ -550,7 +546,7 @@ class GridLayout(LayoutItem):
         return self._hspace
 
     def set_hspace(self, hspace):
-        r"""SUMMARY
+        """SUMMARY
 
         set_hspace(hspace)
 
@@ -565,8 +561,19 @@ class GridLayout(LayoutItem):
 
     hspace = property(get_hspace, set_hspace)
 
+    def clear(self, ):
+        """SUMMARY
+
+        clear()
+
+        @Return:
+
+        @Error:
+        """
+        self._table.clear()
+
     def layout(self, rect):
-        r"""SUMMARY
+        """SUMMARY
 
         layout()
 
@@ -580,6 +587,8 @@ class GridLayout(LayoutItem):
         for rects in zip(*rtable):
             spacing_vertical(rects, self._hspace)
 
+        cookies = []
+        extend = cookies.extend
         for param, layout in self._table.items():
             row_span = param.get_row_spec().span
             col_span = param.get_column_spec().span
@@ -590,7 +599,107 @@ class GridLayout(LayoutItem):
             newrect.set_y(newrect.get_y() + param.get_top_margin())
             newrect.set_width(newrect.get_width() + param.get_right_margin())
             newrect.set_height(newrect.get_height() + param.get_bottom_margin())
-            layout.layout(newrect)
+            extend(layout.layout(newrect))
+        return cookies
+
+
+class GridLayoutManager(object):
+    """GridLayoutManager
+
+    GridLayoutManager is a object.
+    Responsibility:
+    """
+    def __init__(self, layout, params):
+        """
+
+        @Arguments:
+        - `args`:
+        - `kwargs`:
+        """
+        self.layout = layout
+        self.params = list(params)
+
+    def get_layout(self, ):
+        """SUMMARY
+
+        get_layout()
+
+        @Return:
+
+        @Error:
+        """
+        return self.layout
+
+    def set_layout(self, layout):
+        """SUMMARY
+
+        set_layout(layout)
+
+        @Arguments:
+        - `layout`:
+
+        @Return:
+
+        @Error:
+        """
+        self.layout = layout
+
+    def add_param(self, param):
+        """SUMMARY
+
+        add_param(param)
+
+        @Arguments:
+        - `param`:
+
+        @Return:
+
+        @Error:
+        """
+        self.params.append(param)
+
+    def remove_param(self, param):
+        """SUMMARY
+
+        remove_param(param)
+
+        @Arguments:
+        - `param`:
+
+        @Return:
+
+        @Error:
+        """
+        self.params.remove(param)
+
+    def list_params(self, ):
+        """SUMMARY
+
+        list_params()
+
+        @Return:
+
+        @Error:
+        """
+        return self.params[:]
+
+    def mapping(self, screen, items):
+        """SUMMARY
+
+        mapping(screen, items)
+
+        @Arguments:
+        - `screen`:
+        - `items`:
+
+        @Return:
+
+        @Error:
+        """
+        self.layout.clear()
+        for param, item in zip(self.params, items):
+            self.layout.set_layout_item(item, param)
+        return self.layout.layout(screen)
 
 
 

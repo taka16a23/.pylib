@@ -237,6 +237,21 @@ def tomorrow():
     return datetime.now() + timedelta(1)
 
 
+def floor(src, range):
+    """
+    floor(21, 5) #21分を5分で切り捨て
+    >>> 20
+    """
+    return (int)(src / range) * range
+
+def ceil(src, range):
+    """
+    floor(21, 5) #21分を5分で切り上げ
+    >>> 25
+    """
+    return ((int)(src / range) + 1 ) * range
+
+
 
 # For Emacs
 # Local Variables:

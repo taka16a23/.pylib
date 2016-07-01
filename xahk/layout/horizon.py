@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""horizon -- DESCRIPTION
+"""horizon -- DESCRIPTION
 
 """
+from collections import deque
+
 from xahk.layout.layout_item import LayoutItem
 from xahk.layout.resize import spacing_horizon
-
-from collections import deque
 
 
 class HorizonLayout(LayoutItem):
@@ -161,8 +161,11 @@ class HorizonLayout(LayoutItem):
         """
         rects = rect.split_horizontal(len(self._layout_items))
         rects = spacing_horizon(rects, self.border_width)
+        cookies = []
+        extend = cookies.extend
         for rct, layout_item in zip(rects, self._layout_items):
-            layout_item.layout(rct)
+            extend(layout_item.layout(rct))
+        return cookies
 
     def __getitem__(self, num):
         return self._layout_items[num]

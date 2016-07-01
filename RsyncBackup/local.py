@@ -262,7 +262,7 @@ class LinkDestLocalBackup(object):
             print('will remove ' + oldest)
             if self._log:
                 self._log.log(10, 'Lotate: Removed {0}'.format(oldest))
-            _shutil.rmtree(oldest)
+            _shutil.rmtree(oldest, ignore_errors=True)
 
     def makelink(self):
         """SUMMARY

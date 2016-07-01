@@ -22,7 +22,7 @@ class RegexpPattern(object):
         # ip address like "192.168.1.1", "8.8.8.8"
         'ipv4': r'(([0-9]{1,3}\.){3}[0-9]{1,3})',
         # http, https url like "http://google.com"
-        'http_url': r'(http|https)://[A-Za-z0-9.?.$,;:&=!*~@_()\\-\\#%+/]+',
+        'http_url': r'(http|https)://[A-Za-z0-9.?.$,;:&=!*~@_()\-\#%+/]+',
 
         }
 

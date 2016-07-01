@@ -73,7 +73,7 @@ EXE_PATH = PathHandler(exe.__file__).get_dirname()
 
 
 class Prepare(Task):
-    r"""Prepare
+    """Prepare
 
     Prepare is a Task.
     Responsibility:

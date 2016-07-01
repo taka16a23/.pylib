@@ -4,14 +4,12 @@ r"""Name: __init__.py
 
 
 """
-from xahk.keyboard_lock import KeyboardLock
-from xahk._functions import list_windows
 
 
+__revision__ = "$Revision$"
 __version__ = "0.0.1"
 
-
-__all__ = ['KeyboardLock', 'list_windows', ]
+__all__ = [ ]
 
 
 

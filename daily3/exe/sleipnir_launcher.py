@@ -9,17 +9,13 @@ from time import sleep
 import subprocess as sbp
 from xcb.xproto import BadWindow
 
-from xahk4.bind.window_spec import WindowSpec, WindowWMClassSpec
-from xahk4.x11.display import Display
-from xahk4.x11.atom_cache import AtomCache
-from xahk4.rectangle import Point
-from xahk4.listener.window_manager_observer import WindowManagerListenerObserver
-from xahk4.listener.window_manager import WindowManagerListener
-from xahk4.sendkeys.sendkeys import SendKeys
-
-from xahk4.events.loop import EventLoop
-
-from xahk4.sendkeys.input_event import ButtonEvent, Mouse
+from xahk.wm.window_spec import WindowSpec, WindowWMClassSpec
+from xahk.x11.display import Display
+from xahk.rectangle import Point
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.events.loop import EventLoop
+from xahk.sendkeys.input_event import ButtonEvent, Mouse
 
 
 BINARY_PATH = '/opt/portable-sleipnir-299/PortableSleipnir/PortableSleipnir.exe'
@@ -40,11 +36,6 @@ class SleipnirDialogSpec(WindowSpec):
     """
     _wmclass_spec = SLEIPNIR_WMCLASS_SPEC
 
-    def __init__(self, ):
-        r"""
-        """
-        self._atom_cache = AtomCache(Display(), ['_NET_WM_WINDOW_TYPE_DIALOG', ])
-
     def is_satisfied_window(self, window):
         """SUMMARY
 
@@ -57,7 +48,7 @@ class SleipnirDialogSpec(WindowSpec):
         # check sleipnir window
         if not self._wmclass_spec.is_satisfied_window(window):
             return False
-        if self._atom_cache.get_atom('_NET_WM_WINDOW_TYPE_DIALOG') == window.type:
+        if '_NET_WM_WINDOW_TYPE_DIALOG' == window.type:
             return True
         return False
 
@@ -69,15 +60,6 @@ class SleipnirMainSpec(WindowSpec):
     Responsibility:
     """
     _spec = SLEIPNIR_WMCLASS_SPEC
-
-    def __init__(self, ):
-        r"""
-
-        @Arguments:
-        - `args`:
-        - `kwargs`:
-        """
-        self._atom_cache = AtomCache(Display(), ['_NET_WM_WINDOW_TYPE_NORMAL', ])
 
     def is_satisfied_window(self, window):
         """SUMMARY
@@ -93,7 +75,7 @@ class SleipnirMainSpec(WindowSpec):
         """
         if not self._spec.is_satisfied_window(window):
             return False
-        if self._atom_cache.get_atom('_NET_WM_WINDOW_TYPE_NORMAL') == window.type:
+        if '_NET_WM_WINDOW_TYPE_NORMAL' == window.type:
             return True
         return False
 
@@ -123,7 +105,6 @@ class SleipnirWindowCloser(WindowManagerListenerObserver):
         """
         if not self._spec.is_satisfied_window(window):
             return
-        print('DEBUG-6-sleipnir_launcher.py')
         self._window = window
         try:
             self._window.close().check()
@@ -141,7 +122,6 @@ class SleipnirWindowCloser(WindowManagerListenerObserver):
         """
         if self._window != windowid:
             return
-        print('DEBUG-5-sleipnir_launcher.py')
         if self._wm.has_observer(self):
             self._wm.remove_observer(self)
 
@@ -285,7 +265,6 @@ class SleipnirManager(WindowManagerListenerObserver):
         """
         if self._window != windowid:
             return
-        print('DEBUG-1-sleipnir_launcher.py')
         self._wm.remove_observer(self)
         display = Display()
         EventLoop.get_instance(display).stop_loop()
@@ -293,9 +272,7 @@ class SleipnirManager(WindowManagerListenerObserver):
 
 
 def _main():
-    print('DEBUG-8-sleipnir_launcher.py')
     SleipnirManager().start()
-    print('DEBUG-7-sleipnir_launcher.py')
     return 0
 
 if __name__ == '__main__':

@@ -2,18 +2,12 @@
 # -*- coding: utf-8 -*-
 r"""Name: __init__.py
 
-
 """
-from xahk.events.eventloop import EventLoop
-from xahk.events.event_dispatcher import EventDispatcher
-from xahk.events.event_listener import EventListener
-from xahk.events.event import Event, KeyEvent, MouseEvent
-from xahk.events.event_target import EventTarget
-from xahk.events.event_handler import EventHandler
+from xahk.events.listener import EventListener, EventListenerSingleton
+from xahk.events.loop import EventLoop
 
 
-__all__ = ['EventLoop', 'EventDispatcher', 'EventListener', 'Event', 'KeyEvent',
-           'MouseEvent', 'EventTarget', 'EventHandler']
+__all__ = ['EventListener', 'EventListenerSingleton', 'EventLoop', ]
 
 
 

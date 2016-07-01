@@ -5,7 +5,7 @@ r"""create_recipe -- DESCRIPTION
 """
 import sys
 from daily3.exe.webpage import ChromeWebpage, ChromeWebpageObserver
-from xahk4.rectangle import Point
+from xahk.rectangle import Point
 
 from recipe._recipe import SEIKYO_URL, RECIPE_URL
 

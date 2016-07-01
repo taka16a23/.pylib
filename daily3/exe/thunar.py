@@ -4,8 +4,8 @@ r"""thunar -- DESCRIPTION
 
 """
 import sys
-from xahk4.bind.window_spec import WindowWMClassSpec
-from xahk4.wm.window_manager import WindowManager
+from xahk.wm.window_spec import WindowWMClassSpec
+from xahk.wm.window_manager import WindowManager
 
 
 THUNAR_SPEC = WindowWMClassSpec('Thunar')

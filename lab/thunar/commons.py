@@ -3,7 +3,7 @@
 r"""commons -- DESCRIPTION
 
 """
-from xahk4.bind.window_spec import WindowWMClassSpec
+from xahk.wm.window_spec import WindowWMClassSpec
 from pathhandler import PathHandler
 
 

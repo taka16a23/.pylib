@@ -5,12 +5,12 @@
 """
 from collections import deque
 
-from .layout_item import LayoutItem
-from .resize import spacing_horizon
+from xahk.layout.layout_item import LayoutItem
+from xahk.layout.resize import spacing_horizon
 
 
 class HorizonLayout(LayoutItem):
-    """HorizonLayout
+    r"""HorizonLayout
 
     HorizonLayout is a LayoutItem.
     Responsibility:
@@ -25,7 +25,7 @@ class HorizonLayout(LayoutItem):
     +--------------------------------------------------------+
     """
     def __init__(self, border_width=1):
-        """
+        r"""
 
         @Arguments:
         - `rectangle`:
@@ -34,7 +34,7 @@ class HorizonLayout(LayoutItem):
         self._border_width = border_width
 
     def appendleft(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         appendleft(layout_item)
 
@@ -48,7 +48,7 @@ class HorizonLayout(LayoutItem):
         self._layout_items.appendleft(layout_item)
 
     def append(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         append(layout_item)
 
@@ -62,7 +62,7 @@ class HorizonLayout(LayoutItem):
         self._layout_items.append(layout_item)
 
     def pop(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         pop()
 
@@ -73,7 +73,7 @@ class HorizonLayout(LayoutItem):
         return self._layout_items.pop()
 
     def popleft(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         popleft()
 
@@ -84,7 +84,7 @@ class HorizonLayout(LayoutItem):
         return self._layout_items.popleft()
 
     def remove(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         remove_client(layout_item)
 
@@ -98,7 +98,7 @@ class HorizonLayout(LayoutItem):
         self._layout_items.remove(layout_item)
 
     def clear(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         clear()
 
@@ -109,7 +109,7 @@ class HorizonLayout(LayoutItem):
         self._layout_items.clear()
 
     def index_layout_item(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         index_layout_item(layout_item)
 
@@ -123,7 +123,7 @@ class HorizonLayout(LayoutItem):
         return list(self._layout_items).index(layout_item)
 
     def get_border_width(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         get_border_width()
 
@@ -135,7 +135,7 @@ class HorizonLayout(LayoutItem):
 
 
     def set_border_width(self, border_width):
-        """SUMMARY
+        r"""SUMMARY
 
         set_border_width(border_width)
 
@@ -151,7 +151,7 @@ class HorizonLayout(LayoutItem):
     border_width = property(get_border_width, set_border_width)
 
     def layout(self, rect):
-        """SUMMARY
+        r"""SUMMARY
 
         layout()
 
@@ -161,8 +161,11 @@ class HorizonLayout(LayoutItem):
         """
         rects = rect.split_horizontal(len(self._layout_items))
         rects = spacing_horizon(rects, self.border_width)
+        cookies = []
+        extend = cookies.extend
         for rct, layout_item in zip(rects, self._layout_items):
-            layout_item.layout(rct)
+            extend(layout_item.layout(rct))
+        return cookies
 
     def __getitem__(self, num):
         return self._layout_items[num]

@@ -12,8 +12,8 @@ import subprocess as sbp
 
 import wm
 
-from xahk4.wm.window_manager import WindowManager
-from xahk4.bind.window_spec import WindowWMClassSpec
+from xahk.wm.window_manager import WindowManager
+from xahk.wm.window_spec import WindowWMClassSpec
 
 
 # for debug

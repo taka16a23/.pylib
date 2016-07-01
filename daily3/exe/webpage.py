@@ -8,14 +8,14 @@ from mygoogle import chrome
 from mygoogle.chrome.variables import DEFAULT_OPTS as CHROME_OPTS
 import argparse
 
-from xahk4.listener.window_manager import WindowManagerListener
-from xahk4.listener.window_manager_observer import WindowManagerListenerObserver
-from xahk4.x11.display import Display
-from xahk4.events import EventLoop
-from xahk4.utils.observer import Observable
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
+from xahk.x11.display import Display
+from xahk.events import EventLoop
+from xahk.utils.observer import Observable
+from xahk.rectangle import Rectangle
 
 from daily3.exe.specs import GOOGLE_CHROME_SPEC
-from xahk4.rectangle import Rectangle
 
 
 class ChromeWebpageObserver(object):
@@ -116,7 +116,7 @@ class ChromeWebpage(WindowManagerListenerObserver, Observable):
         if self.window is not None:
             return
         self.window = window
-        self.window.set_bounds(Rectangle(109, 50, 1112, 938)).check()
+        self.window.set_bounds(Rectangle.Builder(109, 50, 1112, 938).build()).check()
         self._notify_chrome_window_created()
 
     def _notify_chrome_window_created(self, ):

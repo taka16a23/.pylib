@@ -6,12 +6,12 @@ r"""chrome_mapping -- DESCRIPTION
 import sys
 from xcb.xproto import BadWindow
 
-from xahk4.listener.window_manager_observer import WindowManagerListenerObserver
-from xahk4.listener.window_manager import WindowManagerListener
-from xahk4.listener.client_observer import WindowClientListenerObserver
-from xahk4.wm.window_manager import WindowManager
-from xahk4.x11.display import Display
-from xahk4.events import EventLoop
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.listener.client_observer import WindowClientListenerObserver
+from xahk.wm.window_manager import WindowManager
+from xahk.x11.display import Display
+from xahk.events import EventLoop
 from daily3.exe.specs import GOOGLE_CHROME_SPEC
 
 

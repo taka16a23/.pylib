@@ -6,8 +6,8 @@ r"""chrome_move -- DESCRIPTION
 import os
 import sys
 import argparse
-from xahk4.wm.window_manager import WindowManager
-from xahk4.rectangle import Rectangle
+from xahk.wm.window_manager import WindowManager
+from xahk.rectangle import Rectangle
 from daily3.exe.specs import GOOGLE_CHROME_SPEC
 
 
@@ -21,7 +21,7 @@ def _predef_options():
     return parser
 
 
-LEFT_SCREEN_POSISION = Rectangle(99, 40, 1112, 938)
+LEFT_SCREEN_POSISION = Rectangle.Builder(99, 40, 1112, 938).build()
 
 
 def _main():
@@ -37,7 +37,7 @@ def _main():
     opts = parser.parse_args()
     wm = WindowManager()
     chromes = [x for x in wm.client_list() if GOOGLE_CHROME_SPEC.is_satisfied_window(x)]
-    rect = Rectangle(LEFT_SCREEN_POSISION)
+    rect = Rectangle.Builder().set_rectangle(LEFT_SCREEN_POSISION).build()
     for win in chromes:
         win.set_bounds(rect).check()
         rect.set_x(rect.get_x() + 10)

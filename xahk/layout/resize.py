@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""resize -- DESCRIPTION
+r"""resize -- DESCRIPTION
 
 """
 

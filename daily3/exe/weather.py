@@ -9,12 +9,13 @@ import sys
 from mygoogle import chrome
 from mygoogle.chrome.variables import DEFAULT_OPTS as CHROME_OPTS
 
-from xahk4.bind.window_spec import WindowSpec
-from xahk4.listener.window_manager import WindowManagerListener
-from xahk4.listener.window_manager_observer import WindowManagerListenerObserver
-from xahk4.listener.client_observer import WindowClientListenerObserver
-from xahk4.events.loop import EventLoop
-from xahk4.x11.display import Display
+from xahk.wm.window_spec import WindowSpec
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
+from xahk.listener.client_observer import WindowClientListenerObserver
+from xahk.events.loop import EventLoop
+from xahk.x11.display import Display
+from xahk.rectangle import Point
 
 
 class WeatherSpec(WindowSpec):
@@ -52,6 +53,7 @@ class Weather(WindowManagerListenerObserver, WindowClientListenerObserver):
     chrome_options = CHROME_OPTS + ['--new-window']
     url = 'http://sato.atso-net.jp/lab/weather'
     spec = WeatherSpec()
+    right_point = Point(1500, 50)
 
     def __init__(self, ):
         r"""
@@ -117,7 +119,7 @@ class Weather(WindowManagerListenerObserver, WindowClientListenerObserver):
         if not self.spec(window):
             return
         self.window = window
-        self.window.move(1500, 50).check()
+        self.window.move(self.right_point).check()
         self.window.maximize().check()
         self.window.raise_window().check()
 

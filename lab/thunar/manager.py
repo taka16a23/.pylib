@@ -4,27 +4,30 @@ r"""manager -- DESCRIPTION
 
 """
 import os
+import subprocess as sbp
 
-from xahk4.wm.window_manager import WindowManager
-from xahk4.sendkeys.sendkeys import SendKeys
+from xahk.wm.window_manager import WindowManager
+from xahk.sendkeys.sendkeys import SendKeys
+from xahk.layout import HorizonLayout, VerticalLayout
+from xahk.wm.client import WindowClient
+from xahk.x11.window import Window
+from lab.thunar.commons import THUNAR_WMSPEC, THUNAR_BIN_PATH
 
-from lab.thunar.commons import THUNAR_WMSPEC
 
-
-class ThunarClient(object):
-    r"""ThunarClient
+class ThunarClient(WindowClient):
+    """ThunarClient
 
     ThunarClient is a object.
     Responsibility:
     """
     def __init__(self, window):
-        r"""
+        """
 
         @Arguments:
         - `args`:
         - `kwargs`:
         """
-        self.window = window
+        WindowClient.__init__(self, window)
 
     def open_up(self, ):
         """SUMMARY
@@ -90,35 +93,134 @@ class ThunarClient(object):
 
         @Error:
         """
+        SendKeys('^n').send(self.window)
 
-
-
-
-class ThunarManager(object):
-    r"""ThunarManager
-
-    ThunarManager is a object.
-    Responsibility:
-    """
-    spec = THUNAR_WMSPEC
-
-    def __init__(self, ):
-        r"""
-        """
-        self._wm = WindowManager()
-        self._env = os.environ['LANG']
-
-    def list_thunar_windows(self, ):
+    def close_all_windows(self, ):
         """SUMMARY
 
-        list_thunar_windows()
+        close_all_windows()
 
         @Return:
 
         @Error:
         """
-        return [ThunarClient(x) for x in self._wm.client_list()
-                if self.spec.is_satisfied_window(x)]
+        SendKeys('^+w').send(self.window)
+
+    def close_tab(self, ):
+        """SUMMARY
+
+        close_tab()
+
+        @Return:
+
+        @Error:
+        """
+        SendKeys('^w').send(self.window)
+
+    def close_window(self, ):
+        """SUMMARY
+
+        close_window()
+
+        @Return:
+
+        @Error:
+        """
+        SendKeys('^q').send(self.window)
+
+    def show_properties(self, ):
+        """SUMMARY
+
+        show_properties()
+
+        @Return:
+
+        @Error:
+        """
+        SendKeys('!{Return}').send(self.window)
+
+    def reload(self, ):
+        """SUMMARY
+
+        reload()()
+
+        @Return:
+
+        @Error:
+        """
+        SendKeys('^r').send(self.window)
+
+
+class ThunarManager(WindowManager):
+    r"""ThunarManager
+
+    ThunarManager is a object.
+    Responsibility:
+    """
+
+    def _create_client(self, wid):
+        """SUMMARY
+
+        _create_client(wid)
+
+        @Arguments:
+        - `wid`:
+
+        @Return:
+
+        @Error:
+
+        FactoryMethod
+        """
+        return ThunarClient(Window(self.display, wid))
+
+    def get_active_window(self):
+        """Return the window ID of the currently active window or None
+        if no window has the focus.
+
+        returns int
+        """
+        wins = self._get_property_windows('_NET_ACTIVE_WINDOW', 1)
+        if not wins:
+            return None
+        client = self._create_client(wins[0])
+        if not THUNAR_WMSPEC.is_satisfied_window(client):
+            return None
+        return client
+
+    def client_list(self, ):
+        """SUMMARY
+
+        client_list()
+
+        @Return:
+
+        @Error:
+        """
+        windows = []
+        clients = [self._create_client(i)
+                   for i in self._get_property_windows('_NET_CLIENT_LIST', 20)]
+        for client in clients:
+            if THUNAR_WMSPEC.is_satisfied_window(client):
+                windows.append(client)
+        return windows
+
+    def client_list_stacking(self, ):
+        r"""SUMMARY
+
+        client_list_stacking()
+
+        @Return:
+
+        @Error:
+        """
+        windows = []
+        clients = [self._create_client(i)
+                   for i in self._get_property_windows('_NET_CLIENT_LIST_STACKING', 20)]
+        for client in clients:
+            if THUNAR_WMSPEC.is_satisfied_window(client):
+                windows.append(client)
+        return windows
 
     def open_thunar(self, path):
         """SUMMARY
@@ -132,7 +234,65 @@ class ThunarManager(object):
 
         @Error:
         """
-        sbp.Popen((self.binpath, path), env=self.env)
+        sbp.Popen((THUNAR_BIN_PATH, path), env=os.environ['LANG'])
+
+    def close_all(self, ):
+        """SUMMARY
+
+        close_all()
+
+        @Return:
+
+        @Error:
+        """
+        for x in self.client_list():
+            if THUNAR_WMSPEC.is_satisfied_window(x):
+                x.close().check()
+
+    def horizontal_layout(self, screen):
+        """SUMMARY
+
+        horizontal_layout(screen)
+
+        @Arguments:
+        - `screen`:
+
+        @Return:
+
+        @Error:
+        """
+        layout = HorizonLayout()
+        for window in self.client_list():
+            layout.append(window)
+        return layout.layout(screen)
+
+    def vertical_layout(self, screen):
+        """SUMMARY
+
+        vertical_layout(screen)
+
+        @Arguments:
+        - `screen`:
+
+        @Return:
+
+        @Error:
+        """
+        layout = VerticalLayout()
+        for window in self.client_list():
+            layout.append(window)
+        return layout.layout(screen)
+
+    def count_thunar_windows(self, ):
+        """SUMMARY
+
+        count_thunar_windows()
+
+        @Return:
+
+        @Error:
+        """
+        return len(self.client_list())
 
 
 

@@ -41,15 +41,13 @@ from mygoogle import chrome
 from task import TaskManager, Task
 from mypcs.king import King
 import xcb, xcb.xproto, xcb.screensaver
+import holiday
+from datetime import datetime
 
 from daily3 import exe
 from daily3 import log
 from daily3.debug import LoggingTaskManager
 
-
-# for debug
-import cgitb
-cgitb.enable(format='text')
 
 __version__ = '0.0.1'
 
@@ -254,14 +252,23 @@ class ReadNews(Task):
         """
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('chrome_move.py')))
-        os.system(
-            u'{} {}'.format(
-                sys.executable, EXE_PATH.join('webpage.py --daily --market')))
+
+        weekday = now_weekday()
+        now = datetime.now()
+        now_holiday = holiday.JapaneseDay(now.year, now.month, now.day)
+        if weekday.is_saturday() or weekday.is_saturday() or now_holiday.is_holiday():
+            os.system(
+                u'{} {}'.format(
+                    sys.executable, EXE_PATH.join('webpage.py --daily')))
+        else:
+            os.system(
+                u'{} {}'.format(
+                    sys.executable, EXE_PATH.join('webpage.py --daily --market')))
         while psexists('Sleipnir.exe'):
             sleep(1)
         os.system(u'{} {}'.format(
             sys.executable, EXE_PATH.join('webpage.py --foreign')))
-        if not now_weekday().is_saturday():
+        if not weekday.is_saturday():
             return
         if not yesnodialog('Prompt', 'Please Click OK will next: '):
             return

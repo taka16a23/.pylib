@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""vertical -- DESCRIPTION
+r"""vertical -- DESCRIPTION
 
 """
 from collections import deque
 
-from .layout_item import LayoutItem
-from .resize import spacing_vertical
+from xahk.layout.layout_item import LayoutItem
+from xahk.layout.resize import spacing_vertical
 
 
 class VerticalLayout(LayoutItem):
-    """VerticalLayout
+    r"""VerticalLayout
 
     VerticalLayout is a LayoutItem.
     Responsibility:
@@ -34,7 +34,7 @@ class VerticalLayout(LayoutItem):
     -----------------
     """
     def __init__(self, border_width=1):
-        """
+        r"""
 
         @Arguments:
         - `rectangle`:
@@ -43,7 +43,7 @@ class VerticalLayout(LayoutItem):
         self._border_width = border_width
 
     def appendleft(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         appendleft(layout_item)
 
@@ -57,7 +57,7 @@ class VerticalLayout(LayoutItem):
         self._layout_items.appendleft(layout_item)
 
     def append(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         append(layout_item)
 
@@ -71,7 +71,7 @@ class VerticalLayout(LayoutItem):
         self._layout_items.append(layout_item)
 
     def pop(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         pop()
 
@@ -82,7 +82,7 @@ class VerticalLayout(LayoutItem):
         return self._layout_items.pop()
 
     def popleft(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         popleft()
 
@@ -93,7 +93,7 @@ class VerticalLayout(LayoutItem):
         return self._layout_items.popleft()
 
     def remove(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         remove_client(layout_item)
 
@@ -107,7 +107,7 @@ class VerticalLayout(LayoutItem):
         self._layout_items.remove(layout_item)
 
     def clear(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         clear()
 
@@ -118,7 +118,7 @@ class VerticalLayout(LayoutItem):
         self._layout_items.clear()
 
     def index_layout_item(self, layout_item):
-        """SUMMARY
+        r"""SUMMARY
 
         index_layout_item(layout_item)
 
@@ -132,7 +132,7 @@ class VerticalLayout(LayoutItem):
         return list(self._layout_items).index(layout_item)
 
     def get_border_width(self, ):
-        """SUMMARY
+        r"""SUMMARY
 
         get_border_width()
 
@@ -143,7 +143,7 @@ class VerticalLayout(LayoutItem):
         return self._border_width
 
     def set_border_width(self, border_width):
-        """SUMMARY
+        r"""SUMMARY
 
         set_border_width(border_width)
 
@@ -159,7 +159,7 @@ class VerticalLayout(LayoutItem):
     border_width = property(get_border_width, set_border_width)
 
     def layout(self, rect):
-        """SUMMARY
+        r"""SUMMARY
 
         layout()
 

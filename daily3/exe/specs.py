@@ -3,7 +3,7 @@
 r"""xahkspecs -- DESCRIPTION
 
 """
-from xahk4.bind.window_spec import WindowWMClassSpec
+from xahk.wm.window_spec import WindowWMClassSpec
 
 
 GOOGLE_CHROME_SPEC = WindowWMClassSpec('google-chrome')

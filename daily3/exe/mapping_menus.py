@@ -11,11 +11,11 @@ from recipe.menu2.common import DEFAULT_DIR
 from recipe._recipe import ARCHIVE_PATH
 from t1 import dateutil
 
-from xahk4.listener.window_manager import WindowManagerListener
-from xahk4.listener.window_manager_observer import WindowManagerListenerObserver
-from xahk4.layout import GridLayout, GridSpec, LayoutParams
-from xahk4.x11.display import Display
-from xahk4.events import EventLoop
+from xahk.listener.window_manager import WindowManagerListener
+from xahk.listener.window_manager_observer import WindowManagerListenerObserver
+from xahk.layout import GridLayout, GridSpec, LayoutParams
+from xahk.x11.display import Display
+from xahk.events import EventLoop
 
 
 class MappingMenus(WindowManagerListenerObserver):

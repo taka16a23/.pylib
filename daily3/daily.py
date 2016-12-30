@@ -256,7 +256,7 @@ class ReadNews(Task):
         weekday = now_weekday()
         now = datetime.now()
         now_holiday = holiday.JapaneseDay(now.year, now.month, now.day)
-        if weekday.is_saturday() or weekday.is_saturday() or now_holiday.is_holiday():
+        if weekday.is_saturday() or weekday.is_sunday() or now_holiday.is_holiday():
             os.system(
                 u'{} {}'.format(
                     sys.executable, EXE_PATH.join('webpage.py --daily')))

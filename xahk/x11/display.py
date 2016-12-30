@@ -163,7 +163,10 @@ class Display(object):
 
         @Error:
         """
-        return self._connection.poll_for_event()
+        try:
+            return self._connection.poll_for_event()
+        except xcb.xproto.BadLength:
+            return None
 
     @property
     def pref_screen(self, ):

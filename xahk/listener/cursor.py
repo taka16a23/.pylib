@@ -37,8 +37,8 @@ def add_attributes(window):
         logging.getLogger('xahk').error(
             '{0} {1}'.format(err.__class__.__name__, err))
         return None
-    return window.change_attributes_checked(
-        CW.EventMask, [EventMask.EnterWindow|attrs])
+    return window.change_attributes(
+        CW.EventMask, [EventMask.EnterWindow|attrs, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 
 class CursorListener(EventListenerSingleton, Observable, Cursor,
@@ -66,12 +66,13 @@ class CursorListener(EventListenerSingleton, Observable, Cursor,
                 continue
             append(cookie)
             window.add_observer(self)
-        for cookie in cookies:
-            try:
-                cookie.check()
-            except BadWindow as err:
-                logging.getLogger('xahk').error(
-                    '{0} {1}'.format(err.__class__.__name__, err))
+        #for cookie in cookies:
+        #    try:
+        #        cookie.check()
+        #    except BadWindow as err:
+        #        logging.getLogger('xahk').error(
+        #            '{0} {1}'.format(err.__class__.__name__, err))
+        self.display.flush()
         EventLoop.get_instance(self.display).add_event_listener(self)
         self._update_under_window()
 

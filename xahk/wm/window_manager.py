@@ -50,7 +50,8 @@ class WindowManager(object):
         - `display`:
         """
         self.display = Display()
-        self.root = Window(self.display, self.display.get_setup().roots[0].root)
+        #self.root = Window(self.display, self.display.get_setup().roots[0].root)
+        self.root = Window(self.display, 213)
         self._atom_cache = None # lazy load
 
     def get_display(self, ):

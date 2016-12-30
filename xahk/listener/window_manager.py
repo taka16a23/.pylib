@@ -27,10 +27,11 @@ class WindowManagerListener(EventListenerSingleton, Observable, WindowManager):
         """
         Observable.__init__(self)
         WindowManager.__init__(self)
+        print(self.root.id)
         attrs = self.root.get_attributes().reply().your_event_mask
-        reply = self.root.change_attributes_checked(
-            CW.EventMask, [EventMask.PropertyChange|attrs])
-        reply.check()
+        reply = self.root.change_attributes(
+            CW.EventMask, [EventMask.PropertyChange|attrs, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        #reply.check()
         self._windows = []
         self.client_list_stacking() # create
         EventLoop.get_instance(self.display).add_event_listener(self)

@@ -5,7 +5,6 @@
 """
 from xcb import xtest
 from xcb.xproto import Time
-from peak.rules import dispatch
 
 from xahk.x11.display import Display
 from xahk.x11.eventcode import EventCode
@@ -256,7 +255,6 @@ class Keyboard(object):
         """
         return self.shift_keys[0]
 
-    @dispatch.generic()
     def get_key(self, value):
         """SUMMARY
 
@@ -266,8 +264,13 @@ class Keyboard(object):
 
         @Error:
         """
+        if isinstance(value, basestring):
+            return self.get_key_str(value)
+        if isinstance(value, int):
+            return self.get_key_code(value)
+        if isinstance(value, Keysym):
+            return self.get_key_sym(value)
 
-    @get_key.when('isinstance(value, basestring)')
     def get_key_str(self, value):
         """SUMMARY
 
@@ -285,7 +288,6 @@ class Keyboard(object):
                 return key
         return None
 
-    @get_key.when('isinstance(value, int)')
     def get_key_code(self, value):
         """SUMMARY
 
@@ -303,7 +305,6 @@ class Keyboard(object):
                 return key
         return None
 
-    @get_key.when('isinstance(value, Keysym)')
     def get_key_sym(self, value):
         """SUMMARY
 

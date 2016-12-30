@@ -37,15 +37,15 @@ class WindowClientListener(EventListener, Observable, WindowClient):
             logging.getLogger('xahk').warning(
                 '{} {}'.format(err.__class__.__name__, err))
             your_event_mask = 0
-        reply = self.window.change_attributes_checked(
+        reply = self.window.change_attributes(
             CW.EventMask, [EventMask.StructureNotify| # ConfigureNotify
                            EventMask.PropertyChange| # PropertyNotify
-                           your_event_mask])
-        try:
-            reply.check()
-        except BadWindow as err:
-            logging.getLogger('xahk').warning(
-                '{} {}'.format(err.__class__.__name__, err))
+                           your_event_mask, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        #try:
+        #    reply.check()
+        #except BadWindow as err:
+        #    logging.getLogger('xahk').warning(
+        #        '{} {}'.format(err.__class__.__name__, err))
         self._current_state = self._list_current_state()
         EventLoop.get_instance(self.display).add_event_listener(self)
 

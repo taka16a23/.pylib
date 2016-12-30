@@ -40,7 +40,7 @@ class ChromeCloseTab(MouseEventHandler):
         self._cursor = CursorListener()
         self._pressed_time = 0
         self._mbutton = Mouse().get_middle_button()
-        self._pressed = False
+        # self._pressed = False
 
     @property
     def display(self, ):
@@ -54,20 +54,20 @@ class ChromeCloseTab(MouseEventHandler):
         """
         return self._wm.get_display()
 
-    def on_button_press(self, event):
-        r"""SUMMARY
+    # def on_button_press(self, event):
+    #     r"""SUMMARY
 
-        on_button_press(event)
+    #     on_button_press(event)
 
-        @Arguments:
-        - `event`:
+    #     @Arguments:
+    #     - `event`:
 
-        @Return:
+    #     @Return:
 
-        @Error:
-        """
-        self._pressed_time = event.time
-        self._pressed = True
+    #     @Error:
+    #     """
+    #     self._pressed_time = event.time
+    #     self._pressed = True
 
     # def _normal(self, event):
     #     r"""SUMMARY
@@ -104,7 +104,7 @@ class ChromeCloseTab(MouseEventHandler):
         # self._mbutton.press(root_x=event.x, root_y=event.y).check()
         # self._mbutton.release(root_x=event.x, root_y=event.y).check()
 
-    def on_button_release(self, event):
+    def on_button_press(self, event):
         r"""SUMMARY
 
         on_button_release(event)
@@ -120,13 +120,15 @@ class ChromeCloseTab(MouseEventHandler):
         # if 200 <= event.time - self._pressed_time:
             # self._normal(event)
             # return
-        if not self._pressed:
-            return
+        # if not self._pressed:
+            # return
         if 'all - Google Chrome' == self._wm.get_active_window().title:
+            print('DEBUG-1-chrome.py')
             self._feedly_read.send()
             sleep(1)
+
         self._closetab.send()
-        self._pressed = False
+        # self._pressed = False
 
 
 class ChromeResize(KeyEventHandler):

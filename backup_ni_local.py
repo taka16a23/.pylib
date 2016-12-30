@@ -20,7 +20,7 @@ __version__ = '0.1.1'
 ###############################################################################
 # define backup directory name
 BACKUP_NAME = 'queen_local'
-BACKUP_BASE_DIR = '/data/.backup'
+BACKUP_BASE_DIR = '/backup'
 BACKUP_PATH = os.path.join(BACKUP_BASE_DIR, BACKUP_NAME)
 # define Max incremental backup
 MAX = 30
@@ -109,6 +109,7 @@ BK = LinkDestLocalBackup(src='/', bkupdir=BACKUP_PATH,
                          lotate=True, logname=LOGNAME)
 EXCLUDES = ['/data/*',
             '/cdata',
+            '/backup/*',
             '/etc/fstab',
             '/etc/crypttab',
             '/var/cache/apt/archive/*',
@@ -118,11 +119,16 @@ EXCLUDES = ['/data/*',
             '/root/.cache/google-chrome/Default/*',
             '/root/.local/share/Trash/files/*',
             '/root/.local/share/Trash/info/*',
+            '/root/work/*',
+            '/root/Downloads/*',
+            '/root/VIDEO/*',
+            '/usr/src/*',
             ]
 BK.add_exclude(EXCLUDES)
 BK.backup()
 
 sys.exit(0)
+
 
 
 # For Emacs

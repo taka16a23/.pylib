@@ -23,7 +23,7 @@ class CloseWindow(MouseEventHandler):
         """
         self._wm = WindowManagerListener()
 
-    def on_button_release(self, event):
+    def on_button_press(self, event):
         r"""SUMMARY
 
         on_button_release(event)

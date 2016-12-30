@@ -426,8 +426,9 @@ class MouseBindService(CursorListenerObserver, Observable, EventListenerSingleto
         for candidate in self._candidates:
             if candidate.can_bind_window(window):
                 extend(candidate.build_binder(self))
-        for cookie in cookies:
-            cookie.check()
+        #for cookie in cookies:
+        #    cookie.check()
+        self.display.flush()
         # TODO: (Atami) [2016/05/27]
         # after update notify
         self._notify_updated_binder(self, window)

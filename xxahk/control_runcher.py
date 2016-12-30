@@ -43,7 +43,7 @@ class TapDispatcher(object):
         """
 
 
-class ControlRuncher(KeyEventHandler):
+class ControlRuncherXfrun4(KeyEventHandler):
     r"""ControlRuncher
 
     ControlRuncher is a KeyEventHandler.
@@ -161,7 +161,7 @@ class ControlRuncherSynapse(KeyEventHandler):
         self._wm.display.flush()
 
 
-RUNCHER = ControlRuncherSynapse()
+RUNCHER = ControlRuncherXfrun4()
 GLOBALKEY = GlobalKeyBinder()
 GLOBALKEY.bind(Accelerator(66, ), RUNCHER)
 GLOBALKEY.bind(Accelerator(66, Modifier.Mask.Control), RUNCHER)

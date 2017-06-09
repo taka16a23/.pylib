@@ -19,27 +19,53 @@ __version__ = "0.1.1"
 __all__ = ['whatismyip', ]
 
 
-HOSTS = ('http://www.whatismyip.com/',
-         'http://adresseip.com',
-         'http://www.aboutmyip.com/',
-         'http://www.ipchicken.com/',
-         'http://www.showmyip.com/',
-         'http://monip.net/',
-         'http://checkrealip.com/',
-         'http://ipcheck.rehbein.net/',
-         'http://checkmyip.com/',
-         'http://www.raffar.com/checkip/',
-         'http://www.thisip.org/',
-         'http://www.lawrencegoetz.com/programs/ipinfo/',
-         'http://www.mantacore.se/whoami/',
-         'http://www.edpsciences.org/htbin/ipaddress',
-         'http://mwburden.com/cgi-bin/getipaddr',
-         'http://checkipaddress.com/',
-         'http://www.glowhost.com/support/your.ip.php',
-         'http://www.tanziars.com/',
-         'http://www.naumann-net.org/',
-         'http://www.godwiz.com/',
-         'http://checkip.eurodyndns.org/',)
+HOSTS = ('http://ip.dnsexit.com',
+                            'http://ifconfig.me/ip',
+                            'http://echoip.com',
+                            'http://ipecho.net/plain',
+                            'http://checkip.dyndns.org/plain',
+                            'http://ipogre.com/linux.php',
+                            'http://whatismyipaddress.com/',
+                            'http://websiteipaddress.com/WhatIsMyIp',
+                            'http://getmyipaddress.org/',
+                            'http://www.my-ip-address.net/',
+                            'http://myexternalip.com/raw',
+                            'http://www.canyouseeme.org/',
+                            'http://www.trackip.net/',
+                            'http://icanhazip.com/',
+                            'http://www.iplocation.net/',
+                            'http://www.howtofindmyipaddress.com/',
+                            'http://www.ipchicken.com/',
+                            'http://whatsmyip.net/',
+                            'http://www.ip-adress.com/',
+                            'http://checkmyip.com/',
+                            'http://www.tracemyip.org/',
+                            'http://www.lawrencegoetz.com/programs/ipinfo/',
+                            'http://www.findmyip.co/',
+                            'http://ip-lookup.net/',
+                            'http://www.dslreports.com/whois',
+                            'http://www.mon-ip.com/en/my-ip/',
+                            'http://www.myip.ru',
+                            'http://ipgoat.com/',
+                            'http://www.myipnumber.com/my-ip-address.asp',
+                            'http://www.whatsmyipaddress.net/',
+                            'http://formyip.com/',
+                            'https://check.torproject.org/',
+                            'http://www.displaymyip.com/',
+                            'http://www.bobborst.com/tools/whatsmyip/',
+                            'http://www.geoiptool.com/',
+                            'https://www.whatsmydns.net/whats-my-ip-address.html',
+                            'https://www.privateinternetaccess.com/pages/whats-my-ip/',
+                            'http://checkip.dyndns.com/',
+                            'http://myexternalip.com/',
+                            'http://www.ip-adress.eu/',
+                            'http://www.infosniper.net/',
+                            'https://wtfismyip.com/text',
+                            'http://ipinfo.io/',
+                            'http://httpbin.org/ip',
+                            'https://diagnostic.opendns.com/myip',
+                            'http://checkip.amazonaws.com',
+                            'https://api.ipify.org',)
 
 
 def whatismyip():
@@ -49,16 +75,16 @@ def whatismyip():
     '''
     # List of host which return the public IP address:
     regexp = RegexpPattern.get_compile('ipv4')
-    for _ in range(3):
+    for _ in range(7):
         host = _random.choice(HOSTS)
-
+        print(host)
         try:
             results = regexp.findall(_urllib.urlopen(host).read(200000))
             # assert isinstance(results, object)
             if results:
                 return IPv4Address(unicode(results[0][0]))
         except:
-            pass # Let's try another host
+            print('Failed host: {}'.format(host))
     return None
 
 
@@ -67,7 +93,6 @@ def _main():
 
 if __name__ == '__main__':
     _main()
-
 
 
 

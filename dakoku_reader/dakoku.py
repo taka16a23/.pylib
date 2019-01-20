@@ -4,9 +4,10 @@ r"""dakoku -- DESCRIPTION
 
 """
 import requests
+from reader_observer import ReaderObserverAbstract
 
 
-class Dakoku(object):
+class Dakoku(ReaderObserverAbstract):
     """Dakoku
 
     Dakoku is a object.

@@ -13,7 +13,6 @@ from observable import Observable
 from dakoku import Dakoku
 from reader_observer import ReaderObserverAbstract
 
-
 # for debug
 import cgitb as _cgitb
 _cgitb.enable(format='text')
@@ -224,7 +223,6 @@ class Reader(Observable):
             print(tag.identifier.encode("hex").upper())
 
             # dakoku.dakoku(tag.identifier.encode("hex").upper())
-        # ensure
 
         # True で返すとカードを離すまで待機
         return True
@@ -241,8 +239,6 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-
         # do
         self._notify_startup(targets)
 
@@ -261,12 +257,9 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-
         # do
         self._notify_released(tag)
 
-        # ensure
         return True
 
     def _create_clf(self, ):
@@ -278,8 +271,6 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-
         # do
         try:
             self._clf = nfc.ContactlessFrontend('usb')
@@ -296,8 +287,6 @@ class Reader(Observable):
             else:
                 # TODO: (Atami) [2018/05/04]
                 pass
-
-        # ensure
 
     def _close_clf(self, ):
         """SUMMARY
@@ -316,8 +305,6 @@ class Reader(Observable):
         self._clf.close()
         self._clf = None
 
-        # ensure
-
     def _run(self, ):
         """SUMMARY
 
@@ -327,9 +314,6 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-
-        # do
         self._notify_before_started()
 
         loop = True
@@ -337,11 +321,11 @@ class Reader(Observable):
             self._create_clf()
             try:
                 tag = self._clf.connect(rdwr=self._rdwr_options)
+                self._on_rdwr_release(tag)
             finally:
                 self._close_clf()
 
         self._notify_stopped()
-        # ensure
 
     def run(self, ):
         """打刻リーダー実装処理
@@ -353,16 +337,11 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-
-        # do
         try:
             self._run()
         except KeyboardInterrupt as error:
             LOG.info('KeyboardInterrupted!!')
             self._close_clf()
-
-        # ensure
 
 
 def _main():

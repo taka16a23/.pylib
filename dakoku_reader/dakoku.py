@@ -53,10 +53,12 @@ class Dakoku(ReaderObserverAbstract):
         @Error:
         """
         # require
+        print('DEBUG-1-dakoku.py')
         print(idm)
         # do
         params = {'idm': idm,}
         response = requests.get(self.URL, params=params)
+        print('DEBUG-2-dakoku.py')
         print(response)
         if response.ok == False:
             pass

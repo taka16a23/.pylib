@@ -214,15 +214,8 @@ class Reader(Observable):
 
         @Error:
         """
-        # require
-        print('DEBUG-1-reader.py')
-
-        # do
-        # dakoku = Dakoku()
-        if isinstance(tag, nfc.tag.tt3.Type3Tag):
-            print(tag.identifier.encode("hex").upper())
-
-            # dakoku.dakoku(tag.identifier.encode("hex").upper())
+        for observer in self._observers:
+            observer.on_released(tag)
 
         # True で返すとカードを離すまで待機
         return True

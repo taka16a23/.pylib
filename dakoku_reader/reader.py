@@ -367,7 +367,7 @@ class Reader(Observable):
 
 def _main():
     reader = Reader()
-    # reader.add_observer(Dakoku())
+    reader.add_observer(Dakoku())
     reader.run()
     return 0
 

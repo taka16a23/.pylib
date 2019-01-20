@@ -12,6 +12,7 @@ class Dakoku(object):
     Dakoku is a object.
     Responsibility:
     """
+    # temporary
     URL = '192.168.0.2/dakoku/dakoku'
 
     class ReturnCode(object):

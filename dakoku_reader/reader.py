@@ -219,6 +219,7 @@ class Reader(Observable):
         for observer in self._observers:
             observer.on_released(tag)
 
+        print('DEBUG-2-reader.py')
         # True で返すとカードを離すまで待機
         return True
 

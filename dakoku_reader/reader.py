@@ -214,6 +214,8 @@ class Reader(Observable):
 
         @Error:
         """
+        print('DEBUG-1-reader.py')
+
         for observer in self._observers:
             observer.on_released(tag)
 
@@ -313,8 +315,8 @@ class Reader(Observable):
         while loop:
             self._create_clf()
             try:
+                # _rdwr_options is callback function dictionary
                 tag = self._clf.connect(rdwr=self._rdwr_options)
-                self._on_rdwr_release(tag)
             finally:
                 self._close_clf()
 

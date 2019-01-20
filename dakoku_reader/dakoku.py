@@ -26,6 +26,20 @@ class Dakoku(ReaderObserverAbstract):
         FAILED = '200'
         IDM_NOT_EXISTS = '201'
 
+    def on_released(self, tag):
+        """SUMMARY
+
+        on_released(tag)
+
+        @Arguments:
+        - `tag`:
+
+        @Return:
+
+        @Error:
+        """
+        self.dakoku(tag.identifier.encode("hex").upper())
+
     def dakoku(self, idm):
         """SUMMARY
 

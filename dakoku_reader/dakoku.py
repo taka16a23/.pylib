@@ -57,13 +57,13 @@ class Dakoku(ReaderObserverAbstract):
         print(idm)
         # do
         params = {'idm': idm,}
-        response = requests.get(self.URL, params=params)
+        # response = requests.get(self.URL, params=params)
         print('DEBUG-2-dakoku.py')
-        print(response)
-        if response.ok == False:
-            pass
-        if response.text == Dakoku.ReturnCode.SUCCESS:
-            pass
+        # print(response)
+        # if response.ok == False:
+            # pass
+        # if response.text == Dakoku.ReturnCode.SUCCESS:
+            # pass
         # ensure
 
 

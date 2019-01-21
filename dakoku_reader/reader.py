@@ -171,14 +171,16 @@ class Reader(Observable):
             observer.on_failed(self)
 
     def _notify_released(self, tag):
-        """SUMMARY
+        """Notify tag to observers.
 
         _notify_released(tag)
+
+        observer require on_released method
 
         @Arguments:
         - `tag`: nfc.tag.Tag
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -216,8 +218,7 @@ class Reader(Observable):
         """
         print('DEBUG-1-reader.py')
 
-        for observer in self._observers:
-            observer.on_released(tag)
+        self._notify_released(tag)
 
         print('DEBUG-2-reader.py')
         # True で返すとカードを離すまで待機

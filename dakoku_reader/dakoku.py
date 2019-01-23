@@ -74,6 +74,7 @@ class Dakoku(ReaderObserverAbstract):
 
 
 def _main():
+    LOG.setLevel(logging.DEBUG)
     reader = Reader()
     reader.add_observer(Dakoku())
     reader.add_observer(DebugReader())

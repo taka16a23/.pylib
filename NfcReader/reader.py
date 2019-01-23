@@ -9,16 +9,10 @@ import logging
 import nfc
 import errno
 
-from observable import Observable
-from dakoku import Dakoku
-from reader_observer import ReaderObserverAbstract
+from NfcReader.observable import Observable
+from NfcReader.reader_observer import ReaderObserverAbstract
 
-# for debug
-import cgitb as _cgitb
-_cgitb.enable(format='text')
-
-
-LOG = logging.getLogger('dakoku')
+LOG = logging.getLogger('NfcReader')
 
 
 class Reader(Observable):
@@ -216,11 +210,7 @@ class Reader(Observable):
 
         @Error:
         """
-        print('DEBUG-1-reader.py')
-
         self._notify_released(tag)
-
-        print('DEBUG-2-reader.py')
         # True で返すとカードを離すまで待機
         return True
 
@@ -339,16 +329,6 @@ class Reader(Observable):
         except KeyboardInterrupt as error:
             LOG.info('KeyboardInterrupted!!')
             self._close_clf()
-
-
-def _main():
-    reader = Reader()
-    reader.add_observer(Dakoku())
-    reader.run()
-    return 0
-
-if __name__ == '__main__':
-    _sys.exit(_main())
 
 
 

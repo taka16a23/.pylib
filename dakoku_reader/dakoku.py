@@ -3,8 +3,10 @@
 r"""dakoku -- DESCRIPTION
 
 """
+import sys as _sys
 import requests
-from reader_observer import ReaderObserverAbstract
+from NfcReader.reader_observer import ReaderObserverAbstract
+from NfcReader.reader import Reader
 
 
 class Dakoku(ReaderObserverAbstract):
@@ -14,7 +16,7 @@ class Dakoku(ReaderObserverAbstract):
     Responsibility:
     """
     # temporary
-    URL = '192.168.0.2/dakoku/dakoku'
+    URL = 'http://192.168.0.2/dakoku/dakoku'
 
     class ReturnCode(object):
         """ReturnCode
@@ -53,17 +55,25 @@ class Dakoku(ReaderObserverAbstract):
         @Error:
         """
         # require
-        print('DEBUG-1-dakoku.py')
         print(idm)
         # do
         params = {'idm': idm,}
         response = requests.get(self.URL, params=params)
-        print('DEBUG-2-dakoku.py')
         print(response)
         if response.ok == False:
             pass
         if response.text == Dakoku.ReturnCode.SUCCESS:
             pass
+
+
+def _main():
+    reader = Reader()
+    reader.add_observer(Dakoku())
+    reader.run()
+    return 0
+
+if __name__ == '__main__':
+    _sys.exit(_main())
 
 
 

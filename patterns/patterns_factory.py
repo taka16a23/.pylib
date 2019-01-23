@@ -824,7 +824,7 @@ class PatternFactory(object):
 
         return
 
-    HANKAKU_KATAKANA_STR = r""
+    HANKAKU_KATAKANA_STR = r"[ｱ-ﾝﾞﾟｧ-ｫｬ-ｮｰ｡｢｣､]+"
 
     @staticmethod
     def create_hankaku_katakana(flags=0, fullmatch=False):
@@ -849,7 +849,7 @@ class PatternFactory(object):
 
         return
 
-    ZENKAKU_KATAKANA_STR = r""
+    ZENKAKU_KATAKANA_STR = r"[ア-ン゛゜ァ-ォャ-ョー「」、]+"
 
     @staticmethod
     def create_zenkaku_katakana(flags=0, fullmatch=False):
@@ -907,12 +907,14 @@ class PatternFactory(object):
     # 正・負の小数
 
     # 全角ひらがな
+    ZENKAKU_HIRAGANA_STR = r"[あ-ん゛゜ぁ-ぉゃ-ょー「」、]+"
 
     # 全角カタカナ
 
     # 半角カタカナ
 
     # 全角文字のみ
+    ZENKAKU_STR = r"[ぁ-んァ-ヶー一-龠]+"
 
     # 特定の拡張子のファイル
 

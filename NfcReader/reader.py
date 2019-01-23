@@ -35,7 +35,7 @@ class Reader(Observable):
         self._rdwr_options = {'on-connect': self._on_rdwr_connect,
                               'on-startup': self._on_rdwr_startup,
                               'on-release': self._on_rdwr_release,
-                              'interval': self._interval,
+                              # 'interval': self._interval,
         }
         self.on_create()
 

@@ -4,9 +4,13 @@ r"""dakoku -- DESCRIPTION
 
 """
 import sys as _sys
+import logging
+
 import requests
 from NfcReader.reader_observer import ReaderObserverAbstract
 from NfcReader.reader import Reader
+
+LOG = logging.getLogger('Dakoku')
 
 
 class Dakoku(ReaderObserverAbstract):
@@ -59,11 +63,12 @@ class Dakoku(ReaderObserverAbstract):
         # do
         params = {'idm': idm,}
         response = requests.get(self.URL, params=params)
-        print(response)
         if response.ok == False:
-            pass
+            LOG.debug('response failed')
+            return
         if response.text == Dakoku.ReturnCode.SUCCESS:
-            pass
+            LOG.debug('response success 200')
+            return
 
 
 def _main():

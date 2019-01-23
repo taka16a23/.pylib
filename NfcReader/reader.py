@@ -212,7 +212,7 @@ class Reader(Observable):
         """
         self._notify_released(tag)
         # True で返すとカードを離すまで待機
-        return False
+        return True
 
     def _on_rdwr_startup(self, targets):
         """SUMMARY

@@ -9,6 +9,8 @@ import logging
 import requests
 from NfcReader.reader_observer import ReaderObserverAbstract
 from NfcReader.reader import Reader
+from NfcReader.debug_observer import DebugReader
+
 
 LOG = logging.getLogger('Dakoku')
 
@@ -74,6 +76,7 @@ class Dakoku(ReaderObserverAbstract):
 def _main():
     reader = Reader()
     reader.add_observer(Dakoku())
+    reader.add_observer(DebugReader())
     reader.run()
     return 0
 

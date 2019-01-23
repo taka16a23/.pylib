@@ -21,7 +21,7 @@ class Reader(Observable):
     Reader is a object.
     Responsibility: Read IDm
     """
-    def __init__(self, interval=None):
+    def __init__(self, interval=None, wait_release=True):
         """
         オブザーバー用に初期化
         """
@@ -37,6 +37,7 @@ class Reader(Observable):
                               'on-release': self._on_rdwr_release,
                               'interval': self._interval,
         }
+        self._wait_release = wait_release
         self.on_create()
 
     def on_create(self, ):
@@ -49,6 +50,28 @@ class Reader(Observable):
 
         @Error:
         """
+
+    def set_wait_release(self, ):
+        """SUMMARY
+
+        set_wait_release()
+
+        @Return:
+
+        @Error:
+        """
+        self._wait_release = True
+
+    def reset_wait_release(self, ):
+        """SUMMARY
+
+        reset_wait_release()
+
+        @Return:
+
+        @Error:
+        """
+        self._wait_release = False
 
     # override
     def add_observer(self, observer):
@@ -212,7 +235,7 @@ class Reader(Observable):
         """
         self._notify_released(tag)
         # True で返すとカードを離すまで待機
-        return True
+        return self._wait_release
 
     def _on_rdwr_startup(self, targets):
         """SUMMARY
@@ -244,9 +267,7 @@ class Reader(Observable):
 
         @Error:
         """
-        # do
         self._notify_released(tag)
-
         return True
 
     def _create_clf(self, ):

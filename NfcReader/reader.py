@@ -279,22 +279,18 @@ class Reader(Observable):
 
         @Error:
         """
-        # do
         try:
             self._clf = nfc.ContactlessFrontend('usb')
         except IOError as error:
             if error.errno == errno.ENODEV:
-                # TODO: (Atami) [2018/05/04]
-                pass
+                LOG.info('no contactless reader found on usb')
             elif error.errno == errno.EACCES:
-                # TODO: (Atami) [2018/05/04]
-                pass
+                LOG.info('access denied for device with path usb')
             elif error.errno == errno.EBUSY:
-                # TODO: (Atami) [2018/05/04]
-                pass
+                LOG.info("the reader on usb is busy")
             else:
-                # TODO: (Atami) [2018/05/04]
-                pass
+                LOG.debug(repr(error) + "when trying usb")
+            raise SystemExit(-1)
 
     def _close_clf(self, ):
         """Call ContactlessFrontend.close().

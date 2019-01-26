@@ -88,7 +88,7 @@ class Dakoku(ReaderObserverAbstract):
 
 def _main():
     logging.basicConfig(level=logging.DEBUG)
-    reader = Reader(loop=True)
+    reader = Reader()
     reader.add_observer(Dakoku())
     reader.add_observer(DebugReader())
     reader.run()

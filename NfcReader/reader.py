@@ -3,7 +3,6 @@
 r"""reader -- dakoku reader
 
 """
-import sys as _sys
 import logging
 
 import nfc
@@ -39,6 +38,26 @@ class Reader(Observable):
         }
         self._wait_release = wait_release
         self.on_create()
+
+    def add_observer(self, observer):
+        """Add ReaderObserverAbstract observer
+
+        add_observer(observer)
+
+        @Arguments:
+        - `observer`: ReaderObserverAbstract
+
+        @Return: None
+
+        @Error: TypeError if observer not ReaderObserverAbstract.
+
+        Overrided Observer.add_observer
+        """
+        if not isinstance(observer, (ReaderObserverAbstract, )):
+            raise TypeError(
+                'TypeError: observer argument require ReaderObserverAbstract. got({})'
+                .format(observer))
+        super(Reader, self).add_observer(observer)
 
     def on_create(self, ):
         """インスタンス作成時に呼ばれる

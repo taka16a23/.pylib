@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""reader -- dakoku reader
-
-"""
 import logging
 
 import nfc
-import errno
 
 from NfcReader.observable import Observable
 from NfcReader.reader_observer import ReaderObserverAbstract
@@ -15,19 +11,23 @@ LOG = logging.getLogger('NfcReader')
 
 
 class Reader(Observable):
-    """Reader
+    """Felica Reader
 
     Reader is a object.
     Responsibility: Read IDm
     """
-    def __init__(self, interval=None):
-        """
-        オブザーバー用に初期化
-        """
+    def __init__(self, interval=None, wait_release=True):
+        # Initialize for observer
         Observable.__init__(self)
         self._clf = None
 
+        # set interval time for each connect
+        if interval is not None:
+            interval = float(interval)
         self._interval = interval
+
+        # wait release when connected
+        self.is_wait_release = bool(wait_release)
 
         # connect 用にオプション作成
         # options for reader/writer
@@ -39,7 +39,7 @@ class Reader(Observable):
         self.on_create()
 
     def add_observer(self, observer):
-        """Add ReaderObserverAbstract observer
+        """Add ReaderObserverAbstract observer.
 
         add_observer(observer)
 
@@ -59,26 +59,25 @@ class Reader(Observable):
         super(Reader, self).add_observer(observer)
 
     def on_create(self, ):
-        """インスタンス作成時に呼ばれる
+        """Called on Constracted.
 
         on_create()
 
-        @Return:
-        None
+        @Return: None
 
         @Error:
         """
 
     # override
     def add_observer(self, observer):
-        """add observer for Reader
+        """Add observer for Reader.
 
         add_observer(observer)
 
         @Arguments:
-        - `observer`:
+        - `observer`: Require instance of ReaderObserverAbstract
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -90,93 +89,79 @@ class Reader(Observable):
         super(Reader, self).add_observer(observer)
 
     def get_interval(self, ):
-        """SUMMARY
+        """Get interval value.
 
         get_interval()
 
-        @Return:
+        @Return: None or float
 
         @Error:
         """
         return self._interval
 
     def set_interval(self, interval):
-        """SUMMARY
+        """Set interval value at Reader each connection.
 
         set_interval(interval)
 
         @Arguments:
-        - `interval`:
+        - `interval`: float value.
 
-        @Return:
+        @Return: None
 
         @Error:
+        TypeError: raise error if not float type.
+        ValueError: raise error if value less than 0.
         """
         # require
         if interval is None:
             self._interval = None
             return
-
         if isinstance(interval, (float, )) is not False:
-            raise ValueError('type of interval is not float. got({})'.format(type(interval)))
+            raise TypeError('type of interval is not float. got({})'.format(type(interval)))
         if interval < 0:
             raise ValueError('interval not accept less than 0. got({})'.format(interval))
 
         # do
         self._interval = interval
 
-    ## オブザーバー通知用
-    #
+    ## notifer for observer
     def _notify_before_started(self, ):
-        """SUMMARY
+        """Notify to register observers on before Reader start loop.
 
         _notify_before_started()
 
-        @Return:
+        @Return: None
 
         @Error:
+
+        Require method on_before_started.
+        Path this object.
         """
         for observer in self._observers:
             observer.on_before_started(self)
 
     def _notify_startup(self, targets):
-        """SUMMARY
+        """Notify to register observers on Reader before each connect.
 
         _notify_startup(targets)
 
         @Arguments:
-        - `targets`:
+        - `targets`: Target
 
-        @Return:
+        @Return: None
 
         @Error:
         """
         for observer in self._observers:
             observer.on_startup(targets)
 
-    def _notify_success(self, tag):
-        """tag取得成功時に登録されているリスナーオブジェクトに通知
-
-        @Arguments:
-        - `tag`: nfc.tag.Tag
-
-        @Return:
-        None
-
-        _notify_success()
-
-        @Error:
-        """
-        for observer in self._observers:
-            observer.on_success(tag)
-
     def _notify_failed(self, ):
-        """tag取得失敗時に登録されているリスナーオブジェクトに通知
+        """Notify to register observers on Reader fail to read tag.
 
         _notify_failed()
 
-        @Return:
-        None
+        @Return: None
 
         @Error:
         """
@@ -184,14 +169,16 @@ class Reader(Observable):
             observer.on_failed(self)
 
     def _notify_touched(self, tag):
-        """SUMMARY
+        """Notify to register observers when a remote tag has been activated.
 
         _notify_touched(tag)
 
-        @Arguments:
-        - `tag`:
+        observer object require on_touched method
 
-        @Return:
+        @Arguments:
+        - `tag`: `nfc.tag.Tag` object
+
+        @Return: None
 
         @Error:
         """
@@ -199,11 +186,11 @@ class Reader(Observable):
             observer.on_touched(tag)
 
     def _notify_released(self, tag):
-        """Notify tag to observers.
+        """Notify to register observers when release cards.
 
         _notify_released(tag)
 
-        observer require on_released method
+        observer object require on_released method
 
         @Arguments:
         - `tag`: nfc.tag.Tag
@@ -216,47 +203,46 @@ class Reader(Observable):
             observer.on_released(tag)
 
     def _notify_stopped(self, ):
-        """実行終了時に登録されているリスナーオブジェクトに通知
+        """Notify to register observers when end of Reader looping.
 
         _notify_stopped()
 
-        @Return:
-        None
+        @Return: None
 
         @Error:
         """
         for observer in self._observers:
             observer.on_stopped(self)
 
-    #####################################################
+    ############################################################################
 
     ## options for reader/writer
     #
     def _on_rdwr_connect(self, tag):
-        """rdwrのon-connect用コールバックメソッド
+        """Callback rdwr method for on-connect.
 
         _on_rdwr_connect(tag)
 
         @Arguments:
         - `tag`: nfc.tag.Tag
 
-        @Return: True カードを離すまで待機する
+        @Return: Bool: Wait until release card if return value is True.
 
         @Error:
         """
         self._notify_touched(tag)
-        # True で返すとカードを離すまで待機
-        return self._wait_release
+        # Wait until release card if return value is True.
+        return self.is_wait_release
 
     def _on_rdwr_startup(self, targets):
-        """SUMMARY
+        """Callback rdwr method for on-startup.
 
         _on_rdwr_startup(targets)
 
         @Arguments:
-        - `targets`:
+        - `targets`: list of Target object.
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -267,14 +253,14 @@ class Reader(Observable):
         return targets
 
     def _on_rdwr_release(self, tag):
-        """SUMMARY
+        """Callback rdwr method for on-release.
 
         _on_rdwr_release(tag)
 
         @Arguments:
         - `tag`: nfc.tag.Tag
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -282,11 +268,13 @@ class Reader(Observable):
         return True
 
     def _create_clf(self, ):
-        """SUMMARY
+        """Create ContactlessFrontend instance.
+
+        Use usb path.
 
         _create_clf()
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -308,11 +296,11 @@ class Reader(Observable):
                 pass
 
     def _close_clf(self, ):
-        """SUMMARY
+        """Call ContactlessFrontend.close().
 
         _close_clf()
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -325,11 +313,11 @@ class Reader(Observable):
         self._clf = None
 
     def _run(self, ):
-        """SUMMARY
+        """Run Reader connection.
 
         _run()
 
-        @Return:
+        @Return: None
 
         @Error:
         """
@@ -342,12 +330,11 @@ class Reader(Observable):
             self._close_clf()
 
     def run(self, ):
-        """打刻リーダー実装処理
+        """Interface for Reader run connection.
 
         run()
 
-        @Return:
-        None
+        @Return: None
 
         @Error:
         """
@@ -359,6 +346,7 @@ class Reader(Observable):
             except KeyboardInterrupt as error:
                 LOG.info('KeyboardInterrupted!!')
                 self._close_clf()
+                break
 
         self._notify_stopped()
 

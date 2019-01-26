@@ -1,91 +1,89 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-r"""reader_observer -- DESCRIPTION
-
-"""
 
 
 class ReaderObserverAbstract(object):
     """ReaderObserverAbstract
 
     ReaderObserverAbstract is a object.
-    Responsibility:
+    Responsibility: Observe nfc Reader.
     """
 
     def on_before_started(self, reader):
-        """SUMMARY
+        """This method will called at before Reader startup.
 
         on_before_started(reader)
 
         @Arguments:
-        - `reader`:
+        - `reader`: Reader object
 
-        @Return:
-
-        @Error:
-        """
-
-    def on_startup(self, targets):
-        """SUMMARY
-
-        on_startup(targets)
-
-        @Arguments:
-        - `targets`:
-
-        @Return:
-
-        @Error:
-        """
-
-    def on_failed(self, reader):
-        """SUMMARY
-
-        on_failed(reader)
-
-        @Arguments:
-        - `reader`:
-
-        @Return:
-
-        @Error:
-        """
-
-    def on_touched(self, tag):
-        """SUMMARY
-
-        on_touched(tag)
-
-        @Arguments:
-        - `tag`:
-
-        @Return:
-
-        @Error:
-        """
-
-    def on_released(self, tag):
-        """SUMMARY
-
-        on_released(tag)
-
-        @Arguments:
-        - `tag`:
-
-        @Return:
+        @Return: None
 
         @Error:
         """
 
     def on_stopped(self, reader):
-        """SUMMARY
+        """This method will called at Reader stopped.
 
         on_stopped(reader)
 
         @Arguments:
-        - `reader`:
+        - `reader`: Reader object
 
-        @Return:
+        @Return: None
+
+        @Error:
+        """
+
+    def on_startup(self, targets):
+        """This method will called at each startup Reader.
+
+        on_startup(targets)
+
+        @Arguments:
+        - `targets`: list of Target class
+        data of a remote card or device.
+
+        @Return: None
+
+        @Error:
+        """
+
+    def on_failed(self, reader):
+        """This method will called at failed Reader get tag.
+
+        on_failed(reader)
+
+        @Arguments:
+        - `reader`: Reader object
+
+        @Return: None
+
+        @Error:
+        """
+
+    def on_touched(self, tag):
+        """This method will called at card touch.
+
+        on_touched(tag)
+
+        @Arguments:
+        - `tag`: Tag object
+
+        @Return: None
+
+        @Error:
+        """
+
+    def on_released(self, tag):
+        """This method will called at card release.
+
+        on_released(tag)
+
+        @Arguments:
+        - `tag`: Tag object
+
+        @Return: None
 
         @Error:
         """

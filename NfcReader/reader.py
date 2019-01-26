@@ -340,10 +340,10 @@ class Reader(Observable):
         self._create_clf()
         try:
             # _rdwr_options is callback function dictionary
-            tag = self._clf.connect(rdwr=self._rdwr_options)
+            if self._clf.connect(rdwr=self._rdwr_options) != True:
+                self._notify_failed()
         finally:
             self._close_clf()
-
 
     def run(self, ):
         """打刻リーダー実装処理

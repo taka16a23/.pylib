@@ -20,7 +20,7 @@ class Reader(Observable):
     Reader is a object.
     Responsibility: Read IDm
     """
-    def __init__(self, interval=None, wait_release=True):
+    def __init__(self, interval=None):
         """
         オブザーバー用に初期化
         """
@@ -36,7 +36,6 @@ class Reader(Observable):
                               'on-release': self._on_rdwr_release,
                               'interval': self._interval,
         }
-        self._wait_release = wait_release
         self.on_create()
 
     def add_observer(self, observer):
@@ -69,28 +68,6 @@ class Reader(Observable):
 
         @Error:
         """
-
-    def set_wait_release(self, ):
-        """SUMMARY
-
-        set_wait_release()
-
-        @Return:
-
-        @Error:
-        """
-        self._wait_release = True
-
-    def reset_wait_release(self, ):
-        """SUMMARY
-
-        reset_wait_release()
-
-        @Return:
-
-        @Error:
-        """
-        self._wait_release = False
 
     # override
     def add_observer(self, observer):

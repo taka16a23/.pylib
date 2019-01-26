@@ -34,6 +34,20 @@ class Dakoku(ReaderObserverAbstract):
         FAILED = '200'
         IDM_NOT_EXISTS = '201'
 
+    def on_touched(self, tag):
+        """SUMMARY
+
+        on_touched(tag)
+
+        @Arguments:
+        - `tag`:
+
+        @Return:
+
+        @Error:
+        """
+        self.dakoku(tag.identifier.encode("hex").upper())
+
     def on_released(self, tag):
         """SUMMARY
 
@@ -46,7 +60,6 @@ class Dakoku(ReaderObserverAbstract):
 
         @Error:
         """
-        self.dakoku(tag.identifier.encode("hex").upper())
 
     def dakoku(self, idm):
         """SUMMARY
@@ -75,7 +88,7 @@ class Dakoku(ReaderObserverAbstract):
 
 def _main():
     logging.basicConfig(level=logging.DEBUG)
-    reader = Reader()
+    reader = Reader(loop=True)
     reader.add_observer(Dakoku())
     reader.add_observer(DebugReader())
     reader.run()

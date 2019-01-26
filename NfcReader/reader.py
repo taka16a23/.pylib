@@ -187,6 +187,21 @@ class Reader(Observable):
         for observer in self._observers:
             observer.on_failed(self)
 
+    def _notify_touched(self, tag):
+        """SUMMARY
+
+        _notify_touched(tag)
+
+        @Arguments:
+        - `tag`:
+
+        @Return:
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_touched(tag)
+
     def _notify_released(self, tag):
         """Notify tag to observers.
 
@@ -233,7 +248,7 @@ class Reader(Observable):
 
         @Error:
         """
-        self._notify_released(tag)
+        self._notify_touched(tag)
         # True で返すとカードを離すまで待機
         return self._wait_release
 

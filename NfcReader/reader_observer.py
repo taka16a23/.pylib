@@ -51,6 +51,19 @@ class ReaderObserverAbstract(object):
         @Error:
         """
 
+    def on_touched(self, tag):
+        """SUMMARY
+
+        on_touched(tag)
+
+        @Arguments:
+        - `tag`:
+
+        @Return:
+
+        @Error:
+        """
+
     def on_released(self, tag):
         """SUMMARY
 

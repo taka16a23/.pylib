@@ -337,18 +337,13 @@ class Reader(Observable):
 
         @Error:
         """
-        self._notify_before_started()
+        self._create_clf()
+        try:
+            # _rdwr_options is callback function dictionary
+            tag = self._clf.connect(rdwr=self._rdwr_options)
+        finally:
+            self._close_clf()
 
-        loop = True
-        while loop:
-            self._create_clf()
-            try:
-                # _rdwr_options is callback function dictionary
-                tag = self._clf.connect(rdwr=self._rdwr_options)
-            finally:
-                self._close_clf()
-
-        self._notify_stopped()
 
     def run(self, ):
         """打刻リーダー実装処理
@@ -360,11 +355,16 @@ class Reader(Observable):
 
         @Error:
         """
-        try:
-            self._run()
-        except KeyboardInterrupt as error:
-            LOG.info('KeyboardInterrupted!!')
-            self._close_clf()
+        self._notify_before_started()
+
+        while 1:
+            try:
+                self._run()
+            except KeyboardInterrupt as error:
+                LOG.info('KeyboardInterrupted!!')
+                self._close_clf()
+
+        self._notify_stopped()
 
 
 

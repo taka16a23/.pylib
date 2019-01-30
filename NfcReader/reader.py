@@ -280,7 +280,7 @@ class Reader(Observable):
         @Error:
         """
         try:
-            self._clf = nfc.ContactlessFrontend('usb')
+            self._clf = nfc.ContactlessFrontend('usb:001:004')
         except IOError as error:
             if error.errno == errno.ENODEV:
                 LOG.info('no contactless reader found on usb')

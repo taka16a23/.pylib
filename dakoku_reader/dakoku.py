@@ -88,11 +88,11 @@ class Dakoku(ReaderObserverAbstract):
         response = requests.get(self.URL, params=params)
         if response.ok == True:
             # LOG.debug('response failed')
-            subprocess.Popen(('sudo aplay {}'.format(OK_SOIUNDS_FILE)).split())
+            subprocess.Popen(('sudo aplay -D plughw:1,0 {}'.format(OK_SOIUNDS_FILE)).split())
             return
         if response.text == Dakoku.ReturnCode.SUCCESS:
             LOG.debug('response success 200')
-            subprocess.Popen(('sudo aplay {}'.format(ERROR_SOIUNDS_FILE)).split())
+            subprocess.Popen(('sudo aplay -D plughw:1,0 {}'.format(ERROR_SOIUNDS_FILE)).split())
             return
 
 

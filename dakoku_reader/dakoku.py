@@ -86,8 +86,8 @@ class Dakoku(ReaderObserverAbstract):
         # do
         params = {'idm': idm,}
         response = requests.get(self.URL, params=params)
-        if response.ok == False:
-            LOG.debug('response failed')
+        if response.ok == True:
+            # LOG.debug('response failed')
             subprocess.Popen(('sudo aplay {}'.format(OK_SOIUNDS_FILE)).split())
             return
         if response.text == Dakoku.ReturnCode.SUCCESS:

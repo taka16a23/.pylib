@@ -5,6 +5,8 @@ r"""dakoku -- DESCRIPTION
 """
 import sys as _sys
 import logging
+import os
+import subprocess
 
 import requests
 from NfcReader.reader_observer import ReaderObserverAbstract
@@ -13,6 +15,12 @@ from NfcReader.debug_observer import DebugReader
 
 
 LOG = logging.getLogger('Dakoku')
+
+
+CURRENT_DIR = os.path.dirname(__file__)
+SOUNDS_DIR = os.path.join(CURRENT_DIR, 'sounds')
+OK_SOIUNDS_FILE = os.path.join(SOUNDS_DIR, 'OK.wav')
+ERROR_SOIUNDS_FILE = os.path.join(SOUNDS_DIR, 'Error.wav')
 
 
 class Dakoku(ReaderObserverAbstract):
@@ -80,9 +88,11 @@ class Dakoku(ReaderObserverAbstract):
         response = requests.get(self.URL, params=params)
         if response.ok == False:
             LOG.debug('response failed')
+            subprocess.Popen(('sudo aplay {}'.format(OK_SOIUNDS_FILE)).split())
             return
         if response.text == Dakoku.ReturnCode.SUCCESS:
             LOG.debug('response success 200')
+            subprocess.Popen(('sudo aplay {}'.format(ERROR_SOIUNDS_FILE)).split())
             return
 
 

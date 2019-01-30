@@ -157,7 +157,7 @@ class Reader(Observable):
         for observer in self._observers:
             observer.on_startup(targets)
 
-    def _notify_failed(self, ):
+    def _notify_failed_connection(self, ):
         """Notify to register observers on Reader fail to read tag.
 
         _notify_failed()
@@ -167,7 +167,7 @@ class Reader(Observable):
         @Error:
         """
         for observer in self._observers:
-            observer.on_failed(self)
+            observer.on_failed_connection(self)
 
     def _notify_touched(self, tag):
         """Notify to register observers when a remote tag has been activated.
@@ -322,7 +322,7 @@ class Reader(Observable):
         try:
             # _rdwr_options is callback function dictionary
             if self._clf.connect(rdwr=self._rdwr_options) != True:
-                self._notify_failed()
+                self._notify_failed_connection()
         finally:
             self._close_clf()
 

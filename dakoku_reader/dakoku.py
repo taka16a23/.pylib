@@ -103,6 +103,18 @@ class Dakoku(ReaderObserverAbstract, Observable):
         for observer in self._observers:
             observer.on_failed_dakoku(response)
 
+    def notify_on_released(self, ):
+        """SUMMARY
+
+        notify_on_released()
+
+        @Return:
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_released()
+
     def on_touched(self, tag):
         """SUMMARY
 
@@ -129,6 +141,7 @@ class Dakoku(ReaderObserverAbstract, Observable):
 
         @Error:
         """
+        self.notify_on_released()
 
     def dakoku(self, idm):
         """SUMMARY

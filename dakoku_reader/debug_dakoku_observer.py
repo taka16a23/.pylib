@@ -61,6 +61,17 @@ class DebugDakokuObserver(DakokuObserver):
         """
         print('on failed dakoku')
 
+    def on_released(self, ):
+        """SUMMARY
+
+        on_released()
+
+        @Return:
+
+        @Error:
+        """
+        print('on released')
+
 
 
 # For Emacs

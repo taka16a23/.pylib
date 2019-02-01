@@ -51,6 +51,16 @@ class DakokuObserver(object):
         @Error:
         """
 
+    def on_released(self, ):
+        """SUMMARY
+
+        on_released()
+
+        @Return:
+
+        @Error:
+        """
+
 
 
 # For Emacs

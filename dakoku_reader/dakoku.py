@@ -9,9 +9,13 @@ import os
 import subprocess
 
 import requests
+
 from NfcReader.reader_observer import ReaderObserverAbstract
 from NfcReader.reader import Reader
 from NfcReader.debug_observer import DebugReader
+
+from observable import Observable
+from dakoku_reader.debug_dakoku_observer import DebugDakokuObserver
 
 
 LOG = logging.getLogger('Dakoku')
@@ -23,7 +27,7 @@ OK_SOIUNDS_FILE = os.path.join(SOUNDS_DIR, 'OK.wav')
 ERROR_SOIUNDS_FILE = os.path.join(SOUNDS_DIR, 'Error.wav')
 
 
-class Dakoku(ReaderObserverAbstract):
+class Dakoku(ReaderObserverAbstract, Observable):
     """Dakoku
 
     Dakoku is a object.
@@ -41,6 +45,63 @@ class Dakoku(ReaderObserverAbstract):
         SUCCESS = '100'
         FAILED = '200'
         IDM_NOT_EXISTS = '201'
+
+    def __init__(self, ):
+        Observable.__init__(self)
+
+    def on_before_dakoku(self, ):
+        """SUMMARY
+
+        on_before_dakoku()
+
+        @Return:
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_before_dakoku()
+
+    def notify_success(self, response):
+        """SUMMARY
+
+        @Arguments:
+        - `response`:
+
+        @Return:
+
+        notify_success()
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_success(response)
+
+    def notify_failed_connection(self, ):
+        """SUMMARY
+
+        notify_failed_connection()
+
+        @Return:
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_failed_connection()
+
+    def notify_failed_dakoku(self, response):
+        """SUMMARY
+
+        @Arguments:
+        - `response`:
+
+        @Return:
+
+        notify_failed_dakoku()
+
+        @Error:
+        """
+        for observer in self._observers:
+            observer.on_failed_dakoku(response)
 
     def on_touched(self, tag):
         """SUMMARY
@@ -85,21 +146,24 @@ class Dakoku(ReaderObserverAbstract):
         print(idm)
         # do
         params = {'idm': idm,}
-        response = requests.get(self.URL, params=params)
-        if response.ok == True:
-            # LOG.debug('response failed')
-            os.system('sudo aplay -D plughw:1,0 {}'.format(OK_SOIUNDS_FILE))
+        try:
+            response = requests.get(self.URL, params=params)
+        except requests.exceptions.ConnectionError:
+            self.notify_failed_connection()
+        if response.ok:
+            self.notify_success(response)
             return
-        if response.text == Dakoku.ReturnCode.SUCCESS:
-            LOG.debug('response success 200')
-            os.system('sudo aplay -D plughw:1,0 {}'.format(ERROR_SOIUNDS_FILE))
+        if not response.ok:
+            self.notify_failed_dakoku(response)
             return
 
 
 def _main():
     logging.basicConfig(level=logging.DEBUG)
     reader = Reader()
-    reader.add_observer(Dakoku())
+    dakoku = Dakoku()
+    dakoku.add_observer(DebugDakokuObserver())
+    reader.add_observer(dakoku)
     reader.add_observer(DebugReader())
     reader.run()
     return 0

@@ -6,7 +6,6 @@ r"""dakoku -- DESCRIPTION
 import sys as _sys
 import logging
 import os
-import subprocess
 
 import requests
 
@@ -14,7 +13,7 @@ from NfcReader.reader_observer import ReaderObserverAbstract
 from NfcReader.reader import Reader
 from NfcReader.debug_observer import DebugReader
 
-from observable import Observable
+from dakoku_reader.observable import Observable
 from dakoku_reader.debug_dakoku_observer import DebugDakokuObserver
 
 

@@ -165,11 +165,9 @@ class Dakoku(ReaderObserverAbstract, Observable):
             self.notify_failed_connection()
         if response.ok:
             self.notify_success(response)
-            subprocess.Popen(['aplay', '-D', 'default', OK_SOIUNDS_FILE])
             return
         if not response.ok:
             self.notify_failed_dakoku(response)
-            subprocess.Popen(['aplay', '-D', 'default', ERROR_SOIUNDS_FILE])
             return
 
 

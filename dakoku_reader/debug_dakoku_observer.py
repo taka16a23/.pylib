@@ -35,6 +35,7 @@ class DebugDakokuObserver(DakokuObserver):
         @Error:
         """
         print('on success')
+        print(response.text)
 
     def on_failed_connection(self, ):
         """SUMMARY
@@ -60,6 +61,7 @@ class DebugDakokuObserver(DakokuObserver):
         @Error:
         """
         print('on failed dakoku')
+        print(response.text)
 
     def on_released(self, ):
         """SUMMARY

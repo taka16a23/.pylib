@@ -15,6 +15,7 @@ from pathhandler._interface import PathHandlerAbstract
 
 # Adapter Pattern
 # third party "path.Path", "pathlib.Path" の interface が変更されたら
+# pip install path.py
 # ここを修正する。
 
 

@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="typechecker",
+    name="checker",
     version="0.0.1",
     author="Atami",
     author_email="takahiroatsumi0517@gmail.com",

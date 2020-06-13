@@ -1,0 +1,9 @@
+README.md
+setup.py
+checker/__init__.py
+checker/typecheck.py
+checker/tests/__init__.py
+typechecker.egg-info/PKG-INFO
+typechecker.egg-info/SOURCES.txt
+typechecker.egg-info/dependency_links.txt
+typechecker.egg-info/top_level.txt
